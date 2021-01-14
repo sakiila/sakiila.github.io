@@ -2158,6 +2158,8 @@
 <li>本机安装Git软件；</li>
 <li>Don’t panic !</li>
 </ol>
+<a id="more"></a>
+
 <h1 id="Fork项目"><a href="#Fork项目" class="headerlink" title="Fork项目"></a>Fork项目</h1><p>首先，在Github仓库Fork他人项目。然后复制自己仓库的项目地址（HTTP或SSH都可），在本地Clone下来。</p>
 <p>如果项目文件体积大，可使用如下方式：</p>
 <ol>
