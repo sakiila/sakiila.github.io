@@ -235,7 +235,7 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>Soul Dubbo 插件</title>
     <url>/2021/01/15/Soul%20Dubbo%20%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="Soul-Dubbo-插件"><a href="#Soul-Dubbo-插件" class="headerlink" title="Soul Dubbo 插件"></a>Soul Dubbo 插件</h1><p>今日主题：Soul 网关如何通过 Http 访问 Dubbo 协议的接口？</p>
 <a id="more"></a>
@@ -284,6 +284,12 @@
 <h1 id="今日心得"><a href="#今日心得" class="headerlink" title="今日心得"></a>今日心得</h1><p>Soul 的确是一个灵活的网关，核心的思想是插件-选择器-规则，通过它们，能够根据业务或者场景要求进行随时地修改，以满足不同的需要。</p>
 <p>今天主要梳理了一遍 Dubbo 插件的调用过程，忽略了一些细枝末节。我能真切感受到自己对项目心态的一个转变，从对一个庞大项目的恐慌，到读源码时的快乐。就好像在玩一张刮刮乐，看起来好像灰蒙蒙的一片，但每一个格子下面都是一份惊喜，只要你愿意。</p>
 ]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
   </entry>
   <entry>
     <title>DDD 代码模型</title>
