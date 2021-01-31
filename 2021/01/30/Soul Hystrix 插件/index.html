@@ -20,24 +20,20 @@
     var CONFIG = {"hostname":"baobo.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="DDD 分层架构什么是 DDD 分层架构？DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。">
+  <meta name="description" content="Soul Hystrix 插件简单了解 Soul Hystrix 插件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DDD 分层架构">
-<meta property="og:url" content="http://baobo.me/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/index.html">
+<meta property="og:title" content="Soul Hystrix 插件">
+<meta property="og:url" content="http://baobo.me/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/index.html">
 <meta property="og:site_name" content="树洞">
-<meta property="og:description" content="DDD 分层架构什么是 DDD 分层架构？DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。">
+<meta property="og:description" content="Soul Hystrix 插件简单了解 Soul Hystrix 插件。">
 <meta property="og:locale">
-<meta property="og:image" content="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg">
-<meta property="og:image" content="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg">
-<meta property="og:image" content="https://static001.geekbang.org/resource/image/16/a1/1680723ca91aa57d719d5cdbc1d910a1.jpg">
-<meta property="article:published_time" content="2019-10-16T02:05:43.000Z">
-<meta property="article:modified_time" content="2021-01-13T02:40:15.266Z">
+<meta property="article:published_time" content="2021-01-30T11:25:48.000Z">
+<meta property="article:modified_time" content="2021-01-31T07:47:06.938Z">
 <meta property="article:author" content="Bob Bao">
-<meta property="article:tag" content="DDD">
+<meta property="article:tag" content="开源">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg">
 
-<link rel="canonical" href="http://baobo.me/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/">
+<link rel="canonical" href="http://baobo.me/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/">
 
 
 <script id="page-configurations">
@@ -50,7 +46,7 @@
   };
 </script>
 
-  <title>DDD 分层架构 | 树洞</title>
+  <title>Soul Hystrix 插件 | 树洞</title>
   
 
 
@@ -195,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://baobo.me/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/">
+    <link itemprop="mainEntityOfPage" href="http://baobo.me/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -208,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          DDD 分层架构
+          Soul Hystrix 插件
         </h1>
 
         <div class="post-meta">
@@ -218,14 +214,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-16 10:05:43" itemprop="dateCreated datePublished" datetime="2019-10-16T10:05:43+08:00">2019-10-16</time>
+              <time title="创建时间：2021-01-30 19:25:48" itemprop="dateCreated datePublished" datetime="2021-01-30T19:25:48+08:00">2021-01-30</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-13 10:40:15" itemprop="dateModified" datetime="2021-01-13T10:40:15+08:00">2021-01-13</time>
+                <time title="修改时间：2021-01-31 15:47:06" itemprop="dateModified" datetime="2021-01-31T15:47:06+08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -262,33 +258,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="DDD-分层架构"><a href="#DDD-分层架构" class="headerlink" title="DDD 分层架构"></a><strong>DDD 分层架构</strong></h1><h2 id="什么是-DDD-分层架构？"><a href="#什么是-DDD-分层架构？" class="headerlink" title="什么是 DDD 分层架构？"></a>什么是 DDD 分层架构？</h2><p>DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。</p>
+        <h1 id="Soul-Hystrix-插件"><a href="#Soul-Hystrix-插件" class="headerlink" title="Soul Hystrix 插件"></a>Soul Hystrix 插件</h1><p>简单了解 Soul Hystrix 插件。</p>
 <a id="more"></a>
 
-<p><img src="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg" alt="img"></p>
-<p>我们看一下上面这张图，在最早的传统四层架构中，基础层是被其它层依赖的，它位于最核心的位置，那按照分层架构的思想，它应该就是核心，但实际上领域层才是软件的核心，所以这种依赖是有问题的。后来我们采用了依赖倒置（Dependency inversion principle,DIP）的设计，优化了传统的四层架构，实现了各层对基础层的解耦。</p>
-<p>在下面这张图中，从上到下依次是：用户接口层、应用层、领域层和基础层。那 DDD 各层的主要职责是什么呢？下面我来逐一介绍一下。</p>
-<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
-<h3 id="用户接口层"><a href="#用户接口层" class="headerlink" title="用户接口层"></a>用户接口层</h3><p>用户接口层负责向用户显示信息和解释用户指令。这里的用户可能是：用户、程序、自动化测试和批处理脚本等等。</p>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>应用层是很薄的一层，理论上不应该有业务规则或逻辑，主要面向用例和流程相关的操作。但应用层又位于领域层之上，因为领域层包含多个聚合，所以它可以协调多个聚合的服务和领域对象完成服务编排和组合，协作完成业务操作。</p>
-<p>此外，应用层也是微服务之间交互的通道，它可以调用其它微服务的应用服务，完成微服务之间的服务组合和编排。</p>
-<p>这里我要提醒你一下：在设计和开发时，不要将本该放在领域层的业务逻辑放到应用层中实现。因为庞大的应用层会使领域模型失焦，时间一长你的微服务就会演化为传统的三层架构，业务逻辑会变得混乱。</p>
-<p>另外，应用服务是在应用层的，它负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装，以粗粒度的服务通过 API 网关向前端发布。还有，应用服务还可以进行安全认证、权限校验、事务控制、发送或订阅领域事件等。</p>
-<h3 id="领域层"><a href="#领域层" class="headerlink" title="领域层"></a>领域层</h3><p>领域层的作用是实现企业核心业务逻辑，通过各种校验手段保证业务的正确性。领域层主要体现领域模型的业务能力，它用来表达业务概念、业务状态和业务规则。</p>
-<p>领域层包含聚合根、实体、值对象、领域服务等领域模型中的领域对象。</p>
-<p>这里我要特别解释一下其中几个领域对象的关系，以便你在设计领域层的时候能更加清楚。首先，领域模型的业务逻辑主要是由实体和领域服务来实现的，其中实体会采用充血模型来实现所有与之相关的业务功能。其次，你要知道，实体和领域对象在实现业务逻辑上不是同级的，当领域中的某些功能，单一实体（或者值对象）不能实现时，领域服务就会出马，它可以组合聚合内的多个实体（或者值对象），实现复杂的业务逻辑。</p>
-<h3 id="基础层"><a href="#基础层" class="headerlink" title="基础层"></a>基础层</h3><p>基础层是贯穿所有层的，它的作用就是为其它各层提供通用的技术和基础服务，包括第三方工具、驱动、消息中间件、网关、文件、缓存以及数据库等。比较常见的功能还是提供数据库持久化。</p>
-<p>基础层包含基础服务，它采用依赖倒置设计，封装基础资源服务，实现应用层、领域层与基础层的解耦，降低外部资源变化对应用的影响。</p>
-<p>比如说，在传统架构设计中，由于上层应用对数据库的强耦合，很多公司在架构演进中最担忧的可能就是换数据库了，因为一旦更换数据库，就可能需要重写大部分的代码，这对应用来说是致命的。那采用依赖倒置的设计以后，应用层就可以通过解耦来保持独立的核心业务逻辑。当数据库变更时，我们只需要更换数据库基础服务就可以了，这样就将资源变更对应用的影响降到了最低。</p>
-<h2 id="DDD-分层架构最重要的原则是什么？"><a href="#DDD-分层架构最重要的原则是什么？" class="headerlink" title="DDD 分层架构最重要的原则是什么？"></a>DDD 分层架构最重要的原则是什么？</h2><p>在《实现领域驱动设计》一书中，DDD 分层架构有一个重要的原则：每层只能与位于其下方的层发生耦合。</p>
-<p> 而架构根据耦合的紧密程度又可以分为两种：<strong>严格分层架构</strong>和<strong>松散分层架构</strong>。优化后的 DDD 分层架构模型就属于严格分层架构，任何层只能对位于其直接下方的层产生依赖。而传统的 DDD 分层架构则属于松散分层架构，它允许某层与其任意下方的层发生依赖。 </p>
-<h2 id="三层架构如何演进到-DDD-分层架构？"><a href="#三层架构如何演进到-DDD-分层架构？" class="headerlink" title="三层架构如何演进到 DDD 分层架构？"></a>三层架构如何演进到 DDD 分层架构？</h2><p>传统企业应用大多是单体架构，而单体架构则大多是三层架构。三层架构解决了程序内代码间调用复杂、代码职责不清的问题，但这种分层是逻辑概念，在物理上它是中心化的集中式架构，并不适合分布式微服务架构。</p>
-<p>DDD 分层架构中的要素其实和三层架构类似，只是在 DDD 分层架构中，这些要素被重新归类，重新划分了层，确定了层与层之间的交互规则和职责边界。</p>
-<p><img src="https://static001.geekbang.org/resource/image/16/a1/1680723ca91aa57d719d5cdbc1d910a1.jpg" alt="img"></p>
-<p>DDD 分层架构在用户接口层引入了 DTO，给前端提供了更多的可使用数据和更高的展示灵活性。</p>
-<p>DDD 分层架构对三层架构的业务逻辑层进行了更清晰的划分，改善了三层架构核心业务逻辑混乱，代码改动相互影响大的情况。DDD 分层架构将业务逻辑层的服务拆分到了应用层和领域层。应用层快速响应前端的变化，领域层实现领域模型的能力。</p>
-<p>另外一个重要的变化发生在数据访问层和基础层之间。三层架构数据访问采用 DAO 方式；DDD 分层架构的数据库等基础资源访问，采用了仓储（Repository）设计模式，通过依赖倒置实现各层对基础资源的解耦。</p>
-<p>仓储又分为两部分：仓储接口和仓储实现。仓储接口放在领域层中，仓储实现放在基础层。原来三层架构通用的第三方工具包、驱动、Common、Utility、Config 等通用的公共的资源类统一放到了基础层。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Hystrix 插件是 Soul 网关用来对流量进行熔断的核心实现，主要使用信号量的方式来处理请求。</p>
+<h1 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a><strong>插件设置</strong></h1><p>在 <code>soul-admin</code> –&gt; 插件管理 –&gt; <code>hystrix</code>，设置为开启。</p>
+<h1 id="Hystrix-处理"><a href="#Hystrix-处理" class="headerlink" title="Hystrix 处理"></a><strong>Hystrix 处理</strong></h1><ul>
+<li>跳闸最小请求数量 ：最小的请求量，至少要达到这个量才会触发熔断</li>
+<li>错误半分比阀值 ： 这段时间内，发生异常的百分比。</li>
+<li>最大并发量 ： 最大的并发量</li>
+<li>跳闸休眠时间(ms) ：熔断以后恢复的时间。</li>
+<li>分组Key： 一般设置为:contextPath</li>
+<li>命令Key: 一般设置为具体的 路径接口。</li>
+</ul>
+<h1 id="HystrixPlugin-类"><a href="#HystrixPlugin-类" class="headerlink" title="HystrixPlugin 类"></a>HystrixPlugin 类</h1><p>处理方法在 HystrixPlugin 类的 doExecute 方法中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 拿到上下文</span></span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到熔断规则</span></span><br><span class="line">    <span class="keyword">final</span> HystrixHandle hystrixHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), HystrixHandle.class);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getGroupKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getCommandKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Command command = fetchCommand(hystrixHandle, exchange, chain);</span><br><span class="line">    <span class="comment">// 这里用到 WebFlux</span></span><br><span class="line">    <span class="keyword">return</span> Mono.create(s -&gt; &#123;</span><br><span class="line">        Subscription sub = command.fetchObservable().subscribe(s::success,</span><br><span class="line">                s::error, s::success);</span><br><span class="line">        s.onCancel(sub::unsubscribe);</span><br><span class="line">        <span class="keyword">if</span> (command.isCircuitBreakerOpen()) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).doOnError(throwable -&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment">// 在调用链中放入错误信息</span></span><br><span class="line">        exchange.getAttributes().put(Constants.CLIENT_RESPONSE_RESULT_TYPE, ResultEnum.ERROR.getName());</span><br><span class="line">        chain.execute(exchange);</span><br><span class="line">    &#125;).then();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Hystrix-工作原理"><a href="#Hystrix-工作原理" class="headerlink" title="Hystrix 工作原理"></a>Hystrix 工作原理</h1><ul>
+<li>1、创建HystrixCommand 或者 HystrixObservableCommand 对象</li>
+<li>2、执行命令execute()、queue()、observe()、toObservable()</li>
+<li>3、如果请求结果缓存这个特性被启用，并且缓存命中，则缓存的回应会立即通过一个Observable对象的形式返回</li>
+<li>4、检查熔断器状态，确定请求线路是否是开路，如果请求线路是开路，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
+<li>5、如果和当前需要执行的命令相关联的线程池和请求队列，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
+<li>6、执行HystrixCommand.run()或HystrixObservableCommand.construct()，如果这两个方法执行超时或者执行失败，则执行getFallback()</li>
+<li>7、Hystrix 会将请求成功，失败，被拒绝或超时信息报告给熔断器，熔断器维护一些用于统计数据用的计数器。</li>
+</ul>
+<p>这些计数器产生的统计数据使得熔断器在特定的时刻，能短路某个依赖服务的后续请求，直到恢复期结束，若恢复期结束根据统计数据熔断器判定线路仍然未恢复健康，熔断器会再次关闭线路。</p>
 
     </div>
 
@@ -304,7 +298,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://baobo.me/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/" title="DDD 分层架构">http://baobo.me/2019/10/16/DDD分层架构/</a>
+    <a href="http://baobo.me/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/" title="Soul Hystrix 插件">http://baobo.me/2021/01/30/Soul Hystrix 插件/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -315,7 +309,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/DDD/" rel="tag"># DDD</a>
+              <a href="/tags/%E5%BC%80%E6%BA%90/" rel="tag"># 开源</a>
           </div>
 
         
@@ -324,12 +318,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/10/16/DDD%E8%BE%B9%E7%95%8C/" rel="prev" title="DDD 边界">
-      <i class="fa fa-chevron-left"></i> DDD 边界
+    <a href="/2021/01/18/Soul%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="prev" title="Soul 负载均衡">
+      <i class="fa fa-chevron-left"></i> Soul 负载均衡
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/10/16/DDD%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/" rel="next" title="DDD 代码模型">
-      DDD 代码模型 <i class="fa fa-chevron-right"></i>
+    <a href="/20121/01/14/Soul%20%E7%BD%91%E5%85%B3%E5%88%9D%E6%8E%A2/" rel="next" title="Soul 网关初探">
+      Soul 网关初探 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -389,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DDD-%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">DDD 分层架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-DDD-%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 DDD 分层架构？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%8E%A5%E5%8F%A3%E5%B1%82"><span class="nav-number">1.1.1.</span> <span class="nav-text">用户接口层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%86%E5%9F%9F%E5%B1%82"><span class="nav-number">1.1.3.</span> <span class="nav-text">领域层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%B1%82"><span class="nav-number">1.1.4.</span> <span class="nav-text">基础层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDD-%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%8E%9F%E5%88%99%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">DDD 分层架构最重要的原则是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%E5%A6%82%E4%BD%95%E6%BC%94%E8%BF%9B%E5%88%B0-DDD-%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">三层架构如何演进到 DDD 分层架构？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Soul-Hystrix-%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Soul Hystrix 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">插件设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hystrix-%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">Hystrix 处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HystrixPlugin-%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">HystrixPlugin 类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hystrix-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">Hystrix 工作原理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
