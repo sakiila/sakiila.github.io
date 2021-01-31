@@ -1,144 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DDD 分层架构</title>
-    <url>/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="DDD-分层架构"><a href="#DDD-分层架构" class="headerlink" title="DDD 分层架构"></a><strong>DDD 分层架构</strong></h1><h2 id="什么是-DDD-分层架构？"><a href="#什么是-DDD-分层架构？" class="headerlink" title="什么是 DDD 分层架构？"></a>什么是 DDD 分层架构？</h2><p>DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。</p>
-<a id="more"></a>
-
-<p><img src="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg" alt="img"></p>
-<p>我们看一下上面这张图，在最早的传统四层架构中，基础层是被其它层依赖的，它位于最核心的位置，那按照分层架构的思想，它应该就是核心，但实际上领域层才是软件的核心，所以这种依赖是有问题的。后来我们采用了依赖倒置（Dependency inversion principle,DIP）的设计，优化了传统的四层架构，实现了各层对基础层的解耦。</p>
-<p>在下面这张图中，从上到下依次是：用户接口层、应用层、领域层和基础层。那 DDD 各层的主要职责是什么呢？下面我来逐一介绍一下。</p>
-<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
-<h3 id="用户接口层"><a href="#用户接口层" class="headerlink" title="用户接口层"></a>用户接口层</h3><p>用户接口层负责向用户显示信息和解释用户指令。这里的用户可能是：用户、程序、自动化测试和批处理脚本等等。</p>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>应用层是很薄的一层，理论上不应该有业务规则或逻辑，主要面向用例和流程相关的操作。但应用层又位于领域层之上，因为领域层包含多个聚合，所以它可以协调多个聚合的服务和领域对象完成服务编排和组合，协作完成业务操作。</p>
-<p>此外，应用层也是微服务之间交互的通道，它可以调用其它微服务的应用服务，完成微服务之间的服务组合和编排。</p>
-<p>这里我要提醒你一下：在设计和开发时，不要将本该放在领域层的业务逻辑放到应用层中实现。因为庞大的应用层会使领域模型失焦，时间一长你的微服务就会演化为传统的三层架构，业务逻辑会变得混乱。</p>
-<p>另外，应用服务是在应用层的，它负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装，以粗粒度的服务通过 API 网关向前端发布。还有，应用服务还可以进行安全认证、权限校验、事务控制、发送或订阅领域事件等。</p>
-<h3 id="领域层"><a href="#领域层" class="headerlink" title="领域层"></a>领域层</h3><p>领域层的作用是实现企业核心业务逻辑，通过各种校验手段保证业务的正确性。领域层主要体现领域模型的业务能力，它用来表达业务概念、业务状态和业务规则。</p>
-<p>领域层包含聚合根、实体、值对象、领域服务等领域模型中的领域对象。</p>
-<p>这里我要特别解释一下其中几个领域对象的关系，以便你在设计领域层的时候能更加清楚。首先，领域模型的业务逻辑主要是由实体和领域服务来实现的，其中实体会采用充血模型来实现所有与之相关的业务功能。其次，你要知道，实体和领域对象在实现业务逻辑上不是同级的，当领域中的某些功能，单一实体（或者值对象）不能实现时，领域服务就会出马，它可以组合聚合内的多个实体（或者值对象），实现复杂的业务逻辑。</p>
-<h3 id="基础层"><a href="#基础层" class="headerlink" title="基础层"></a>基础层</h3><p>基础层是贯穿所有层的，它的作用就是为其它各层提供通用的技术和基础服务，包括第三方工具、驱动、消息中间件、网关、文件、缓存以及数据库等。比较常见的功能还是提供数据库持久化。</p>
-<p>基础层包含基础服务，它采用依赖倒置设计，封装基础资源服务，实现应用层、领域层与基础层的解耦，降低外部资源变化对应用的影响。</p>
-<p>比如说，在传统架构设计中，由于上层应用对数据库的强耦合，很多公司在架构演进中最担忧的可能就是换数据库了，因为一旦更换数据库，就可能需要重写大部分的代码，这对应用来说是致命的。那采用依赖倒置的设计以后，应用层就可以通过解耦来保持独立的核心业务逻辑。当数据库变更时，我们只需要更换数据库基础服务就可以了，这样就将资源变更对应用的影响降到了最低。</p>
-<h2 id="DDD-分层架构最重要的原则是什么？"><a href="#DDD-分层架构最重要的原则是什么？" class="headerlink" title="DDD 分层架构最重要的原则是什么？"></a>DDD 分层架构最重要的原则是什么？</h2><p>在《实现领域驱动设计》一书中，DDD 分层架构有一个重要的原则：每层只能与位于其下方的层发生耦合。</p>
-<p> 而架构根据耦合的紧密程度又可以分为两种：<strong>严格分层架构</strong>和<strong>松散分层架构</strong>。优化后的 DDD 分层架构模型就属于严格分层架构，任何层只能对位于其直接下方的层产生依赖。而传统的 DDD 分层架构则属于松散分层架构，它允许某层与其任意下方的层发生依赖。 </p>
-<h2 id="三层架构如何演进到-DDD-分层架构？"><a href="#三层架构如何演进到-DDD-分层架构？" class="headerlink" title="三层架构如何演进到 DDD 分层架构？"></a>三层架构如何演进到 DDD 分层架构？</h2><p>传统企业应用大多是单体架构，而单体架构则大多是三层架构。三层架构解决了程序内代码间调用复杂、代码职责不清的问题，但这种分层是逻辑概念，在物理上它是中心化的集中式架构，并不适合分布式微服务架构。</p>
-<p>DDD 分层架构中的要素其实和三层架构类似，只是在 DDD 分层架构中，这些要素被重新归类，重新划分了层，确定了层与层之间的交互规则和职责边界。</p>
-<p><img src="https://static001.geekbang.org/resource/image/16/a1/1680723ca91aa57d719d5cdbc1d910a1.jpg" alt="img"></p>
-<p>DDD 分层架构在用户接口层引入了 DTO，给前端提供了更多的可使用数据和更高的展示灵活性。</p>
-<p>DDD 分层架构对三层架构的业务逻辑层进行了更清晰的划分，改善了三层架构核心业务逻辑混乱，代码改动相互影响大的情况。DDD 分层架构将业务逻辑层的服务拆分到了应用层和领域层。应用层快速响应前端的变化，领域层实现领域模型的能力。</p>
-<p>另外一个重要的变化发生在数据访问层和基础层之间。三层架构数据访问采用 DAO 方式；DDD 分层架构的数据库等基础资源访问，采用了仓储（Repository）设计模式，通过依赖倒置实现各层对基础资源的解耦。</p>
-<p>仓储又分为两部分：仓储接口和仓储实现。仓储接口放在领域层中，仓储实现放在基础层。原来三层架构通用的第三方工具包、驱动、Common、Utility、Config 等通用的公共的资源类统一放到了基础层。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DDD 代码模型</title>
-    <url>/2019/10/16/DDD%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="DDD-代码模型"><a href="#DDD-代码模型" class="headerlink" title="DDD 代码模型"></a>DDD 代码模型</h1><h2 id="DDD-分层架构与微服务代码模型"><a href="#DDD-分层架构与微服务代码模型" class="headerlink" title="DDD 分层架构与微服务代码模型"></a>DDD 分层架构与微服务代码模型</h2><p>我们参考 DDD 分层架构模型来设计微服务代码模型。没错！微服务代码模型就是依据 DDD 分层架构模型设计出来的。那为什么是 DDD 分层架构模型呢？</p>
-<a id="more"></a>
-
-<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
-<ul>
-<li><p>用户接口层：面向前端提供服务适配，面向资源层提供资源适配。这一层聚集了接口适配相关的功能。</p>
-</li>
-<li><p>应用层职责：实现服务组合和编排，适应业务流程快速变化的需求。这一层聚集了应用服务和事件相关的功能。</p>
-</li>
-<li><p>领域层：实现领域的核心业务逻辑。这一层聚集了领域模型的聚合、聚合根、实体、值对象、领域服务和事件等领域对象，以及它们组合所形成的业务能力。</p>
-</li>
-<li><p>基础层：贯穿所有层，为各层提供基础资源服务。这一层聚集了各种底层资源相关的服务和能力。</p>
-</li>
-</ul>
-<p>业务逻辑从领域层、应用层到用户接口层逐层封装和协作，对外提供灵活的服务，既实现了各层的分工，又实现了各层的协作。因此，毋庸置疑，DDD 分层架构模型就是设计微服务代码模型的最佳依据。</p>
-<h2 id="微服务代码模型"><a href="#微服务代码模型" class="headerlink" title="微服务代码模型"></a>微服务代码模型</h2><p>现在，我们来看一下，按照 DDD 分层架构模型设计出来的微服务代码模型到底长什么样子呢？</p>
-<p>其实，DDD 并没有给出标准的代码模型，不同的人可能会有不同理解。下面要说的这个微服务代码模型是我经过思考和实践后建立起来的，主要考虑的是微服务的边界、分层以及架构演进。</p>
-<h3 id="微服务一级目录结构"><a href="#微服务一级目录结构" class="headerlink" title="微服务一级目录结构"></a>微服务一级目录结构</h3><p>微服务一级目录是按照 DDD 分层架构的分层职责来定义的。从下面这张图中，我们可以看到，在代码模型里分别为用户接口层、应用层、领域层和基础层，建立了 interfaces、application、domain 和 infrastructure 四个一级代码目录。</p>
-<p><img src="https://static001.geekbang.org/resource/image/d1/71/d1bea7dc6bd93f3bd30ced821f36bb71.jpg" alt="img"></p>
-<p>这些目录的职能和代码形态是这样的。</p>
-<ul>
-<li><p>Interfaces（用户接口层）：它主要存放用户接口层与前端交互、展现数据相关的代码。前端应用通过这一层的接口，向应用服务获取展现所需的数据。这一层主要用来处理用户发送的 Restful 请求，解析用户输入的配置文件，并将数据传递给 Application 层。数据的组装、数据传输格式以及 Facade 接口等代码都会放在这一层目录里。</p>
-</li>
-<li><p>Application（应用层）：它主要存放应用层服务组合和编排相关的代码。应用服务向下基于微服务内的领域服务或外部微服务的应用服务完成服务的编排和组合，向上为用户接口层提供各种应用数据展现支持服务。应用服务和事件等代码会放在这一层目录里。</p>
-</li>
-<li><p>Domain（领域层）：它主要存放领域层核心业务逻辑相关的代码。领域层可以包含多个聚合代码包，它们共同实现领域模型的核心业务逻辑。聚合以及聚合内的实体、方法、领域服务和事件等代码会放在这一层目录里。</p>
-</li>
-<li><p>Infrastructure（基础层）：它主要存放基础资源服务相关的代码，为其它各层提供的通用技术能力、三方软件包、数据库服务、配置和基础资源服务的代码都会放在这一层目录里。</p>
-</li>
-</ul>
-<h3 id="各层目录结构"><a href="#各层目录结构" class="headerlink" title="各层目录结构"></a>各层目录结构</h3><ol>
-<li>用户接口层</li>
-</ol>
-<p>Interfaces 的代码目录结构有：assembler、dto 和 façade 三类。</p>
-<p><img src="https://static001.geekbang.org/resource/image/c6/ef/c6ea040a520c91dfe6400f206ff36fef.jpg" alt="img"></p>
-<ul>
-<li><p>Assembler：实现 DTO 与领域对象之间的相互转换和数据交换。一般来说 Assembler 与 DTO 总是一同出现。</p>
-</li>
-<li><p>Dto：它是数据传输的载体，内部不存在任何业务逻辑，我们可以通过 DTO 把内部的领域对象与外界隔离。</p>
-</li>
-<li><p>Facade：提供较粗粒度的调用接口，将用户请求委派给一个或多个应用服务进行处理。</p>
-</li>
-</ul>
-<ol start="2">
-<li>应用层</li>
-</ol>
-<p>Application 的代码目录结构有：event 和 service。</p>
-<p><img src="https://static001.geekbang.org/resource/image/30/61/30caee3ceaf1085b7aa2cc388f996e61.jpg" alt="img"></p>
-<ul>
-<li>Event（事件）：这层目录主要存放事件相关的代码。它包括两个子目录：publish 和 subscribe。前者主要存放事件发布相关代码，后者主要存放事件订阅相关代码（事件处理相关的核心业务逻辑在领域层实现）。</li>
-</ul>
-<p>这里提示一下：虽然应用层和领域层都可以进行事件的发布和处理，但为了实现事件的统一管理，我建议你将微服务内所有事件的发布和订阅的处理都统一放到应用层，事件相关的核心业务逻辑实现放在领域层。通过应用层调用领域层服务，来实现完整的事件发布和订阅处理流程。</p>
-<ul>
-<li>Service（应用服务）：这层的服务是应用服务。应用服务会对多个领域服务或外部应用服务进行封装、编排和组合，对外提供粗粒度的服务。应用服务主要实现服务组合和编排，是一段独立的业务逻辑。你可以将所有应用服务放在一个应用服务类里，也可以把一个应用服务设计为一个应用服务类，以防应用服务类代码量过大。</li>
-</ul>
-<ol start="3">
-<li>领域层</li>
-</ol>
-<p>Domain 是由一个或多个聚合包构成，共同实现领域模型的核心业务逻辑。聚合内的代码模型是标准和统一的，包括：entity、event、repository 和 service 四个子目录。</p>
-<p><img src="https://static001.geekbang.org/resource/image/68/2c/688dd55b8399779baff8fc5b7c124c2c.jpg" alt="img"></p>
-<p>而领域层聚合内部的代码目录结构是这样的。</p>
-<ul>
-<li>Aggregate（聚合）：它是聚合软件包的根目录，可以根据实际项目的聚合名称命名，比如权限聚合。在聚合内定义聚合根、实体和值对象以及领域服务之间的关系和边界。聚合内实现高内聚的业务逻辑，它的代码可以独立拆分为微服务。</li>
-</ul>
-<p>以聚合为单位的代码放在一个包里的主要目的是为了业务内聚，而更大的目的是为了以后微服务之间聚合的重组。聚合之间清晰的代码边界，可以让你轻松地实现以聚合为单位的微服务重组，在微服务架构演进中有着很重要的作用。</p>
-<ul>
-<li><p>Entity（实体）：它存放聚合根、实体、值对象以及工厂模式（Factory）相关代码。实体类采用充血模型，同一实体相关的业务逻辑都在实体类代码中实现。跨实体的业务逻辑代码在领域服务中实现。</p>
-</li>
-<li><p>Event（事件）：它存放事件实体以及与事件活动相关的业务逻辑代码。</p>
-</li>
-<li><p>Service（领域服务）：它存放领域服务代码。一个领域服务是多个实体组合出来的一段业务逻辑。你可以将聚合内所有领域服务都放在一个领域服务类中，你也可以把每一个领域服务设计为一个类。如果领域服务内的业务逻辑相对复杂，我建议你将一个领域服务设计为一个领域服务类，避免由于所有领域服务代码都放在一个领域服务类中，而出现代码臃肿的问题。领域服务封装多个实体或方法后向上层提供应用服务调用。</p>
-</li>
-<li><p>Repository（仓储）：它存放所在聚合的查询或持久化领域对象的代码，通常包括仓储接口和仓储实现方法。为了方便聚合的拆分和组合，我们设定了一个原则：一个聚合对应一个仓储。</p>
-</li>
-</ul>
-<p>特别说明：按照 DDD 分层架构，仓储实现本应该属于基础层代码，但为了在微服务架构演进时，保证代码拆分和重组的便利性，我是把聚合仓储实现的代码放到了聚合包内。这样，如果需求或者设计发生变化导致聚合需要拆分或重组时，我们就可以将包括核心业务逻辑和仓储代码的聚合包整体迁移，轻松实现微服务架构演进。</p>
-<ol start="4">
-<li>基础层</li>
-</ol>
-<p>Infrastructure 的代码目录结构有：config 和 util 两个子目录。</p>
-<p><img src="https://static001.geekbang.org/resource/image/5b/5a/5bbe3454e2ecf4ff4770e887a4967b5a.jpg" alt="img"></p>
-<ul>
-<li><p>Config：主要存放配置相关代码。</p>
-</li>
-<li><p>Util：主要存放平台、开发框架、消息、数据库、缓存、文件、总线、网关、第三方类库、通用算法等基础代码，你可以为不同的资源类别建立不同的子目录。</p>
-</li>
-</ul>
-<h3 id="代码模型总目录结构"><a href="#代码模型总目录结构" class="headerlink" title="代码模型总目录结构"></a>代码模型总目录结构</h3><p>在完成一级和二级代码模型设计后，你就可以看到下图这样的微服务代码模型的总目录结构了。</p>
-<p><img src="https://static001.geekbang.org/resource/image/91/b8/915ad8d830d925a893cd09ff6cbdadb8.jpg" alt="img"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DDD 基础</title>
     <url>/2019/10/16/DDD%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="DDD-基础"><a href="#DDD-基础" class="headerlink" title="DDD 基础"></a>DDD 基础</h1><h2 id="领域和子域"><a href="#领域和子域" class="headerlink" title="领域和子域"></a>领域和子域</h2><p>领域就是用来确定范围的，范围即边界，这也是 DDD 在设计中不断强调边界的原因。</p>
@@ -263,6 +125,144 @@
       </tags>
   </entry>
   <entry>
+    <title>DDD 代码模型</title>
+    <url>/2019/10/16/DDD%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="DDD-代码模型"><a href="#DDD-代码模型" class="headerlink" title="DDD 代码模型"></a>DDD 代码模型</h1><h2 id="DDD-分层架构与微服务代码模型"><a href="#DDD-分层架构与微服务代码模型" class="headerlink" title="DDD 分层架构与微服务代码模型"></a>DDD 分层架构与微服务代码模型</h2><p>我们参考 DDD 分层架构模型来设计微服务代码模型。没错！微服务代码模型就是依据 DDD 分层架构模型设计出来的。那为什么是 DDD 分层架构模型呢？</p>
+<a id="more"></a>
+
+<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
+<ul>
+<li><p>用户接口层：面向前端提供服务适配，面向资源层提供资源适配。这一层聚集了接口适配相关的功能。</p>
+</li>
+<li><p>应用层职责：实现服务组合和编排，适应业务流程快速变化的需求。这一层聚集了应用服务和事件相关的功能。</p>
+</li>
+<li><p>领域层：实现领域的核心业务逻辑。这一层聚集了领域模型的聚合、聚合根、实体、值对象、领域服务和事件等领域对象，以及它们组合所形成的业务能力。</p>
+</li>
+<li><p>基础层：贯穿所有层，为各层提供基础资源服务。这一层聚集了各种底层资源相关的服务和能力。</p>
+</li>
+</ul>
+<p>业务逻辑从领域层、应用层到用户接口层逐层封装和协作，对外提供灵活的服务，既实现了各层的分工，又实现了各层的协作。因此，毋庸置疑，DDD 分层架构模型就是设计微服务代码模型的最佳依据。</p>
+<h2 id="微服务代码模型"><a href="#微服务代码模型" class="headerlink" title="微服务代码模型"></a>微服务代码模型</h2><p>现在，我们来看一下，按照 DDD 分层架构模型设计出来的微服务代码模型到底长什么样子呢？</p>
+<p>其实，DDD 并没有给出标准的代码模型，不同的人可能会有不同理解。下面要说的这个微服务代码模型是我经过思考和实践后建立起来的，主要考虑的是微服务的边界、分层以及架构演进。</p>
+<h3 id="微服务一级目录结构"><a href="#微服务一级目录结构" class="headerlink" title="微服务一级目录结构"></a>微服务一级目录结构</h3><p>微服务一级目录是按照 DDD 分层架构的分层职责来定义的。从下面这张图中，我们可以看到，在代码模型里分别为用户接口层、应用层、领域层和基础层，建立了 interfaces、application、domain 和 infrastructure 四个一级代码目录。</p>
+<p><img src="https://static001.geekbang.org/resource/image/d1/71/d1bea7dc6bd93f3bd30ced821f36bb71.jpg" alt="img"></p>
+<p>这些目录的职能和代码形态是这样的。</p>
+<ul>
+<li><p>Interfaces（用户接口层）：它主要存放用户接口层与前端交互、展现数据相关的代码。前端应用通过这一层的接口，向应用服务获取展现所需的数据。这一层主要用来处理用户发送的 Restful 请求，解析用户输入的配置文件，并将数据传递给 Application 层。数据的组装、数据传输格式以及 Facade 接口等代码都会放在这一层目录里。</p>
+</li>
+<li><p>Application（应用层）：它主要存放应用层服务组合和编排相关的代码。应用服务向下基于微服务内的领域服务或外部微服务的应用服务完成服务的编排和组合，向上为用户接口层提供各种应用数据展现支持服务。应用服务和事件等代码会放在这一层目录里。</p>
+</li>
+<li><p>Domain（领域层）：它主要存放领域层核心业务逻辑相关的代码。领域层可以包含多个聚合代码包，它们共同实现领域模型的核心业务逻辑。聚合以及聚合内的实体、方法、领域服务和事件等代码会放在这一层目录里。</p>
+</li>
+<li><p>Infrastructure（基础层）：它主要存放基础资源服务相关的代码，为其它各层提供的通用技术能力、三方软件包、数据库服务、配置和基础资源服务的代码都会放在这一层目录里。</p>
+</li>
+</ul>
+<h3 id="各层目录结构"><a href="#各层目录结构" class="headerlink" title="各层目录结构"></a>各层目录结构</h3><ol>
+<li>用户接口层</li>
+</ol>
+<p>Interfaces 的代码目录结构有：assembler、dto 和 façade 三类。</p>
+<p><img src="https://static001.geekbang.org/resource/image/c6/ef/c6ea040a520c91dfe6400f206ff36fef.jpg" alt="img"></p>
+<ul>
+<li><p>Assembler：实现 DTO 与领域对象之间的相互转换和数据交换。一般来说 Assembler 与 DTO 总是一同出现。</p>
+</li>
+<li><p>Dto：它是数据传输的载体，内部不存在任何业务逻辑，我们可以通过 DTO 把内部的领域对象与外界隔离。</p>
+</li>
+<li><p>Facade：提供较粗粒度的调用接口，将用户请求委派给一个或多个应用服务进行处理。</p>
+</li>
+</ul>
+<ol start="2">
+<li>应用层</li>
+</ol>
+<p>Application 的代码目录结构有：event 和 service。</p>
+<p><img src="https://static001.geekbang.org/resource/image/30/61/30caee3ceaf1085b7aa2cc388f996e61.jpg" alt="img"></p>
+<ul>
+<li>Event（事件）：这层目录主要存放事件相关的代码。它包括两个子目录：publish 和 subscribe。前者主要存放事件发布相关代码，后者主要存放事件订阅相关代码（事件处理相关的核心业务逻辑在领域层实现）。</li>
+</ul>
+<p>这里提示一下：虽然应用层和领域层都可以进行事件的发布和处理，但为了实现事件的统一管理，我建议你将微服务内所有事件的发布和订阅的处理都统一放到应用层，事件相关的核心业务逻辑实现放在领域层。通过应用层调用领域层服务，来实现完整的事件发布和订阅处理流程。</p>
+<ul>
+<li>Service（应用服务）：这层的服务是应用服务。应用服务会对多个领域服务或外部应用服务进行封装、编排和组合，对外提供粗粒度的服务。应用服务主要实现服务组合和编排，是一段独立的业务逻辑。你可以将所有应用服务放在一个应用服务类里，也可以把一个应用服务设计为一个应用服务类，以防应用服务类代码量过大。</li>
+</ul>
+<ol start="3">
+<li>领域层</li>
+</ol>
+<p>Domain 是由一个或多个聚合包构成，共同实现领域模型的核心业务逻辑。聚合内的代码模型是标准和统一的，包括：entity、event、repository 和 service 四个子目录。</p>
+<p><img src="https://static001.geekbang.org/resource/image/68/2c/688dd55b8399779baff8fc5b7c124c2c.jpg" alt="img"></p>
+<p>而领域层聚合内部的代码目录结构是这样的。</p>
+<ul>
+<li>Aggregate（聚合）：它是聚合软件包的根目录，可以根据实际项目的聚合名称命名，比如权限聚合。在聚合内定义聚合根、实体和值对象以及领域服务之间的关系和边界。聚合内实现高内聚的业务逻辑，它的代码可以独立拆分为微服务。</li>
+</ul>
+<p>以聚合为单位的代码放在一个包里的主要目的是为了业务内聚，而更大的目的是为了以后微服务之间聚合的重组。聚合之间清晰的代码边界，可以让你轻松地实现以聚合为单位的微服务重组，在微服务架构演进中有着很重要的作用。</p>
+<ul>
+<li><p>Entity（实体）：它存放聚合根、实体、值对象以及工厂模式（Factory）相关代码。实体类采用充血模型，同一实体相关的业务逻辑都在实体类代码中实现。跨实体的业务逻辑代码在领域服务中实现。</p>
+</li>
+<li><p>Event（事件）：它存放事件实体以及与事件活动相关的业务逻辑代码。</p>
+</li>
+<li><p>Service（领域服务）：它存放领域服务代码。一个领域服务是多个实体组合出来的一段业务逻辑。你可以将聚合内所有领域服务都放在一个领域服务类中，你也可以把每一个领域服务设计为一个类。如果领域服务内的业务逻辑相对复杂，我建议你将一个领域服务设计为一个领域服务类，避免由于所有领域服务代码都放在一个领域服务类中，而出现代码臃肿的问题。领域服务封装多个实体或方法后向上层提供应用服务调用。</p>
+</li>
+<li><p>Repository（仓储）：它存放所在聚合的查询或持久化领域对象的代码，通常包括仓储接口和仓储实现方法。为了方便聚合的拆分和组合，我们设定了一个原则：一个聚合对应一个仓储。</p>
+</li>
+</ul>
+<p>特别说明：按照 DDD 分层架构，仓储实现本应该属于基础层代码，但为了在微服务架构演进时，保证代码拆分和重组的便利性，我是把聚合仓储实现的代码放到了聚合包内。这样，如果需求或者设计发生变化导致聚合需要拆分或重组时，我们就可以将包括核心业务逻辑和仓储代码的聚合包整体迁移，轻松实现微服务架构演进。</p>
+<ol start="4">
+<li>基础层</li>
+</ol>
+<p>Infrastructure 的代码目录结构有：config 和 util 两个子目录。</p>
+<p><img src="https://static001.geekbang.org/resource/image/5b/5a/5bbe3454e2ecf4ff4770e887a4967b5a.jpg" alt="img"></p>
+<ul>
+<li><p>Config：主要存放配置相关代码。</p>
+</li>
+<li><p>Util：主要存放平台、开发框架、消息、数据库、缓存、文件、总线、网关、第三方类库、通用算法等基础代码，你可以为不同的资源类别建立不同的子目录。</p>
+</li>
+</ul>
+<h3 id="代码模型总目录结构"><a href="#代码模型总目录结构" class="headerlink" title="代码模型总目录结构"></a>代码模型总目录结构</h3><p>在完成一级和二级代码模型设计后，你就可以看到下图这样的微服务代码模型的总目录结构了。</p>
+<p><img src="https://static001.geekbang.org/resource/image/91/b8/915ad8d830d925a893cd09ff6cbdadb8.jpg" alt="img"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DDD 分层架构</title>
+    <url>/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="DDD-分层架构"><a href="#DDD-分层架构" class="headerlink" title="DDD 分层架构"></a><strong>DDD 分层架构</strong></h1><h2 id="什么是-DDD-分层架构？"><a href="#什么是-DDD-分层架构？" class="headerlink" title="什么是 DDD 分层架构？"></a>什么是 DDD 分层架构？</h2><p>DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。</p>
+<a id="more"></a>
+
+<p><img src="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg" alt="img"></p>
+<p>我们看一下上面这张图，在最早的传统四层架构中，基础层是被其它层依赖的，它位于最核心的位置，那按照分层架构的思想，它应该就是核心，但实际上领域层才是软件的核心，所以这种依赖是有问题的。后来我们采用了依赖倒置（Dependency inversion principle,DIP）的设计，优化了传统的四层架构，实现了各层对基础层的解耦。</p>
+<p>在下面这张图中，从上到下依次是：用户接口层、应用层、领域层和基础层。那 DDD 各层的主要职责是什么呢？下面我来逐一介绍一下。</p>
+<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
+<h3 id="用户接口层"><a href="#用户接口层" class="headerlink" title="用户接口层"></a>用户接口层</h3><p>用户接口层负责向用户显示信息和解释用户指令。这里的用户可能是：用户、程序、自动化测试和批处理脚本等等。</p>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>应用层是很薄的一层，理论上不应该有业务规则或逻辑，主要面向用例和流程相关的操作。但应用层又位于领域层之上，因为领域层包含多个聚合，所以它可以协调多个聚合的服务和领域对象完成服务编排和组合，协作完成业务操作。</p>
+<p>此外，应用层也是微服务之间交互的通道，它可以调用其它微服务的应用服务，完成微服务之间的服务组合和编排。</p>
+<p>这里我要提醒你一下：在设计和开发时，不要将本该放在领域层的业务逻辑放到应用层中实现。因为庞大的应用层会使领域模型失焦，时间一长你的微服务就会演化为传统的三层架构，业务逻辑会变得混乱。</p>
+<p>另外，应用服务是在应用层的，它负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装，以粗粒度的服务通过 API 网关向前端发布。还有，应用服务还可以进行安全认证、权限校验、事务控制、发送或订阅领域事件等。</p>
+<h3 id="领域层"><a href="#领域层" class="headerlink" title="领域层"></a>领域层</h3><p>领域层的作用是实现企业核心业务逻辑，通过各种校验手段保证业务的正确性。领域层主要体现领域模型的业务能力，它用来表达业务概念、业务状态和业务规则。</p>
+<p>领域层包含聚合根、实体、值对象、领域服务等领域模型中的领域对象。</p>
+<p>这里我要特别解释一下其中几个领域对象的关系，以便你在设计领域层的时候能更加清楚。首先，领域模型的业务逻辑主要是由实体和领域服务来实现的，其中实体会采用充血模型来实现所有与之相关的业务功能。其次，你要知道，实体和领域对象在实现业务逻辑上不是同级的，当领域中的某些功能，单一实体（或者值对象）不能实现时，领域服务就会出马，它可以组合聚合内的多个实体（或者值对象），实现复杂的业务逻辑。</p>
+<h3 id="基础层"><a href="#基础层" class="headerlink" title="基础层"></a>基础层</h3><p>基础层是贯穿所有层的，它的作用就是为其它各层提供通用的技术和基础服务，包括第三方工具、驱动、消息中间件、网关、文件、缓存以及数据库等。比较常见的功能还是提供数据库持久化。</p>
+<p>基础层包含基础服务，它采用依赖倒置设计，封装基础资源服务，实现应用层、领域层与基础层的解耦，降低外部资源变化对应用的影响。</p>
+<p>比如说，在传统架构设计中，由于上层应用对数据库的强耦合，很多公司在架构演进中最担忧的可能就是换数据库了，因为一旦更换数据库，就可能需要重写大部分的代码，这对应用来说是致命的。那采用依赖倒置的设计以后，应用层就可以通过解耦来保持独立的核心业务逻辑。当数据库变更时，我们只需要更换数据库基础服务就可以了，这样就将资源变更对应用的影响降到了最低。</p>
+<h2 id="DDD-分层架构最重要的原则是什么？"><a href="#DDD-分层架构最重要的原则是什么？" class="headerlink" title="DDD 分层架构最重要的原则是什么？"></a>DDD 分层架构最重要的原则是什么？</h2><p>在《实现领域驱动设计》一书中，DDD 分层架构有一个重要的原则：每层只能与位于其下方的层发生耦合。</p>
+<p> 而架构根据耦合的紧密程度又可以分为两种：<strong>严格分层架构</strong>和<strong>松散分层架构</strong>。优化后的 DDD 分层架构模型就属于严格分层架构，任何层只能对位于其直接下方的层产生依赖。而传统的 DDD 分层架构则属于松散分层架构，它允许某层与其任意下方的层发生依赖。 </p>
+<h2 id="三层架构如何演进到-DDD-分层架构？"><a href="#三层架构如何演进到-DDD-分层架构？" class="headerlink" title="三层架构如何演进到 DDD 分层架构？"></a>三层架构如何演进到 DDD 分层架构？</h2><p>传统企业应用大多是单体架构，而单体架构则大多是三层架构。三层架构解决了程序内代码间调用复杂、代码职责不清的问题，但这种分层是逻辑概念，在物理上它是中心化的集中式架构，并不适合分布式微服务架构。</p>
+<p>DDD 分层架构中的要素其实和三层架构类似，只是在 DDD 分层架构中，这些要素被重新归类，重新划分了层，确定了层与层之间的交互规则和职责边界。</p>
+<p><img src="https://static001.geekbang.org/resource/image/16/a1/1680723ca91aa57d719d5cdbc1d910a1.jpg" alt="img"></p>
+<p>DDD 分层架构在用户接口层引入了 DTO，给前端提供了更多的可使用数据和更高的展示灵活性。</p>
+<p>DDD 分层架构对三层架构的业务逻辑层进行了更清晰的划分，改善了三层架构核心业务逻辑混乱，代码改动相互影响大的情况。DDD 分层架构将业务逻辑层的服务拆分到了应用层和领域层。应用层快速响应前端的变化，领域层实现领域模型的能力。</p>
+<p>另外一个重要的变化发生在数据访问层和基础层之间。三层架构数据访问采用 DAO 方式；DDD 分层架构的数据库等基础资源访问，采用了仓储（Repository）设计模式，通过依赖倒置实现各层对基础资源的解耦。</p>
+<p>仓储又分为两部分：仓储接口和仓储实现。仓储接口放在领域层中，仓储实现放在基础层。原来三层架构通用的第三方工具包、驱动、Common、Utility、Config 等通用的公共的资源类统一放到了基础层。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DDD 进阶</title>
     <url>/2019/10/16/DDD%E8%BF%9B%E9%98%B6/</url>
     <content><![CDATA[<h1 id="DDD-进阶"><a href="#DDD-进阶" class="headerlink" title="DDD 进阶"></a>DDD 进阶</h1><h2 id="领域事件"><a href="#领域事件" class="headerlink" title="领域事件"></a>领域事件</h2><p> 这种事件发生后通常会导致进一步的业务操作，在 DDD 中这种事件被称为领域事件。 </p>
@@ -335,42 +335,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Soul Hystrix 插件</title>
-    <url>/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="Soul-Hystrix-插件"><a href="#Soul-Hystrix-插件" class="headerlink" title="Soul Hystrix 插件"></a>Soul Hystrix 插件</h1><p>简单了解 Soul Hystrix 插件。</p>
-<a id="more"></a>
-
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Hystrix 插件是 Soul 网关用来对流量进行熔断的核心实现，主要使用信号量的方式来处理请求。</p>
-<h1 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a><strong>插件设置</strong></h1><p>在 <code>soul-admin</code> –&gt; 插件管理 –&gt; <code>hystrix</code>，设置为开启。</p>
-<h1 id="Hystrix-处理"><a href="#Hystrix-处理" class="headerlink" title="Hystrix 处理"></a><strong>Hystrix 处理</strong></h1><ul>
-<li>跳闸最小请求数量 ：最小的请求量，至少要达到这个量才会触发熔断</li>
-<li>错误半分比阀值 ： 这段时间内，发生异常的百分比。</li>
-<li>最大并发量 ： 最大的并发量</li>
-<li>跳闸休眠时间(ms) ：熔断以后恢复的时间。</li>
-<li>分组Key： 一般设置为:contextPath</li>
-<li>命令Key: 一般设置为具体的 路径接口。</li>
-</ul>
-<h1 id="HystrixPlugin-类"><a href="#HystrixPlugin-类" class="headerlink" title="HystrixPlugin 类"></a>HystrixPlugin 类</h1><p>处理方法在 HystrixPlugin 类的 doExecute 方法中：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 拿到上下文</span></span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到熔断规则</span></span><br><span class="line">    <span class="keyword">final</span> HystrixHandle hystrixHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), HystrixHandle.class);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getGroupKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getCommandKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Command command = fetchCommand(hystrixHandle, exchange, chain);</span><br><span class="line">    <span class="comment">// 这里用到 WebFlux</span></span><br><span class="line">    <span class="keyword">return</span> Mono.create(s -&gt; &#123;</span><br><span class="line">        Subscription sub = command.fetchObservable().subscribe(s::success,</span><br><span class="line">                s::error, s::success);</span><br><span class="line">        s.onCancel(sub::unsubscribe);</span><br><span class="line">        <span class="keyword">if</span> (command.isCircuitBreakerOpen()) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).doOnError(throwable -&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment">// 在调用链中放入错误信息</span></span><br><span class="line">        exchange.getAttributes().put(Constants.CLIENT_RESPONSE_RESULT_TYPE, ResultEnum.ERROR.getName());</span><br><span class="line">        chain.execute(exchange);</span><br><span class="line">    &#125;).then();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Hystrix-工作原理"><a href="#Hystrix-工作原理" class="headerlink" title="Hystrix 工作原理"></a>Hystrix 工作原理</h1><ul>
-<li>1、创建HystrixCommand 或者 HystrixObservableCommand 对象</li>
-<li>2、执行命令execute()、queue()、observe()、toObservable()</li>
-<li>3、如果请求结果缓存这个特性被启用，并且缓存命中，则缓存的回应会立即通过一个Observable对象的形式返回</li>
-<li>4、检查熔断器状态，确定请求线路是否是开路，如果请求线路是开路，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
-<li>5、如果和当前需要执行的命令相关联的线程池和请求队列，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
-<li>6、执行HystrixCommand.run()或HystrixObservableCommand.construct()，如果这两个方法执行超时或者执行失败，则执行getFallback()</li>
-<li>7、Hystrix 会将请求成功，失败，被拒绝或超时信息报告给熔断器，熔断器维护一些用于统计数据用的计数器。</li>
-</ul>
-<p>这些计数器产生的统计数据使得熔断器在特定的时刻，能短路某个依赖服务的后续请求，直到恢复期结束，若恢复期结束根据统计数据熔断器判定线路仍然未恢复健康，熔断器会再次关闭线路。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>开源</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Soul Dubbo 插件</title>
     <url>/2021/01/15/Soul%20Dubbo%20%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="Soul-Dubbo-插件"><a href="#Soul-Dubbo-插件" class="headerlink" title="Soul Dubbo 插件"></a>Soul Dubbo 插件</h1><p>今日主题：Soul 网关如何通过 Http 访问 Dubbo 协议的接口？</p>
@@ -419,6 +383,42 @@
 <p><img src="https://ae04.alicdn.com/kf/Hcdf610c590c747058460282faf3c52f3q.png" alt="Untitled 2.png"></p>
 <h1 id="今日心得"><a href="#今日心得" class="headerlink" title="今日心得"></a>今日心得</h1><p>Soul 的确是一个灵活的网关，核心的思想是插件-选择器-规则，通过它们，能够根据业务或者场景要求进行随时地修改，以满足不同的需要。</p>
 <p>今天主要梳理了一遍 Dubbo 插件的调用过程，忽略了一些细枝末节。我能真切感受到自己对项目心态的一个转变，从对一个庞大项目的恐慌，到读源码时的快乐。就好像在玩一张刮刮乐，看起来好像灰蒙蒙的一片，但每一个格子下面都是一份惊喜，只要你愿意。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Soul Hystrix 插件</title>
+    <url>/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="Soul-Hystrix-插件"><a href="#Soul-Hystrix-插件" class="headerlink" title="Soul Hystrix 插件"></a>Soul Hystrix 插件</h1><p>简单了解 Soul Hystrix 插件。</p>
+<a id="more"></a>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Hystrix 插件是 Soul 网关用来对流量进行熔断的核心实现，主要使用信号量的方式来处理请求。</p>
+<h1 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a><strong>插件设置</strong></h1><p>在 <code>soul-admin</code> –&gt; 插件管理 –&gt; <code>hystrix</code>，设置为开启。</p>
+<h1 id="Hystrix-处理"><a href="#Hystrix-处理" class="headerlink" title="Hystrix 处理"></a><strong>Hystrix 处理</strong></h1><ul>
+<li>跳闸最小请求数量 ：最小的请求量，至少要达到这个量才会触发熔断</li>
+<li>错误半分比阀值 ： 这段时间内，发生异常的百分比。</li>
+<li>最大并发量 ： 最大的并发量</li>
+<li>跳闸休眠时间(ms) ：熔断以后恢复的时间。</li>
+<li>分组Key： 一般设置为:contextPath</li>
+<li>命令Key: 一般设置为具体的 路径接口。</li>
+</ul>
+<h1 id="HystrixPlugin-类"><a href="#HystrixPlugin-类" class="headerlink" title="HystrixPlugin 类"></a>HystrixPlugin 类</h1><p>处理方法在 HystrixPlugin 类的 doExecute 方法中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 拿到上下文</span></span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到熔断规则</span></span><br><span class="line">    <span class="keyword">final</span> HystrixHandle hystrixHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), HystrixHandle.class);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getGroupKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getCommandKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Command command = fetchCommand(hystrixHandle, exchange, chain);</span><br><span class="line">    <span class="comment">// 这里用到 WebFlux</span></span><br><span class="line">    <span class="keyword">return</span> Mono.create(s -&gt; &#123;</span><br><span class="line">        Subscription sub = command.fetchObservable().subscribe(s::success,</span><br><span class="line">                s::error, s::success);</span><br><span class="line">        s.onCancel(sub::unsubscribe);</span><br><span class="line">        <span class="keyword">if</span> (command.isCircuitBreakerOpen()) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).doOnError(throwable -&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment">// 在调用链中放入错误信息</span></span><br><span class="line">        exchange.getAttributes().put(Constants.CLIENT_RESPONSE_RESULT_TYPE, ResultEnum.ERROR.getName());</span><br><span class="line">        chain.execute(exchange);</span><br><span class="line">    &#125;).then();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Hystrix-工作原理"><a href="#Hystrix-工作原理" class="headerlink" title="Hystrix 工作原理"></a>Hystrix 工作原理</h1><ul>
+<li>1、创建HystrixCommand 或者 HystrixObservableCommand 对象</li>
+<li>2、执行命令execute()、queue()、observe()、toObservable()</li>
+<li>3、如果请求结果缓存这个特性被启用，并且缓存命中，则缓存的回应会立即通过一个Observable对象的形式返回</li>
+<li>4、检查熔断器状态，确定请求线路是否是开路，如果请求线路是开路，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
+<li>5、如果和当前需要执行的命令相关联的线程池和请求队列，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
+<li>6、执行HystrixCommand.run()或HystrixObservableCommand.construct()，如果这两个方法执行超时或者执行失败，则执行getFallback()</li>
+<li>7、Hystrix 会将请求成功，失败，被拒绝或超时信息报告给熔断器，熔断器维护一些用于统计数据用的计数器。</li>
+</ul>
+<p>这些计数器产生的统计数据使得熔断器在特定的时刻，能短路某个依赖服务的后续请求，直到恢复期结束，若恢复期结束根据统计数据熔断器判定线路仍然未恢复健康，熔断器会再次关闭线路。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -488,6 +488,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Soul 网关初探</title>
+    <url>/2021/01/14/Soul%20%E7%BD%91%E5%85%B3%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<h1 id="Soul-网关初探"><a href="#Soul-网关初探" class="headerlink" title="Soul 网关初探"></a>Soul 网关初探</h1><h1 id="先跑起来"><a href="#先跑起来" class="headerlink" title="先跑起来"></a>先跑起来</h1><ol>
+<li>进入 soul-admin 模块，修改 application.yml 文件中的数据库参数；</li>
+<li>启动 SoulAdminBootstrap，Soul 会自动创建数据表（创建脚本在 META-INF 文件夹中）；</li>
+<li>启动 soul-examples-http 项目；</li>
+<li>通过网关调用接口，实现路由转发功能。</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="犯错记录"><a href="#犯错记录" class="headerlink" title="犯错记录"></a>犯错记录</h3><ol>
+<li>启动 SoulAdminBootstrap 的时候，因为会执行数据库脚本，会导致覆写数据，所以需要注释掉 <code>init_script: &quot;META-INF/schema.sql&quot;</code> ，否则会出现错误。比如 date_updated 字段的值会改为 ”0000-00-00 00:00:00“，解析时会出错。</li>
+<li>查看控制台日志的时候，发现有些 websocket 连接，于是在 soul-bootstrap 模块中注释掉了相关配置，后面测试网关转发的时候，提示找不到url。排查一番后，不得其果，翻了下官方文档，对比配置后，原来是需要配置 websocket 连接，取消注释后即可正常访问。</li>
+<li>测试负载均衡时，启动另外一个 8189 端口的服务，没有同时修改 <code>soul.http.port</code>，导致网关侧没有感知到。</li>
+</ol>
+<h1 id="初步学习"><a href="#初步学习" class="headerlink" title="初步学习"></a>初步学习</h1><p><img src="https://dromara.org/img/architecture/soul-framework.png" alt="img"></p>
+<ul>
+<li>soul-admin 作用：使用网关时，首先需要启动 soul-admin 模块。该模块能够提供前端可视化页面，管理各个插件的配置和开关。同时讲数据落库到数据库中，可选 MySQL 或 H2。</li>
+<li>soul-bootstrap 作用：网关的核心部分，根据插件对请求做一系列的操作，比如限流、转发、签名、黑名单等等。</li>
+<li>为什么 admin 要和 bootstrap 分开部署？因为网关需要做到高性能，某些配置项不能通过数据库查询去获取，否则会导致性能的急剧下降。</li>
+<li>两种配置接口的方法：一种是在业务模块引入 soul-client 构件，在方法上使用 <code>@SoulClient</code>，soul 会自动感知；另外一种是手动在 soul-admin 页面上配置。 推荐方式是引入 soul-client 构件，手工配置非常麻烦，并且容易出错。</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>芋道 Soul 极简入门（国产微服务网关）：</p>
+<p><a href="http://www.iocoder.cn/Soul/install/">芋道 Soul 极简入门（国产微服务网关） | 芋道源码 – 纯源码解析博客</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Soul 负载均衡</title>
     <url>/2021/01/18/Soul%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
     <content><![CDATA[<h1 id="Soul-负载均衡"><a href="#Soul-负载均衡" class="headerlink" title="Soul 负载均衡"></a>Soul 负载均衡</h1><h1 id="负载均衡入口"><a href="#负载均衡入口" class="headerlink" title="负载均衡入口"></a>负载均衡入口</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DivideUpstream divideUpstream = </span><br><span class="line">LoadBalanceUtils.selector(upstreamList, ruleHandle.getLoadBalance(), ip);</span><br></pre></td></tr></table></figure>
@@ -518,39 +551,6 @@
 <li>RoundRobinLoadBalance：轮询方式<br>这部分代码有些复杂，下次分析。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    String key = upstreamList.get(<span class="number">0</span>).getUpstreamUrl();</span><br><span class="line">    ConcurrentMap&lt;String, WeightedRoundRobin&gt; map = methodWeightMap.get(key);</span><br><span class="line">    <span class="keyword">if</span> (map == <span class="keyword">null</span>) &#123;</span><br><span class="line">        methodWeightMap.putIfAbsent(key, <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">16</span>));</span><br><span class="line">        map = methodWeightMap.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> totalWeight = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> maxCurrent = Long.MIN_VALUE;</span><br><span class="line">    <span class="keyword">long</span> now = System.currentTimeMillis();</span><br><span class="line">    DivideUpstream selectedInvoker = <span class="keyword">null</span>;</span><br><span class="line">    WeightedRoundRobin selectedWRR = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (DivideUpstream upstream : upstreamList) &#123;</span><br><span class="line">        String rKey = upstream.getUpstreamUrl();</span><br><span class="line">        WeightedRoundRobin weightedRoundRobin = map.get(rKey);</span><br><span class="line">        <span class="keyword">int</span> weight = getWeight(upstream);</span><br><span class="line">        <span class="keyword">if</span> (weightedRoundRobin == <span class="keyword">null</span>) &#123;</span><br><span class="line">            weightedRoundRobin = <span class="keyword">new</span> WeightedRoundRobin();</span><br><span class="line">            weightedRoundRobin.setWeight(weight);</span><br><span class="line">            map.putIfAbsent(rKey, weightedRoundRobin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (weight != weightedRoundRobin.getWeight()) &#123;</span><br><span class="line">            <span class="comment">//weight changed</span></span><br><span class="line">            weightedRoundRobin.setWeight(weight);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> cur = weightedRoundRobin.increaseCurrent();</span><br><span class="line">        weightedRoundRobin.setLastUpdate(now);</span><br><span class="line">        <span class="keyword">if</span> (cur &gt; maxCurrent) &#123;</span><br><span class="line">            maxCurrent = cur;</span><br><span class="line">            selectedInvoker = upstream;</span><br><span class="line">            selectedWRR = weightedRoundRobin;</span><br><span class="line">        &#125;</span><br><span class="line">        totalWeight += weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!updateLock.get() &amp;&amp; upstreamList.size() != map.size() &amp;&amp; updateLock.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// copy -&gt; modify -&gt; update reference</span></span><br><span class="line">            ConcurrentMap&lt;String, WeightedRoundRobin&gt; newMap = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(map);</span><br><span class="line">            newMap.entrySet().removeIf(item -&gt; now - item.getValue().getLastUpdate() &gt; recyclePeriod);</span><br><span class="line">            methodWeightMap.put(key, newMap);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            updateLock.set(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (selectedInvoker != <span class="keyword">null</span>) &#123;</span><br><span class="line">        selectedWRR.sel(totalWeight);</span><br><span class="line">        <span class="keyword">return</span> selectedInvoker;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// should not happen here</span></span><br><span class="line">    <span class="keyword">return</span> upstreamList.get(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>开源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Soul 网关初探</title>
-    <url>/2021/01/14/Soul%20%E7%BD%91%E5%85%B3%E5%88%9D%E6%8E%A2/</url>
-    <content><![CDATA[<h1 id="Soul-网关初探"><a href="#Soul-网关初探" class="headerlink" title="Soul 网关初探"></a>Soul 网关初探</h1><h1 id="先跑起来"><a href="#先跑起来" class="headerlink" title="先跑起来"></a>先跑起来</h1><ol>
-<li>进入 soul-admin 模块，修改 application.yml 文件中的数据库参数；</li>
-<li>启动 SoulAdminBootstrap，Soul 会自动创建数据表（创建脚本在 META-INF 文件夹中）；</li>
-<li>启动 soul-examples-http 项目；</li>
-<li>通过网关调用接口，实现路由转发功能。</li>
-</ol>
-<a id="more"></a>
-
-<h3 id="犯错记录"><a href="#犯错记录" class="headerlink" title="犯错记录"></a>犯错记录</h3><ol>
-<li>启动 SoulAdminBootstrap 的时候，因为会执行数据库脚本，会导致覆写数据，所以需要注释掉 <code>init_script: &quot;META-INF/schema.sql&quot;</code> ，否则会出现错误。比如 date_updated 字段的值会改为 ”0000-00-00 00:00:00“，解析时会出错。</li>
-<li>查看控制台日志的时候，发现有些 websocket 连接，于是在 soul-bootstrap 模块中注释掉了相关配置，后面测试网关转发的时候，提示找不到url。排查一番后，不得其果，翻了下官方文档，对比配置后，原来是需要配置 websocket 连接，取消注释后即可正常访问。</li>
-<li>测试负载均衡时，启动另外一个 8189 端口的服务，没有同时修改 <code>soul.http.port</code>，导致网关侧没有感知到。</li>
-</ol>
-<h1 id="初步学习"><a href="#初步学习" class="headerlink" title="初步学习"></a>初步学习</h1><p><img src="https://dromara.org/img/architecture/soul-framework.png" alt="img"></p>
-<ul>
-<li>soul-admin 作用：使用网关时，首先需要启动 soul-admin 模块。该模块能够提供前端可视化页面，管理各个插件的配置和开关。同时讲数据落库到数据库中，可选 MySQL 或 H2。</li>
-<li>soul-bootstrap 作用：网关的核心部分，根据插件对请求做一系列的操作，比如限流、转发、签名、黑名单等等。</li>
-<li>为什么 admin 要和 bootstrap 分开部署？因为网关需要做到高性能，某些配置项不能通过数据库查询去获取，否则会导致性能的急剧下降。</li>
-<li>两种配置接口的方法：一种是在业务模块引入 soul-client 构件，在方法上使用 <code>@SoulClient</code>，soul 会自动感知；另外一种是手动在 soul-admin 页面上配置。 推荐方式是引入 soul-client 构件，手工配置非常麻烦，并且容易出错。</li>
-</ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>芋道 Soul 极简入门（国产微服务网关）：</p>
-<p><a href="http://www.iocoder.cn/Soul/install/">芋道 Soul 极简入门（国产微服务网关） | 芋道源码 – 纯源码解析博客</a></p>
 ]]></content>
       <categories>
         <category>笔记</category>
