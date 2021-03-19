@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DDD 分层架构</title>
-    <url>/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="DDD-分层架构"><a href="#DDD-分层架构" class="headerlink" title="DDD 分层架构"></a><strong>DDD 分层架构</strong></h1><h2 id="什么是-DDD-分层架构？"><a href="#什么是-DDD-分层架构？" class="headerlink" title="什么是 DDD 分层架构？"></a>什么是 DDD 分层架构？</h2><p>DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。</p>
-<a id="more"></a>
-
-<p><img src="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg" alt="img"></p>
-<p>我们看一下上面这张图，在最早的传统四层架构中，基础层是被其它层依赖的，它位于最核心的位置，那按照分层架构的思想，它应该就是核心，但实际上领域层才是软件的核心，所以这种依赖是有问题的。后来我们采用了依赖倒置（Dependency inversion principle,DIP）的设计，优化了传统的四层架构，实现了各层对基础层的解耦。</p>
-<p>在下面这张图中，从上到下依次是：用户接口层、应用层、领域层和基础层。那 DDD 各层的主要职责是什么呢？下面我来逐一介绍一下。</p>
-<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
-<h3 id="用户接口层"><a href="#用户接口层" class="headerlink" title="用户接口层"></a>用户接口层</h3><p>用户接口层负责向用户显示信息和解释用户指令。这里的用户可能是：用户、程序、自动化测试和批处理脚本等等。</p>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>应用层是很薄的一层，理论上不应该有业务规则或逻辑，主要面向用例和流程相关的操作。但应用层又位于领域层之上，因为领域层包含多个聚合，所以它可以协调多个聚合的服务和领域对象完成服务编排和组合，协作完成业务操作。</p>
-<p>此外，应用层也是微服务之间交互的通道，它可以调用其它微服务的应用服务，完成微服务之间的服务组合和编排。</p>
-<p>这里我要提醒你一下：在设计和开发时，不要将本该放在领域层的业务逻辑放到应用层中实现。因为庞大的应用层会使领域模型失焦，时间一长你的微服务就会演化为传统的三层架构，业务逻辑会变得混乱。</p>
-<p>另外，应用服务是在应用层的，它负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装，以粗粒度的服务通过 API 网关向前端发布。还有，应用服务还可以进行安全认证、权限校验、事务控制、发送或订阅领域事件等。</p>
-<h3 id="领域层"><a href="#领域层" class="headerlink" title="领域层"></a>领域层</h3><p>领域层的作用是实现企业核心业务逻辑，通过各种校验手段保证业务的正确性。领域层主要体现领域模型的业务能力，它用来表达业务概念、业务状态和业务规则。</p>
-<p>领域层包含聚合根、实体、值对象、领域服务等领域模型中的领域对象。</p>
-<p>这里我要特别解释一下其中几个领域对象的关系，以便你在设计领域层的时候能更加清楚。首先，领域模型的业务逻辑主要是由实体和领域服务来实现的，其中实体会采用充血模型来实现所有与之相关的业务功能。其次，你要知道，实体和领域对象在实现业务逻辑上不是同级的，当领域中的某些功能，单一实体（或者值对象）不能实现时，领域服务就会出马，它可以组合聚合内的多个实体（或者值对象），实现复杂的业务逻辑。</p>
-<h3 id="基础层"><a href="#基础层" class="headerlink" title="基础层"></a>基础层</h3><p>基础层是贯穿所有层的，它的作用就是为其它各层提供通用的技术和基础服务，包括第三方工具、驱动、消息中间件、网关、文件、缓存以及数据库等。比较常见的功能还是提供数据库持久化。</p>
-<p>基础层包含基础服务，它采用依赖倒置设计，封装基础资源服务，实现应用层、领域层与基础层的解耦，降低外部资源变化对应用的影响。</p>
-<p>比如说，在传统架构设计中，由于上层应用对数据库的强耦合，很多公司在架构演进中最担忧的可能就是换数据库了，因为一旦更换数据库，就可能需要重写大部分的代码，这对应用来说是致命的。那采用依赖倒置的设计以后，应用层就可以通过解耦来保持独立的核心业务逻辑。当数据库变更时，我们只需要更换数据库基础服务就可以了，这样就将资源变更对应用的影响降到了最低。</p>
-<h2 id="DDD-分层架构最重要的原则是什么？"><a href="#DDD-分层架构最重要的原则是什么？" class="headerlink" title="DDD 分层架构最重要的原则是什么？"></a>DDD 分层架构最重要的原则是什么？</h2><p>在《实现领域驱动设计》一书中，DDD 分层架构有一个重要的原则：每层只能与位于其下方的层发生耦合。</p>
-<p> 而架构根据耦合的紧密程度又可以分为两种：<strong>严格分层架构</strong>和<strong>松散分层架构</strong>。优化后的 DDD 分层架构模型就属于严格分层架构，任何层只能对位于其直接下方的层产生依赖。而传统的 DDD 分层架构则属于松散分层架构，它允许某层与其任意下方的层发生依赖。 </p>
-<h2 id="三层架构如何演进到-DDD-分层架构？"><a href="#三层架构如何演进到-DDD-分层架构？" class="headerlink" title="三层架构如何演进到 DDD 分层架构？"></a>三层架构如何演进到 DDD 分层架构？</h2><p>传统企业应用大多是单体架构，而单体架构则大多是三层架构。三层架构解决了程序内代码间调用复杂、代码职责不清的问题，但这种分层是逻辑概念，在物理上它是中心化的集中式架构，并不适合分布式微服务架构。</p>
-<p>DDD 分层架构中的要素其实和三层架构类似，只是在 DDD 分层架构中，这些要素被重新归类，重新划分了层，确定了层与层之间的交互规则和职责边界。</p>
-<p><img src="https://static001.geekbang.org/resource/image/16/a1/1680723ca91aa57d719d5cdbc1d910a1.jpg" alt="img"></p>
-<p>DDD 分层架构在用户接口层引入了 DTO，给前端提供了更多的可使用数据和更高的展示灵活性。</p>
-<p>DDD 分层架构对三层架构的业务逻辑层进行了更清晰的划分，改善了三层架构核心业务逻辑混乱，代码改动相互影响大的情况。DDD 分层架构将业务逻辑层的服务拆分到了应用层和领域层。应用层快速响应前端的变化，领域层实现领域模型的能力。</p>
-<p>另外一个重要的变化发生在数据访问层和基础层之间。三层架构数据访问采用 DAO 方式；DDD 分层架构的数据库等基础资源访问，采用了仓储（Repository）设计模式，通过依赖倒置实现各层对基础资源的解耦。</p>
-<p>仓储又分为两部分：仓储接口和仓储实现。仓储接口放在领域层中，仓储实现放在基础层。原来三层架构通用的第三方工具包、驱动、Common、Utility、Config 等通用的公共的资源类统一放到了基础层。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DDD 代码模型</title>
     <url>/2019/10/16/DDD%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="DDD-代码模型"><a href="#DDD-代码模型" class="headerlink" title="DDD 代码模型"></a>DDD 代码模型</h1><h2 id="DDD-分层架构与微服务代码模型"><a href="#DDD-分层架构与微服务代码模型" class="headerlink" title="DDD 分层架构与微服务代码模型"></a>DDD 分层架构与微服务代码模型</h2><p>我们参考 DDD 分层架构模型来设计微服务代码模型。没错！微服务代码模型就是依据 DDD 分层架构模型设计出来的。那为什么是 DDD 分层架构模型呢？</p>
@@ -139,181 +101,41 @@
       </tags>
   </entry>
   <entry>
-    <title>DDD 基础</title>
-    <url>/2019/10/16/DDD%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="DDD-基础"><a href="#DDD-基础" class="headerlink" title="DDD 基础"></a>DDD 基础</h1><h2 id="领域和子域"><a href="#领域和子域" class="headerlink" title="领域和子域"></a>领域和子域</h2><p>领域就是用来确定范围的，范围即边界，这也是 DDD 在设计中不断强调边界的原因。</p>
+    <title>DDD 分层架构</title>
+    <url>/2019/10/16/DDD%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="DDD-分层架构"><a href="#DDD-分层架构" class="headerlink" title="DDD 分层架构"></a><strong>DDD 分层架构</strong></h1><h2 id="什么是-DDD-分层架构？"><a href="#什么是-DDD-分层架构？" class="headerlink" title="什么是 DDD 分层架构？"></a>什么是 DDD 分层架构？</h2><p>DDD 的分层架构在不断发展。最早是传统的四层架构；后来四层架构有了进一步的优化，实现了各层对基础层的解耦；再后来领域层和应用层之间增加了上下文环境（Context）层，五层架构（DCI）就此形成了。</p>
 <a id="more"></a>
 
-<p>在研究和解决业务问题时，DDD 会按照一定的规则<strong>将业务领域进行细分</strong>，当领域细分到一定的程度后，DDD 会将问题范围限定在特定的边界内，在这个边界内建立领域模型，进而用代码实现该领域模型，解决相应的业务问题。简言之，DDD 的领域就是这个边界内要解决的业务问题域。</p>
-<p>既然领域是用来限定业务边界和范围的，那么就会有大小之分，领域越大，业务范围就越大，反之则相反。</p>
-<p>领域可以进一步划分为子领域。我们把划分出来的多个子领域称为子域，每个子域对应一个更小的问题域或更小的业务范围。</p>
-<p>不同行业的业务模型可能会不一样，但领域建模和微服务建设的过程和方法基本类似，其核心思想就是<strong>将问题域逐步分解</strong>，<strong>降低业务理解和系统实现的复杂度</strong>。</p>
-<h2 id="核心域、通用域和支撑域"><a href="#核心域、通用域和支撑域" class="headerlink" title="核心域、通用域和支撑域"></a>核心域、通用域和支撑域</h2><p>在领域不断划分的过程中，领域会细分为不同的子域，子域可以根据自身重要性和功能属性划分为三类子域，它们分别是：核心域、通用域和支撑域。</p>
-<ul>
-<li><p>决定产品和公司核心竞争力的子域是<strong>核心域</strong>，它是业务成功的主要因素和公司的核心竞争力。</p>
-</li>
-<li><p>没有太多个性化的诉求，同时被多个子域使用的通用功能子域是<strong>通用域</strong>。</p>
-</li>
-<li><p>还有一种功能子域是必须的，但既不包含决定产品 / 和公司核心竞争力 / 的功能，也不包含通用功能的子域，它就是<strong>支撑域</strong>。</p>
-</li>
-</ul>
-<h2 id="通用语言"><a href="#通用语言" class="headerlink" title="通用语言"></a>通用语言</h2><p>在事件风暴过程中，通过团队交流达成共识的，能够简单、清晰、准确描述业务涵义和规则的语言就是<strong>通用语言</strong>。也就是说，通用语言是团队统一的语言，不管你在团队中承担什么角色，在同一个领域的软件生命周期里都使用统一的语言进行交流。</p>
-<p>那么，通用语言的价值也就很明了了，它可以解决交流障碍这个问题，使领域专家和开发人员能够协同合作，从而确保业务需求的正确表达。</p>
-<h2 id="限界上下文"><a href="#限界上下文" class="headerlink" title="限界上下文"></a>限界上下文</h2><p>我们知道语言都有它的语义环境，同样，通用语言也有它的上下文环境。为了避免同样的概念或语义在不同的上下文环境中产生歧义，DDD 在战略设计上提出了 “<strong>限界上下文</strong>” 这个概念，用来确定语义所在的领域边界。</p>
-<p>我们可以将限界上下文拆解为两个词：<strong>限界</strong>和<strong>上下文</strong>。限界就是领域的边界，而上下文则是语义环境。通过领域的限界上下文，我们就可以在统一的领域边界内用统一的语言进行交流。</p>
-<p> 综合一下，我认为限界上下文的定义就是：用来封装通用语言和领域对象，提供上下文环境，保证在领域之内的一些术语、业务相关对象等（通用语言）有一个确切的含义，没有二义性。这个边界定义了模型的适用范围，使团队所有成员能够明确地知道什么应该在模型中实现，什么不应该在模型中实现。 </p>
-<h2 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h2><p> 在 DDD 中有这样一类对象，它们拥有唯一标识符，且标识符在历经各种状态变更后仍能保持一致。对这些对象而言，重要的不是其属性，而是其延续性和标识，对象的延续性和标识会跨越甚至超出软件的生命周期。我们把这样的对象称为<strong>实体</strong>。 </p>
-<p> 在领域模型映射到数据模型时，一个实体可能对应 <strong>0 个、1 个或者多个</strong>数据库持久化对象。大多数情况下实体与持久化对象是一对一。在某些场景中，有些实体只是暂驻静态内存的一个运行态实体，它不需要持久化。比如，基于多个价格配置数据计算后生成的折扣实体。 </p>
-<h2 id="值对象"><a href="#值对象" class="headerlink" title="值对象"></a>值对象</h2><p> 通过对象属性值来识别的对象，它将多个相关属性组合为一个概念整体。在 DDD 中用来描述领域的特定方面，并且是一个没有标识符的对象，叫作<strong>值对象</strong>。 </p>
-<p> 也就说，值对象描述了领域中的一件东西，这个东西是不可变的，它将不同的相关属性组合成了一个概念整体。当度量和描述改变时，可以用另外一个值对象予以替换。它可以和其它值对象进行相等性比较，且不会对协作对象造成副作用。 </p>
-<p>值对象嵌入到实体的话，有这样两种不同的数据格式，也可以说是两种方式，分别是<strong>属性嵌入</strong>的方式和<strong>序列化大对象</strong>的方式。</p>
-<p>引用单一属性的值对象或只有一条记录的多属性值对象的实体，可以采用属性嵌入的方式嵌入。引用一条或多条记录的多属性值对象的实体，可以采用序列化大对象的方式嵌入。比如，人员实体可以有多个通讯地址，多个地址序列化后可以嵌入人员的地址属性。值对象创建后就不允许修改了，只能用另外一个值对象来整体替换。</p>
-<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p>领域模型内的实体和值对象就好比个体，而能让实体和值对象协同工作的组织就是<strong>聚合</strong>，它用来确保这些领域对象在实现共同的业务逻辑时，能保证数据的一致性。 </p>
-<p>领域模型内的实体和值对象就好比个体，而能让实体和值对象协同工作的组织就是聚合，它用来确保这些领域对象在实现共同的业务逻辑时，能保证数据的一致性。 </p>
-<h2 id="聚合根"><a href="#聚合根" class="headerlink" title="聚合根"></a>聚合根</h2><p> 如果把聚合比作组织，那<strong>聚合根</strong>就是这个组织的负责人。聚合根也称为根实体，它不仅是实体，还是聚合的管理者。 </p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>聚合</strong>的特点：高内聚、低耦合，它是领域模型中最底层的边界，可以作为拆分微服务的最小单位，但我不建议你对微服务过度拆分。但在对性能有极致要求的场景中，聚合可以独立作为一个微服务，以满足版本的高频发布和极致的弹性伸缩能力。</p>
-<p>一个微服务可以包含多个聚合，聚合之间的边界是微服务内天然的逻辑边界。有了这个逻辑边界，在微服务架构演进时就可以以聚合为单位进行拆分和组合了，微服务的架构演进也就不再是一件难事了。</p>
-<p><strong>聚合根</strong>的特点：聚合根是实体，有实体的特点，具有全局唯一标识，有独立的生命周期。一个聚合只有一个聚合根，聚合根在聚合内对实体和值对象采用直接对象引用的方式进行组织和协调，聚合根与聚合根之间通过 ID 关联的方式实现聚合之间的协同。</p>
-<p><strong>实体</strong>的特点：有 ID 标识，通过 ID 判断相等性，ID 在聚合内唯一即可。状态可变，它依附于聚合根，其生命周期由聚合根管理。实体一般会持久化，但与数据库持久化对象不一定是一对一的关系。实体可以引用聚合内的聚合根、实体和值对象。</p>
-<p><strong>值对象</strong>的特点：无 ID，不可变，无生命周期，用完即扔。值对象之间通过属性值判断相等性。它的核心本质是值，是一组概念完整的属性组成的集合，用于描述实体的状态和特征。值对象尽量只引用值对象。</p>
+<p><img src="https://static001.geekbang.org/resource/image/d6/e1/d6abc3e4f5837cd51b689d01433cace1.jpg" alt="img"></p>
+<p>我们看一下上面这张图，在最早的传统四层架构中，基础层是被其它层依赖的，它位于最核心的位置，那按照分层架构的思想，它应该就是核心，但实际上领域层才是软件的核心，所以这种依赖是有问题的。后来我们采用了依赖倒置（Dependency inversion principle,DIP）的设计，优化了传统的四层架构，实现了各层对基础层的解耦。</p>
+<p>在下面这张图中，从上到下依次是：用户接口层、应用层、领域层和基础层。那 DDD 各层的主要职责是什么呢？下面我来逐一介绍一下。</p>
+<p><img src="https://static001.geekbang.org/resource/image/a3/01/a308123994f87a5ce99adc85dd9b4d01.jpg" alt="img"></p>
+<h3 id="用户接口层"><a href="#用户接口层" class="headerlink" title="用户接口层"></a>用户接口层</h3><p>用户接口层负责向用户显示信息和解释用户指令。这里的用户可能是：用户、程序、自动化测试和批处理脚本等等。</p>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>应用层是很薄的一层，理论上不应该有业务规则或逻辑，主要面向用例和流程相关的操作。但应用层又位于领域层之上，因为领域层包含多个聚合，所以它可以协调多个聚合的服务和领域对象完成服务编排和组合，协作完成业务操作。</p>
+<p>此外，应用层也是微服务之间交互的通道，它可以调用其它微服务的应用服务，完成微服务之间的服务组合和编排。</p>
+<p>这里我要提醒你一下：在设计和开发时，不要将本该放在领域层的业务逻辑放到应用层中实现。因为庞大的应用层会使领域模型失焦，时间一长你的微服务就会演化为传统的三层架构，业务逻辑会变得混乱。</p>
+<p>另外，应用服务是在应用层的，它负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装，以粗粒度的服务通过 API 网关向前端发布。还有，应用服务还可以进行安全认证、权限校验、事务控制、发送或订阅领域事件等。</p>
+<h3 id="领域层"><a href="#领域层" class="headerlink" title="领域层"></a>领域层</h3><p>领域层的作用是实现企业核心业务逻辑，通过各种校验手段保证业务的正确性。领域层主要体现领域模型的业务能力，它用来表达业务概念、业务状态和业务规则。</p>
+<p>领域层包含聚合根、实体、值对象、领域服务等领域模型中的领域对象。</p>
+<p>这里我要特别解释一下其中几个领域对象的关系，以便你在设计领域层的时候能更加清楚。首先，领域模型的业务逻辑主要是由实体和领域服务来实现的，其中实体会采用充血模型来实现所有与之相关的业务功能。其次，你要知道，实体和领域对象在实现业务逻辑上不是同级的，当领域中的某些功能，单一实体（或者值对象）不能实现时，领域服务就会出马，它可以组合聚合内的多个实体（或者值对象），实现复杂的业务逻辑。</p>
+<h3 id="基础层"><a href="#基础层" class="headerlink" title="基础层"></a>基础层</h3><p>基础层是贯穿所有层的，它的作用就是为其它各层提供通用的技术和基础服务，包括第三方工具、驱动、消息中间件、网关、文件、缓存以及数据库等。比较常见的功能还是提供数据库持久化。</p>
+<p>基础层包含基础服务，它采用依赖倒置设计，封装基础资源服务，实现应用层、领域层与基础层的解耦，降低外部资源变化对应用的影响。</p>
+<p>比如说，在传统架构设计中，由于上层应用对数据库的强耦合，很多公司在架构演进中最担忧的可能就是换数据库了，因为一旦更换数据库，就可能需要重写大部分的代码，这对应用来说是致命的。那采用依赖倒置的设计以后，应用层就可以通过解耦来保持独立的核心业务逻辑。当数据库变更时，我们只需要更换数据库基础服务就可以了，这样就将资源变更对应用的影响降到了最低。</p>
+<h2 id="DDD-分层架构最重要的原则是什么？"><a href="#DDD-分层架构最重要的原则是什么？" class="headerlink" title="DDD 分层架构最重要的原则是什么？"></a>DDD 分层架构最重要的原则是什么？</h2><p>在《实现领域驱动设计》一书中，DDD 分层架构有一个重要的原则：每层只能与位于其下方的层发生耦合。</p>
+<p> 而架构根据耦合的紧密程度又可以分为两种：<strong>严格分层架构</strong>和<strong>松散分层架构</strong>。优化后的 DDD 分层架构模型就属于严格分层架构，任何层只能对位于其直接下方的层产生依赖。而传统的 DDD 分层架构则属于松散分层架构，它允许某层与其任意下方的层发生依赖。 </p>
+<h2 id="三层架构如何演进到-DDD-分层架构？"><a href="#三层架构如何演进到-DDD-分层架构？" class="headerlink" title="三层架构如何演进到 DDD 分层架构？"></a>三层架构如何演进到 DDD 分层架构？</h2><p>传统企业应用大多是单体架构，而单体架构则大多是三层架构。三层架构解决了程序内代码间调用复杂、代码职责不清的问题，但这种分层是逻辑概念，在物理上它是中心化的集中式架构，并不适合分布式微服务架构。</p>
+<p>DDD 分层架构中的要素其实和三层架构类似，只是在 DDD 分层架构中，这些要素被重新归类，重新划分了层，确定了层与层之间的交互规则和职责边界。</p>
+<p><img src="https://static001.geekbang.org/resource/image/16/a1/1680723ca91aa57d719d5cdbc1d910a1.jpg" alt="img"></p>
+<p>DDD 分层架构在用户接口层引入了 DTO，给前端提供了更多的可使用数据和更高的展示灵活性。</p>
+<p>DDD 分层架构对三层架构的业务逻辑层进行了更清晰的划分，改善了三层架构核心业务逻辑混乱，代码改动相互影响大的情况。DDD 分层架构将业务逻辑层的服务拆分到了应用层和领域层。应用层快速响应前端的变化，领域层实现领域模型的能力。</p>
+<p>另外一个重要的变化发生在数据访问层和基础层之间。三层架构数据访问采用 DAO 方式；DDD 分层架构的数据库等基础资源访问，采用了仓储（Repository）设计模式，通过依赖倒置实现各层对基础资源的解耦。</p>
+<p>仓储又分为两部分：仓储接口和仓储实现。仓储接口放在领域层中，仓储实现放在基础层。原来三层架构通用的第三方工具包、驱动、Common、Utility、Config 等通用的公共的资源类统一放到了基础层。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DDD 边界</title>
-    <url>/2019/10/16/DDD%E8%BE%B9%E7%95%8C/</url>
-    <content><![CDATA[<h1 id="DDD-边界"><a href="#DDD-边界" class="headerlink" title="DDD 边界"></a>DDD 边界</h1><h2 id="微服务边界的作用"><a href="#微服务边界的作用" class="headerlink" title="微服务边界的作用"></a>微服务边界的作用</h2><p>你应该还记得 DDD 设计方法里的限界上下文和聚合吧？它们就是用来定义领域模型和微服务边界的。</p>
-<p>我们再来回顾一下 DDD 的设计过程。</p>
-<a id="more"></a>
-
-<p>在事件风暴中，我们会梳理出业务过程中的用户操作、事件以及外部依赖关系等，根据这些要素梳理出实体等领域对象。根据实体对象之间的业务关联性，将业务紧密相关的多个实体进行组合形成聚合，聚合之间是第一层边界。根据业务及语义边界等因素将一个或者多个聚合划定在一个限界上下文内，形成领域模型，限界上下文之间的边界是第二层边界。</p>
-<p>为了方便理解，我们将这些边界分为：<strong>逻辑边界</strong>、<strong>物理边界</strong>和<strong>代码边界</strong>。</p>
-<p><strong>逻辑边界</strong>主要定义同一业务领域或应用内紧密关联的对象所组成的不同聚类的组合之间的边界。事件风暴对不同实体对象进行关联和聚类分析后，会产生多个聚合和限界上下文，它们一起组成这个领域的领域模型。微服务内聚合之间的边界就是逻辑边界。一般来说微服务会有一个以上的聚合，在开发过程中不同聚合的代码隔离在不同的聚合代码目录中。</p>
-<p>逻辑边界在微服务设计和架构演进中具有非常重要的意义！</p>
-<p>微服务的架构演进并不是随心所欲的，需要遵循一定的规则，这个规则就是逻辑边界。微服务架构演进时，在业务端以聚合为单位进行业务能力的重组，在微服务端以聚合的代码目录为单位进行微服务代码的重组。由于按照 DDD 方法设计的微服务逻辑边界清晰，业务高内聚，聚合之间代码松耦合，因此在领域模型和微服务代码重构时，我们就不需要花费太多的时间和精力了。</p>
-<p>现在我们来看一个微服务实例，在下面这张图中，我们可以看到微服务里包含了两个聚合的业务逻辑，两个聚合分别内聚了各自不同的业务能力，聚合内的代码分别归到了不同的聚合目录下。</p>
-<p>那随着业务的快速发展，如果某一个微服务遇到了高性能挑战，需要将部分业务能力独立出去，我们就可以以聚合为单位，将聚合代码拆分独立为一个新的微服务，这样就可以很容易地实现微服务的拆分。</p>
-<p><img src="https://static001.geekbang.org/resource/image/88/3d/88d709569367264d368b08a7d9658c3d.png" alt="img"></p>
-<p>另外，我们也可以对多个微服务内有相似功能的聚合进行功能和代码重组，组合为新的聚合和微服务，独立为通用微服务。现在你是不是有点做中台的感觉呢？</p>
-<p><strong>物理边界</strong>主要从部署和运行的视角来定义微服务之间的边界。不同微服务部署位置和运行环境是相互物理隔离的，分别运行在不同的进程中。这种边界就是微服务之间的物理边界。</p>
-<p><strong>代码边界</strong>主要用于微服务内的不同职能代码之间的隔离。微服务开发过程中会根据代码模型建立相应的代码目录，实现不同功能代码的隔离。由于领域模型与代码模型的映射关系，代码边界直接体现出业务边界。代码边界可以控制代码重组的影响范围，避免业务和服务之间的相互影响。微服务如果需要进行功能重组，只需要以聚合代码为单位进行重组就可以了。</p>
-<h2 id="正确理解微服务的边界"><a href="#正确理解微服务的边界" class="headerlink" title="正确理解微服务的边界"></a>正确理解微服务的边界</h2><p>从上述内容中，我们知道了，按照 DDD 设计出来的逻辑边界和代码边界，让微服务架构演进变得不那么费劲了。</p>
-<p>微服务的拆分可以参考领域模型，也可以参考聚合，因为聚合是可以拆分为微服务的最小单位的。但实施过程是否一定要做到逻辑边界与物理边界一致性呢？也就是说聚合是否也一定要设计成微服务呢？答案是不一定的，这里就涉及到微服务过度拆分的问题了。</p>
-<p>微服务的过度拆分会使软件维护成本上升，比如：集成成本、发布成本、运维成本以及监控和定位问题的成本等。在项目建设初期，如果你不具备较强的微服务管理能力，那就不宜将微服务拆分过细。当我们具备一定的能力以后，且微服务内部的逻辑和代码边界也很清晰，你就可以随时根据需要，拆分出新的微服务，实现微服务的架构演进了。</p>
-<p>当然，还要记住一点，微服务内聚合之间的服务调用和数据依赖需要符合高内聚松耦合的设计原则和开发规范，否则你也不能很快完成微服务的架构演进。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天我们主要讨论了微服务架构设计中的各种边界在架构演进中的作用。</p>
-<ul>
-<li><p>逻辑边界：微服务内聚合之间的边界是逻辑边界。它是一个虚拟的边界，强调业务的内聚，可根据需要变成物理边界，也就是说聚合也可以独立为微服务。</p>
-</li>
-<li><p>物理边界：微服务之间的边界是物理边界。它强调微服务部署和运行的隔离，关注微服务的服务调用、容错和运行等。</p>
-</li>
-<li><p>代码边界：不同层或者聚合之间代码目录的边界是代码边界。它强调的是代码之间的隔离，方便架构演进时代码的重组。</p>
-</li>
-</ul>
-<p>通过以上边界，我们可以让业务能力高内聚、代码松耦合，且清晰的边界，可以快速实现微服务代码的拆分和组合，轻松实现微服务架构演进。但有一点一定要格外注意，边界清晰的微服务，不是大单体向小单体的演进。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DDD 进阶</title>
-    <url>/2019/10/16/DDD%E8%BF%9B%E9%98%B6/</url>
-    <content><![CDATA[<h1 id="DDD-进阶"><a href="#DDD-进阶" class="headerlink" title="DDD 进阶"></a>DDD 进阶</h1><h2 id="领域事件"><a href="#领域事件" class="headerlink" title="领域事件"></a>领域事件</h2><p> 这种事件发生后通常会导致进一步的业务操作，在 DDD 中这种事件被称为领域事件。 </p>
-<a id="more"></a>
-
-<h2 id="领域事件总体架构"><a href="#领域事件总体架构" class="headerlink" title="领域事件总体架构"></a>领域事件总体架构</h2><p>  领域事件处理包括：事件构建和发布、事件数据持久化、事件总线、消息中间件、事件接收和处理等。 </p>
-<p><img src="https://static001.geekbang.org/resource/image/b2/8f/b221ed4011c23720ebe9f48ba8eee38f.jpg" alt="img"> </p>
-<h3 id="1-事件构建和发布"><a href="#1-事件构建和发布" class="headerlink" title="1. 事件构建和发布"></a>1. 事件构建和发布</h3><p>事件基本属性至少包括：事件唯一标识、发生时间、事件类型和事件源，其中事件唯一标识应该是全局唯一的，以便事件能够无歧义地在多个限界上下文中传递。事件基本属性主要记录事件自身以及事件发生背景的数据。</p>
-<p>另外事件中还有一项更重要，那就是业务属性，用于记录事件发生那一刻的业务数据，这些数据会随事件传输到订阅方，以开展下一步的业务操作。</p>
-<p>事件基本属性和业务属性一起构成事件实体，事件实体依赖聚合根。领域事件发生后，事件中的业务数据不再修改，因此业务数据可以以序列化值对象的形式保存，这种存储格式在消息中间件中也比较容易解析和获取。</p>
-<p>为了保证事件结构的统一，我们还会创建事件基类 DomainEvent（参考下图），子类可以扩充属性和方法。由于事件没有太多的业务行为，实现方法一般比较简单。</p>
-<p><img src="https://static001.geekbang.org/resource/image/1e/89/1eabec534f268361737e62cd48978289.jpg" alt="img"></p>
-<p>事件发布之前需要先构建事件实体并持久化。事件发布的方式有很多种，你可以通过应用服务或者领域服务发布到事件总线或者消息中间件，也可以从事件表中利用定时程序或数据库日志捕获技术获取增量事件数据，发布到消息中间件。</p>
-<h3 id="2-事件数据持久化"><a href="#2-事件数据持久化" class="headerlink" title="2. 事件数据持久化"></a>2. 事件数据持久化</h3><p>事件数据持久化可用于系统之间的数据对账，或者实现发布方和订阅方事件数据的审计。当遇到消息中间件、订阅方系统宕机或者网络中断，在问题解决后仍可继续后续业务流转，保证数据的一致性。</p>
-<p>事件数据持久化有两种方案，在实施过程中你可以根据自己的业务场景进行选择。</p>
-<p>持久化到本地业务数据库的事件表中，利用本地事务保证业务和事件数据的一致性。</p>
-<p>持久化到共享的事件数据库中。这里需要注意的是：业务数据库和事件数据库不在一个数据库中，它们的数据持久化操作会跨数据库，因此需要分布式事务机制来保证业务和事件数据的强一致性，结果就是会对系统性能造成一定的影响。</p>
-<h3 id="3-事件总线-EventBus"><a href="#3-事件总线-EventBus" class="headerlink" title="3. 事件总线 (EventBus)"></a>3. 事件总线 (EventBus)</h3><p>事件总线是实现微服务内聚合之间领域事件的重要组件，它提供事件分发和接收等服务。事件总线是进程内模型，它会在微服务内聚合之间遍历订阅者列表，采取同步或异步的模式传递数据。事件分发流程大致如下：</p>
-<p>如果是微服务内的订阅者（其它聚合），则直接分发到指定订阅者；</p>
-<p>如果是微服务外的订阅者，将事件数据保存到事件库（表）并异步发送到消息中间件；</p>
-<p>如果同时存在微服务内和外订阅者，则先分发到内部订阅者，将事件消息保存到事件库（表），再异步发送到消息中间件。</p>
-<h3 id="4-消息中间件"><a href="#4-消息中间件" class="headerlink" title="4. 消息中间件"></a>4. 消息中间件</h3><p>跨微服务的领域事件大多会用到消息中间件，实现跨微服务的事件发布和订阅。消息中间件的产品非常成熟，市场上可选的技术也非常多，比如 Kafka，RabbitMQ 等。</p>
-<h3 id="5-事件接收和处理"><a href="#5-事件接收和处理" class="headerlink" title="5. 事件接收和处理"></a>5. 事件接收和处理</h3><p>微服务订阅方在应用层采用监听机制，接收消息队列中的事件数据，完成事件数据的持久化后，就可以开始进一步的业务处理。领域事件处理可在领域服务中实现。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Soul 网关二探</title>
-    <url>/2021/01/16/Soul%20%E7%BD%91%E5%85%B3%E4%BA%8C%E6%8E%A2/</url>
-    <content><![CDATA[<h1 id="Soul-网关二探"><a href="#Soul-网关二探" class="headerlink" title="Soul 网关二探"></a>Soul 网关二探</h1><h1 id="重新梳理"><a href="#重新梳理" class="headerlink" title="重新梳理"></a>重新梳理</h1><p>再次梳理一遍接口调用流程：</p>
-<p>SoulWebHandler.handle() → DefaultSoulPluginChain.execute() → AbstractSoulPlugin.execute() → AlibabaDubboPlugin.doExecute()</p>
-<a id="more"></a>
-
-<p>每次有请求打到网关，SoulWebHandler 类都会插件一个 DefaultSoulPluginChain 静态成员内部类，有两个属性，一个是插件列表 plugins，一个是列表下标 index（用来记录链条的访问位置）。</p>
-<p>然后在 AbstractSoulPlugin 类里面进行筛选选择器、规则。</p>
-<p>最后调用具体的实现类（也就是插件类）的处理方法。比如 Dubbo 插件进行泛化调用，Divide 插件进行组装请求地址等参数。</p>
-<h1 id="部分插件核心代码"><a href="#部分插件核心代码" class="headerlink" title="部分插件核心代码"></a>部分插件核心代码</h1><h2 id="Divide"><a href="#Divide" class="headerlink" title="Divide"></a>Divide</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 获取规则</span></span><br><span class="line">    <span class="keyword">final</span> DivideRuleHandle ruleHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), DivideRuleHandle.class);</span><br><span class="line">    <span class="comment">// 获取请求地址列表</span></span><br><span class="line">    <span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList = UpstreamCacheManager.getInstance().findUpstreamListBySelectorId(selector.getId());</span><br><span class="line">    <span class="keyword">if</span> (CollectionUtils.isEmpty(upstreamList)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 通过负载均衡，拿到一个地址</span></span><br><span class="line">    <span class="keyword">final</span> String ip = Objects.requireNonNull(exchange.getRequest().getRemoteAddress()).getAddress().getHostAddress();</span><br><span class="line">    DivideUpstream divideUpstream = LoadBalanceUtils.selector(upstreamList, ruleHandle.getLoadBalance(), ip);</span><br><span class="line">    <span class="keyword">if</span> (Objects.isNull(divideUpstream)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 设置请求地址</span></span><br><span class="line">    String domain = buildDomain(divideUpstream);</span><br><span class="line">    String realURL = buildRealURL(domain, soulContext, exchange);</span><br><span class="line">    exchange.getAttributes().put(Constants.HTTP_URL, realURL);</span><br><span class="line">    <span class="comment">// 设置超时时间</span></span><br><span class="line">    exchange.getAttributes().put(Constants.HTTP_TIME_OUT, ruleHandle.getTimeout());</span><br><span class="line">    <span class="comment">// 设置重试次数</span></span><br><span class="line">    exchange.getAttributes().put(Constants.HTTP_RETRY, ruleHandle.getRetry());</span><br><span class="line">    <span class="keyword">return</span> chain.execute(exchange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="WebClient"><a href="#WebClient" class="headerlink" title="WebClient"></a>WebClient</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Mono&lt;Void&gt; <span class="title">execute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 从 exchange 拿到请求地址</span></span><br><span class="line">    String urlPath = exchange.getAttribute(Constants.HTTP_URL);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isEmpty(urlPath)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 拿到超时时间和重试次数</span></span><br><span class="line">    <span class="keyword">long</span> timeout = (<span class="keyword">long</span>) Optional.ofNullable(exchange.getAttribute(Constants.HTTP_TIME_OUT)).orElse(<span class="number">3000L</span>);</span><br><span class="line">    <span class="keyword">int</span> retryTimes = (<span class="keyword">int</span>) Optional.ofNullable(exchange.getAttribute(Constants.HTTP_RETRY)).orElse(<span class="number">0</span>);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到请求方法（GET、POST等）</span></span><br><span class="line">    HttpMethod method = HttpMethod.valueOf(exchange.getRequest().getMethodValue());</span><br><span class="line">    <span class="comment">// 使用 Spring 提供的 WebClient 发起请求调用</span></span><br><span class="line">    WebClient.RequestBodySpec requestBodySpec = webClient.method(method).uri(urlPath);</span><br><span class="line">    <span class="comment">// 处理相应数据</span></span><br><span class="line">    <span class="keyword">return</span> handleRequestBody(requestBodySpec, exchange, timeout, retryTimes, chain);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="自定义插件"><a href="#自定义插件" class="headerlink" title="自定义插件"></a>自定义插件</h1><p>整体流程抽出来之后，非常简单，那我们如何自己来写一个插件呢？</p>
-<p>在 Soul 网关里面，插件主要分两类：</p>
-<ol>
-<li>单一职责的调用链，不能对流量进行自定义的筛选。</li>
-<li>能对匹配的流量，执行自己的职责调用链。</li>
-</ol>
-<h2 id="单一职责插件"><a href="#单一职责插件" class="headerlink" title="单一职责插件"></a>单一职责插件</h2><ol>
-<li><p>引入如下依赖：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dromara<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>soul-plugin-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;last.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>用户新增一个类，实现 org.dromara.soul.plugin.api.SoulPlugin 类；</p>
-</li>
-<li><p>接口方法详细说明：</p>
-<ul>
-<li><code>execute()</code> 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。</li>
-<li><code>getOrder()</code> 指定插件的排序。</li>
-<li><code>named()</code> 指定插件的名称。</li>
-<li><code>skip()</code> 在特定的条件下，该插件是否被跳过。</li>
-</ul>
-</li>
-<li><p>注册成 Spring 的 bean，参考如下，或者直接在实现类上加 @Component 注解。</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SoulPlugin <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> A();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="匹配流量处理插件"><a href="#匹配流量处理插件" class="headerlink" title="匹配流量处理插件"></a>匹配流量处理插件</h2><ol>
-<li><p>引入如下依赖：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dromara<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>soul-plugin-base<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;last.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>用户新增一个类，继承 org.dromara.soul.plugin.base.AbstractSoulPlugin 类；</p>
-</li>
-<li><p>接口方法详细说明：</p>
-<ul>
-<li><code>doExecute()</code> 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。</li>
-<li><code>getOrder()</code> 指定插件的排序。</li>
-<li><code>named()</code> 指定插件的名称。</li>
-<li><code>skip()</code> 在特定的条件下，该插件是否被跳过。</li>
-</ul>
-</li>
-<li><p>注册成 Spring 的 bean，参考如下，或者直接在实现类上加 @Component 注解。</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SoulPlugin <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> A();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>开源</tag>
       </tags>
   </entry>
   <entry>
@@ -395,6 +217,124 @@
       </tags>
   </entry>
   <entry>
+    <title>DDD 基础</title>
+    <url>/2019/10/16/DDD%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="DDD-基础"><a href="#DDD-基础" class="headerlink" title="DDD 基础"></a>DDD 基础</h1><h2 id="领域和子域"><a href="#领域和子域" class="headerlink" title="领域和子域"></a>领域和子域</h2><p>领域就是用来确定范围的，范围即边界，这也是 DDD 在设计中不断强调边界的原因。</p>
+<a id="more"></a>
+
+<p>在研究和解决业务问题时，DDD 会按照一定的规则<strong>将业务领域进行细分</strong>，当领域细分到一定的程度后，DDD 会将问题范围限定在特定的边界内，在这个边界内建立领域模型，进而用代码实现该领域模型，解决相应的业务问题。简言之，DDD 的领域就是这个边界内要解决的业务问题域。</p>
+<p>既然领域是用来限定业务边界和范围的，那么就会有大小之分，领域越大，业务范围就越大，反之则相反。</p>
+<p>领域可以进一步划分为子领域。我们把划分出来的多个子领域称为子域，每个子域对应一个更小的问题域或更小的业务范围。</p>
+<p>不同行业的业务模型可能会不一样，但领域建模和微服务建设的过程和方法基本类似，其核心思想就是<strong>将问题域逐步分解</strong>，<strong>降低业务理解和系统实现的复杂度</strong>。</p>
+<h2 id="核心域、通用域和支撑域"><a href="#核心域、通用域和支撑域" class="headerlink" title="核心域、通用域和支撑域"></a>核心域、通用域和支撑域</h2><p>在领域不断划分的过程中，领域会细分为不同的子域，子域可以根据自身重要性和功能属性划分为三类子域，它们分别是：核心域、通用域和支撑域。</p>
+<ul>
+<li><p>决定产品和公司核心竞争力的子域是<strong>核心域</strong>，它是业务成功的主要因素和公司的核心竞争力。</p>
+</li>
+<li><p>没有太多个性化的诉求，同时被多个子域使用的通用功能子域是<strong>通用域</strong>。</p>
+</li>
+<li><p>还有一种功能子域是必须的，但既不包含决定产品 / 和公司核心竞争力 / 的功能，也不包含通用功能的子域，它就是<strong>支撑域</strong>。</p>
+</li>
+</ul>
+<h2 id="通用语言"><a href="#通用语言" class="headerlink" title="通用语言"></a>通用语言</h2><p>在事件风暴过程中，通过团队交流达成共识的，能够简单、清晰、准确描述业务涵义和规则的语言就是<strong>通用语言</strong>。也就是说，通用语言是团队统一的语言，不管你在团队中承担什么角色，在同一个领域的软件生命周期里都使用统一的语言进行交流。</p>
+<p>那么，通用语言的价值也就很明了了，它可以解决交流障碍这个问题，使领域专家和开发人员能够协同合作，从而确保业务需求的正确表达。</p>
+<h2 id="限界上下文"><a href="#限界上下文" class="headerlink" title="限界上下文"></a>限界上下文</h2><p>我们知道语言都有它的语义环境，同样，通用语言也有它的上下文环境。为了避免同样的概念或语义在不同的上下文环境中产生歧义，DDD 在战略设计上提出了 “<strong>限界上下文</strong>” 这个概念，用来确定语义所在的领域边界。</p>
+<p>我们可以将限界上下文拆解为两个词：<strong>限界</strong>和<strong>上下文</strong>。限界就是领域的边界，而上下文则是语义环境。通过领域的限界上下文，我们就可以在统一的领域边界内用统一的语言进行交流。</p>
+<p> 综合一下，我认为限界上下文的定义就是：用来封装通用语言和领域对象，提供上下文环境，保证在领域之内的一些术语、业务相关对象等（通用语言）有一个确切的含义，没有二义性。这个边界定义了模型的适用范围，使团队所有成员能够明确地知道什么应该在模型中实现，什么不应该在模型中实现。 </p>
+<h2 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h2><p> 在 DDD 中有这样一类对象，它们拥有唯一标识符，且标识符在历经各种状态变更后仍能保持一致。对这些对象而言，重要的不是其属性，而是其延续性和标识，对象的延续性和标识会跨越甚至超出软件的生命周期。我们把这样的对象称为<strong>实体</strong>。 </p>
+<p> 在领域模型映射到数据模型时，一个实体可能对应 <strong>0 个、1 个或者多个</strong>数据库持久化对象。大多数情况下实体与持久化对象是一对一。在某些场景中，有些实体只是暂驻静态内存的一个运行态实体，它不需要持久化。比如，基于多个价格配置数据计算后生成的折扣实体。 </p>
+<h2 id="值对象"><a href="#值对象" class="headerlink" title="值对象"></a>值对象</h2><p> 通过对象属性值来识别的对象，它将多个相关属性组合为一个概念整体。在 DDD 中用来描述领域的特定方面，并且是一个没有标识符的对象，叫作<strong>值对象</strong>。 </p>
+<p> 也就说，值对象描述了领域中的一件东西，这个东西是不可变的，它将不同的相关属性组合成了一个概念整体。当度量和描述改变时，可以用另外一个值对象予以替换。它可以和其它值对象进行相等性比较，且不会对协作对象造成副作用。 </p>
+<p>值对象嵌入到实体的话，有这样两种不同的数据格式，也可以说是两种方式，分别是<strong>属性嵌入</strong>的方式和<strong>序列化大对象</strong>的方式。</p>
+<p>引用单一属性的值对象或只有一条记录的多属性值对象的实体，可以采用属性嵌入的方式嵌入。引用一条或多条记录的多属性值对象的实体，可以采用序列化大对象的方式嵌入。比如，人员实体可以有多个通讯地址，多个地址序列化后可以嵌入人员的地址属性。值对象创建后就不允许修改了，只能用另外一个值对象来整体替换。</p>
+<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p>领域模型内的实体和值对象就好比个体，而能让实体和值对象协同工作的组织就是<strong>聚合</strong>，它用来确保这些领域对象在实现共同的业务逻辑时，能保证数据的一致性。 </p>
+<p>领域模型内的实体和值对象就好比个体，而能让实体和值对象协同工作的组织就是聚合，它用来确保这些领域对象在实现共同的业务逻辑时，能保证数据的一致性。 </p>
+<h2 id="聚合根"><a href="#聚合根" class="headerlink" title="聚合根"></a>聚合根</h2><p> 如果把聚合比作组织，那<strong>聚合根</strong>就是这个组织的负责人。聚合根也称为根实体，它不仅是实体，还是聚合的管理者。 </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>聚合</strong>的特点：高内聚、低耦合，它是领域模型中最底层的边界，可以作为拆分微服务的最小单位，但我不建议你对微服务过度拆分。但在对性能有极致要求的场景中，聚合可以独立作为一个微服务，以满足版本的高频发布和极致的弹性伸缩能力。</p>
+<p>一个微服务可以包含多个聚合，聚合之间的边界是微服务内天然的逻辑边界。有了这个逻辑边界，在微服务架构演进时就可以以聚合为单位进行拆分和组合了，微服务的架构演进也就不再是一件难事了。</p>
+<p><strong>聚合根</strong>的特点：聚合根是实体，有实体的特点，具有全局唯一标识，有独立的生命周期。一个聚合只有一个聚合根，聚合根在聚合内对实体和值对象采用直接对象引用的方式进行组织和协调，聚合根与聚合根之间通过 ID 关联的方式实现聚合之间的协同。</p>
+<p><strong>实体</strong>的特点：有 ID 标识，通过 ID 判断相等性，ID 在聚合内唯一即可。状态可变，它依附于聚合根，其生命周期由聚合根管理。实体一般会持久化，但与数据库持久化对象不一定是一对一的关系。实体可以引用聚合内的聚合根、实体和值对象。</p>
+<p><strong>值对象</strong>的特点：无 ID，不可变，无生命周期，用完即扔。值对象之间通过属性值判断相等性。它的核心本质是值，是一组概念完整的属性组成的集合，用于描述实体的状态和特征。值对象尽量只引用值对象。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DDD 进阶</title>
+    <url>/2019/10/16/DDD%E8%BF%9B%E9%98%B6/</url>
+    <content><![CDATA[<h1 id="DDD-进阶"><a href="#DDD-进阶" class="headerlink" title="DDD 进阶"></a>DDD 进阶</h1><h2 id="领域事件"><a href="#领域事件" class="headerlink" title="领域事件"></a>领域事件</h2><p> 这种事件发生后通常会导致进一步的业务操作，在 DDD 中这种事件被称为领域事件。 </p>
+<a id="more"></a>
+
+<h2 id="领域事件总体架构"><a href="#领域事件总体架构" class="headerlink" title="领域事件总体架构"></a>领域事件总体架构</h2><p>  领域事件处理包括：事件构建和发布、事件数据持久化、事件总线、消息中间件、事件接收和处理等。 </p>
+<p><img src="https://static001.geekbang.org/resource/image/b2/8f/b221ed4011c23720ebe9f48ba8eee38f.jpg" alt="img"> </p>
+<h3 id="1-事件构建和发布"><a href="#1-事件构建和发布" class="headerlink" title="1. 事件构建和发布"></a>1. 事件构建和发布</h3><p>事件基本属性至少包括：事件唯一标识、发生时间、事件类型和事件源，其中事件唯一标识应该是全局唯一的，以便事件能够无歧义地在多个限界上下文中传递。事件基本属性主要记录事件自身以及事件发生背景的数据。</p>
+<p>另外事件中还有一项更重要，那就是业务属性，用于记录事件发生那一刻的业务数据，这些数据会随事件传输到订阅方，以开展下一步的业务操作。</p>
+<p>事件基本属性和业务属性一起构成事件实体，事件实体依赖聚合根。领域事件发生后，事件中的业务数据不再修改，因此业务数据可以以序列化值对象的形式保存，这种存储格式在消息中间件中也比较容易解析和获取。</p>
+<p>为了保证事件结构的统一，我们还会创建事件基类 DomainEvent（参考下图），子类可以扩充属性和方法。由于事件没有太多的业务行为，实现方法一般比较简单。</p>
+<p><img src="https://static001.geekbang.org/resource/image/1e/89/1eabec534f268361737e62cd48978289.jpg" alt="img"></p>
+<p>事件发布之前需要先构建事件实体并持久化。事件发布的方式有很多种，你可以通过应用服务或者领域服务发布到事件总线或者消息中间件，也可以从事件表中利用定时程序或数据库日志捕获技术获取增量事件数据，发布到消息中间件。</p>
+<h3 id="2-事件数据持久化"><a href="#2-事件数据持久化" class="headerlink" title="2. 事件数据持久化"></a>2. 事件数据持久化</h3><p>事件数据持久化可用于系统之间的数据对账，或者实现发布方和订阅方事件数据的审计。当遇到消息中间件、订阅方系统宕机或者网络中断，在问题解决后仍可继续后续业务流转，保证数据的一致性。</p>
+<p>事件数据持久化有两种方案，在实施过程中你可以根据自己的业务场景进行选择。</p>
+<p>持久化到本地业务数据库的事件表中，利用本地事务保证业务和事件数据的一致性。</p>
+<p>持久化到共享的事件数据库中。这里需要注意的是：业务数据库和事件数据库不在一个数据库中，它们的数据持久化操作会跨数据库，因此需要分布式事务机制来保证业务和事件数据的强一致性，结果就是会对系统性能造成一定的影响。</p>
+<h3 id="3-事件总线-EventBus"><a href="#3-事件总线-EventBus" class="headerlink" title="3. 事件总线 (EventBus)"></a>3. 事件总线 (EventBus)</h3><p>事件总线是实现微服务内聚合之间领域事件的重要组件，它提供事件分发和接收等服务。事件总线是进程内模型，它会在微服务内聚合之间遍历订阅者列表，采取同步或异步的模式传递数据。事件分发流程大致如下：</p>
+<p>如果是微服务内的订阅者（其它聚合），则直接分发到指定订阅者；</p>
+<p>如果是微服务外的订阅者，将事件数据保存到事件库（表）并异步发送到消息中间件；</p>
+<p>如果同时存在微服务内和外订阅者，则先分发到内部订阅者，将事件消息保存到事件库（表），再异步发送到消息中间件。</p>
+<h3 id="4-消息中间件"><a href="#4-消息中间件" class="headerlink" title="4. 消息中间件"></a>4. 消息中间件</h3><p>跨微服务的领域事件大多会用到消息中间件，实现跨微服务的事件发布和订阅。消息中间件的产品非常成熟，市场上可选的技术也非常多，比如 Kafka，RabbitMQ 等。</p>
+<h3 id="5-事件接收和处理"><a href="#5-事件接收和处理" class="headerlink" title="5. 事件接收和处理"></a>5. 事件接收和处理</h3><p>微服务订阅方在应用层采用监听机制，接收消息队列中的事件数据，完成事件数据的持久化后，就可以开始进一步的业务处理。领域事件处理可在领域服务中实现。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DDD 边界</title>
+    <url>/2019/10/16/DDD%E8%BE%B9%E7%95%8C/</url>
+    <content><![CDATA[<h1 id="DDD-边界"><a href="#DDD-边界" class="headerlink" title="DDD 边界"></a>DDD 边界</h1><h2 id="微服务边界的作用"><a href="#微服务边界的作用" class="headerlink" title="微服务边界的作用"></a>微服务边界的作用</h2><p>你应该还记得 DDD 设计方法里的限界上下文和聚合吧？它们就是用来定义领域模型和微服务边界的。</p>
+<p>我们再来回顾一下 DDD 的设计过程。</p>
+<a id="more"></a>
+
+<p>在事件风暴中，我们会梳理出业务过程中的用户操作、事件以及外部依赖关系等，根据这些要素梳理出实体等领域对象。根据实体对象之间的业务关联性，将业务紧密相关的多个实体进行组合形成聚合，聚合之间是第一层边界。根据业务及语义边界等因素将一个或者多个聚合划定在一个限界上下文内，形成领域模型，限界上下文之间的边界是第二层边界。</p>
+<p>为了方便理解，我们将这些边界分为：<strong>逻辑边界</strong>、<strong>物理边界</strong>和<strong>代码边界</strong>。</p>
+<p><strong>逻辑边界</strong>主要定义同一业务领域或应用内紧密关联的对象所组成的不同聚类的组合之间的边界。事件风暴对不同实体对象进行关联和聚类分析后，会产生多个聚合和限界上下文，它们一起组成这个领域的领域模型。微服务内聚合之间的边界就是逻辑边界。一般来说微服务会有一个以上的聚合，在开发过程中不同聚合的代码隔离在不同的聚合代码目录中。</p>
+<p>逻辑边界在微服务设计和架构演进中具有非常重要的意义！</p>
+<p>微服务的架构演进并不是随心所欲的，需要遵循一定的规则，这个规则就是逻辑边界。微服务架构演进时，在业务端以聚合为单位进行业务能力的重组，在微服务端以聚合的代码目录为单位进行微服务代码的重组。由于按照 DDD 方法设计的微服务逻辑边界清晰，业务高内聚，聚合之间代码松耦合，因此在领域模型和微服务代码重构时，我们就不需要花费太多的时间和精力了。</p>
+<p>现在我们来看一个微服务实例，在下面这张图中，我们可以看到微服务里包含了两个聚合的业务逻辑，两个聚合分别内聚了各自不同的业务能力，聚合内的代码分别归到了不同的聚合目录下。</p>
+<p>那随着业务的快速发展，如果某一个微服务遇到了高性能挑战，需要将部分业务能力独立出去，我们就可以以聚合为单位，将聚合代码拆分独立为一个新的微服务，这样就可以很容易地实现微服务的拆分。</p>
+<p><img src="https://static001.geekbang.org/resource/image/88/3d/88d709569367264d368b08a7d9658c3d.png" alt="img"></p>
+<p>另外，我们也可以对多个微服务内有相似功能的聚合进行功能和代码重组，组合为新的聚合和微服务，独立为通用微服务。现在你是不是有点做中台的感觉呢？</p>
+<p><strong>物理边界</strong>主要从部署和运行的视角来定义微服务之间的边界。不同微服务部署位置和运行环境是相互物理隔离的，分别运行在不同的进程中。这种边界就是微服务之间的物理边界。</p>
+<p><strong>代码边界</strong>主要用于微服务内的不同职能代码之间的隔离。微服务开发过程中会根据代码模型建立相应的代码目录，实现不同功能代码的隔离。由于领域模型与代码模型的映射关系，代码边界直接体现出业务边界。代码边界可以控制代码重组的影响范围，避免业务和服务之间的相互影响。微服务如果需要进行功能重组，只需要以聚合代码为单位进行重组就可以了。</p>
+<h2 id="正确理解微服务的边界"><a href="#正确理解微服务的边界" class="headerlink" title="正确理解微服务的边界"></a>正确理解微服务的边界</h2><p>从上述内容中，我们知道了，按照 DDD 设计出来的逻辑边界和代码边界，让微服务架构演进变得不那么费劲了。</p>
+<p>微服务的拆分可以参考领域模型，也可以参考聚合，因为聚合是可以拆分为微服务的最小单位的。但实施过程是否一定要做到逻辑边界与物理边界一致性呢？也就是说聚合是否也一定要设计成微服务呢？答案是不一定的，这里就涉及到微服务过度拆分的问题了。</p>
+<p>微服务的过度拆分会使软件维护成本上升，比如：集成成本、发布成本、运维成本以及监控和定位问题的成本等。在项目建设初期，如果你不具备较强的微服务管理能力，那就不宜将微服务拆分过细。当我们具备一定的能力以后，且微服务内部的逻辑和代码边界也很清晰，你就可以随时根据需要，拆分出新的微服务，实现微服务的架构演进了。</p>
+<p>当然，还要记住一点，微服务内聚合之间的服务调用和数据依赖需要符合高内聚松耦合的设计原则和开发规范，否则你也不能很快完成微服务的架构演进。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>今天我们主要讨论了微服务架构设计中的各种边界在架构演进中的作用。</p>
+<ul>
+<li><p>逻辑边界：微服务内聚合之间的边界是逻辑边界。它是一个虚拟的边界，强调业务的内聚，可根据需要变成物理边界，也就是说聚合也可以独立为微服务。</p>
+</li>
+<li><p>物理边界：微服务之间的边界是物理边界。它强调微服务部署和运行的隔离，关注微服务的服务调用、容错和运行等。</p>
+</li>
+<li><p>代码边界：不同层或者聚合之间代码目录的边界是代码边界。它强调的是代码之间的隔离，方便架构演进时代码的重组。</p>
+</li>
+</ul>
+<p>通过以上边界，我们可以让业务能力高内聚、代码松耦合，且清晰的边界，可以快速实现微服务代码的拆分和组合，轻松实现微服务架构演进。但有一点一定要格外注意，边界清晰的微服务，不是大单体向小单体的演进。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Soul Dubbo 插件</title>
     <url>/2021/01/15/Soul%20Dubbo%20%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="Soul-Dubbo-插件"><a href="#Soul-Dubbo-插件" class="headerlink" title="Soul Dubbo 插件"></a>Soul Dubbo 插件</h1><p>今日主题：Soul 网关如何通过 Http 访问 Dubbo 协议的接口？</p>
@@ -452,14 +392,186 @@
       </tags>
   </entry>
   <entry>
+    <title>Soul 网关二探</title>
+    <url>/2021/01/16/Soul%20%E7%BD%91%E5%85%B3%E4%BA%8C%E6%8E%A2/</url>
+    <content><![CDATA[<h1 id="Soul-网关二探"><a href="#Soul-网关二探" class="headerlink" title="Soul 网关二探"></a>Soul 网关二探</h1><h1 id="重新梳理"><a href="#重新梳理" class="headerlink" title="重新梳理"></a>重新梳理</h1><p>再次梳理一遍接口调用流程：</p>
+<p>SoulWebHandler.handle() → DefaultSoulPluginChain.execute() → AbstractSoulPlugin.execute() → AlibabaDubboPlugin.doExecute()</p>
+<a id="more"></a>
+
+<p>每次有请求打到网关，SoulWebHandler 类都会插件一个 DefaultSoulPluginChain 静态成员内部类，有两个属性，一个是插件列表 plugins，一个是列表下标 index（用来记录链条的访问位置）。</p>
+<p>然后在 AbstractSoulPlugin 类里面进行筛选选择器、规则。</p>
+<p>最后调用具体的实现类（也就是插件类）的处理方法。比如 Dubbo 插件进行泛化调用，Divide 插件进行组装请求地址等参数。</p>
+<h1 id="部分插件核心代码"><a href="#部分插件核心代码" class="headerlink" title="部分插件核心代码"></a>部分插件核心代码</h1><h2 id="Divide"><a href="#Divide" class="headerlink" title="Divide"></a>Divide</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 获取规则</span></span><br><span class="line">    <span class="keyword">final</span> DivideRuleHandle ruleHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), DivideRuleHandle.class);</span><br><span class="line">    <span class="comment">// 获取请求地址列表</span></span><br><span class="line">    <span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList = UpstreamCacheManager.getInstance().findUpstreamListBySelectorId(selector.getId());</span><br><span class="line">    <span class="keyword">if</span> (CollectionUtils.isEmpty(upstreamList)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 通过负载均衡，拿到一个地址</span></span><br><span class="line">    <span class="keyword">final</span> String ip = Objects.requireNonNull(exchange.getRequest().getRemoteAddress()).getAddress().getHostAddress();</span><br><span class="line">    DivideUpstream divideUpstream = LoadBalanceUtils.selector(upstreamList, ruleHandle.getLoadBalance(), ip);</span><br><span class="line">    <span class="keyword">if</span> (Objects.isNull(divideUpstream)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 设置请求地址</span></span><br><span class="line">    String domain = buildDomain(divideUpstream);</span><br><span class="line">    String realURL = buildRealURL(domain, soulContext, exchange);</span><br><span class="line">    exchange.getAttributes().put(Constants.HTTP_URL, realURL);</span><br><span class="line">    <span class="comment">// 设置超时时间</span></span><br><span class="line">    exchange.getAttributes().put(Constants.HTTP_TIME_OUT, ruleHandle.getTimeout());</span><br><span class="line">    <span class="comment">// 设置重试次数</span></span><br><span class="line">    exchange.getAttributes().put(Constants.HTTP_RETRY, ruleHandle.getRetry());</span><br><span class="line">    <span class="keyword">return</span> chain.execute(exchange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="WebClient"><a href="#WebClient" class="headerlink" title="WebClient"></a>WebClient</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Mono&lt;Void&gt; <span class="title">execute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 从 exchange 拿到请求地址</span></span><br><span class="line">    String urlPath = exchange.getAttribute(Constants.HTTP_URL);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isEmpty(urlPath)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 拿到超时时间和重试次数</span></span><br><span class="line">    <span class="keyword">long</span> timeout = (<span class="keyword">long</span>) Optional.ofNullable(exchange.getAttribute(Constants.HTTP_TIME_OUT)).orElse(<span class="number">3000L</span>);</span><br><span class="line">    <span class="keyword">int</span> retryTimes = (<span class="keyword">int</span>) Optional.ofNullable(exchange.getAttribute(Constants.HTTP_RETRY)).orElse(<span class="number">0</span>);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到请求方法（GET、POST等）</span></span><br><span class="line">    HttpMethod method = HttpMethod.valueOf(exchange.getRequest().getMethodValue());</span><br><span class="line">    <span class="comment">// 使用 Spring 提供的 WebClient 发起请求调用</span></span><br><span class="line">    WebClient.RequestBodySpec requestBodySpec = webClient.method(method).uri(urlPath);</span><br><span class="line">    <span class="comment">// 处理相应数据</span></span><br><span class="line">    <span class="keyword">return</span> handleRequestBody(requestBodySpec, exchange, timeout, retryTimes, chain);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="自定义插件"><a href="#自定义插件" class="headerlink" title="自定义插件"></a>自定义插件</h1><p>整体流程抽出来之后，非常简单，那我们如何自己来写一个插件呢？</p>
+<p>在 Soul 网关里面，插件主要分两类：</p>
+<ol>
+<li>单一职责的调用链，不能对流量进行自定义的筛选。</li>
+<li>能对匹配的流量，执行自己的职责调用链。</li>
+</ol>
+<h2 id="单一职责插件"><a href="#单一职责插件" class="headerlink" title="单一职责插件"></a>单一职责插件</h2><ol>
+<li><p>引入如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dromara<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>soul-plugin-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;last.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>用户新增一个类，实现 org.dromara.soul.plugin.api.SoulPlugin 类；</p>
+</li>
+<li><p>接口方法详细说明：</p>
+<ul>
+<li><code>execute()</code> 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。</li>
+<li><code>getOrder()</code> 指定插件的排序。</li>
+<li><code>named()</code> 指定插件的名称。</li>
+<li><code>skip()</code> 在特定的条件下，该插件是否被跳过。</li>
+</ul>
+</li>
+<li><p>注册成 Spring 的 bean，参考如下，或者直接在实现类上加 @Component 注解。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SoulPlugin <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> A();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="匹配流量处理插件"><a href="#匹配流量处理插件" class="headerlink" title="匹配流量处理插件"></a>匹配流量处理插件</h2><ol>
+<li><p>引入如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dromara<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>soul-plugin-base<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;last.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>用户新增一个类，继承 org.dromara.soul.plugin.base.AbstractSoulPlugin 类；</p>
+</li>
+<li><p>接口方法详细说明：</p>
+<ul>
+<li><code>doExecute()</code> 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。</li>
+<li><code>getOrder()</code> 指定插件的排序。</li>
+<li><code>named()</code> 指定插件的名称。</li>
+<li><code>skip()</code> 在特定的条件下，该插件是否被跳过。</li>
+</ul>
+</li>
+<li><p>注册成 Spring 的 bean，参考如下，或者直接在实现类上加 @Component 注解。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SoulPlugin <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> A();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Soul Hystrix 插件</title>
+    <url>/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="Soul-Hystrix-插件"><a href="#Soul-Hystrix-插件" class="headerlink" title="Soul Hystrix 插件"></a>Soul Hystrix 插件</h1><p>简单了解 Soul Hystrix 插件。</p>
+<a id="more"></a>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Hystrix 插件是 Soul 网关用来对流量进行熔断的核心实现，主要使用信号量的方式来处理请求。</p>
+<h1 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a><strong>插件设置</strong></h1><p>在 <code>soul-admin</code> –&gt; 插件管理 –&gt; <code>hystrix</code>，设置为开启。</p>
+<h1 id="Hystrix-处理"><a href="#Hystrix-处理" class="headerlink" title="Hystrix 处理"></a><strong>Hystrix 处理</strong></h1><ul>
+<li>跳闸最小请求数量 ：最小的请求量，至少要达到这个量才会触发熔断</li>
+<li>错误半分比阀值 ： 这段时间内，发生异常的百分比。</li>
+<li>最大并发量 ： 最大的并发量</li>
+<li>跳闸休眠时间(ms) ：熔断以后恢复的时间。</li>
+<li>分组Key： 一般设置为:contextPath</li>
+<li>命令Key: 一般设置为具体的 路径接口。</li>
+</ul>
+<h1 id="HystrixPlugin-类"><a href="#HystrixPlugin-类" class="headerlink" title="HystrixPlugin 类"></a>HystrixPlugin 类</h1><p>处理方法在 HystrixPlugin 类的 doExecute 方法中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 拿到上下文</span></span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到熔断规则</span></span><br><span class="line">    <span class="keyword">final</span> HystrixHandle hystrixHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), HystrixHandle.class);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getGroupKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getCommandKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Command command = fetchCommand(hystrixHandle, exchange, chain);</span><br><span class="line">    <span class="comment">// 这里用到 WebFlux</span></span><br><span class="line">    <span class="keyword">return</span> Mono.create(s -&gt; &#123;</span><br><span class="line">        Subscription sub = command.fetchObservable().subscribe(s::success,</span><br><span class="line">                s::error, s::success);</span><br><span class="line">        s.onCancel(sub::unsubscribe);</span><br><span class="line">        <span class="keyword">if</span> (command.isCircuitBreakerOpen()) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).doOnError(throwable -&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment">// 在调用链中放入错误信息</span></span><br><span class="line">        exchange.getAttributes().put(Constants.CLIENT_RESPONSE_RESULT_TYPE, ResultEnum.ERROR.getName());</span><br><span class="line">        chain.execute(exchange);</span><br><span class="line">    &#125;).then();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Hystrix-工作原理"><a href="#Hystrix-工作原理" class="headerlink" title="Hystrix 工作原理"></a>Hystrix 工作原理</h1><ul>
+<li>1、创建HystrixCommand 或者 HystrixObservableCommand 对象</li>
+<li>2、执行命令execute()、queue()、observe()、toObservable()</li>
+<li>3、如果请求结果缓存这个特性被启用，并且缓存命中，则缓存的回应会立即通过一个Observable对象的形式返回</li>
+<li>4、检查熔断器状态，确定请求线路是否是开路，如果请求线路是开路，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
+<li>5、如果和当前需要执行的命令相关联的线程池和请求队列，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
+<li>6、执行HystrixCommand.run()或HystrixObservableCommand.construct()，如果这两个方法执行超时或者执行失败，则执行getFallback()</li>
+<li>7、Hystrix 会将请求成功，失败，被拒绝或超时信息报告给熔断器，熔断器维护一些用于统计数据用的计数器。</li>
+</ul>
+<p>这些计数器产生的统计数据使得熔断器在特定的时刻，能短路某个依赖服务的后续请求，直到恢复期结束，若恢复期结束根据统计数据熔断器判定线路仍然未恢复健康，熔断器会再次关闭线路。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Soul 网关初探</title>
+    <url>/2021/01/14/Soul%20%E7%BD%91%E5%85%B3%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<h1 id="Soul-网关初探"><a href="#Soul-网关初探" class="headerlink" title="Soul 网关初探"></a>Soul 网关初探</h1><h1 id="先跑起来"><a href="#先跑起来" class="headerlink" title="先跑起来"></a>先跑起来</h1><ol>
+<li>进入 soul-admin 模块，修改 application.yml 文件中的数据库参数；</li>
+<li>启动 SoulAdminBootstrap，Soul 会自动创建数据表（创建脚本在 META-INF 文件夹中）；</li>
+<li>启动 soul-examples-http 项目；</li>
+<li>通过网关调用接口，实现路由转发功能。</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="犯错记录"><a href="#犯错记录" class="headerlink" title="犯错记录"></a>犯错记录</h3><ol>
+<li>启动 SoulAdminBootstrap 的时候，因为会执行数据库脚本，会导致覆写数据，所以需要注释掉 <code>init_script: &quot;META-INF/schema.sql&quot;</code> ，否则会出现错误。比如 date_updated 字段的值会改为 ”0000-00-00 00:00:00“，解析时会出错。</li>
+<li>查看控制台日志的时候，发现有些 websocket 连接，于是在 soul-bootstrap 模块中注释掉了相关配置，后面测试网关转发的时候，提示找不到url。排查一番后，不得其果，翻了下官方文档，对比配置后，原来是需要配置 websocket 连接，取消注释后即可正常访问。</li>
+<li>测试负载均衡时，启动另外一个 8189 端口的服务，没有同时修改 <code>soul.http.port</code>，导致网关侧没有感知到。</li>
+</ol>
+<h1 id="初步学习"><a href="#初步学习" class="headerlink" title="初步学习"></a>初步学习</h1><p><img src="https://dromara.org/img/architecture/soul-framework.png" alt="img"></p>
+<ul>
+<li>soul-admin 作用：使用网关时，首先需要启动 soul-admin 模块。该模块能够提供前端可视化页面，管理各个插件的配置和开关。同时讲数据落库到数据库中，可选 MySQL 或 H2。</li>
+<li>soul-bootstrap 作用：网关的核心部分，根据插件对请求做一系列的操作，比如限流、转发、签名、黑名单等等。</li>
+<li>为什么 admin 要和 bootstrap 分开部署？因为网关需要做到高性能，某些配置项不能通过数据库查询去获取，否则会导致性能的急剧下降。</li>
+<li>两种配置接口的方法：一种是在业务模块引入 soul-client 构件，在方法上使用 <code>@SoulClient</code>，soul 会自动感知；另外一种是手动在 soul-admin 页面上配置。 推荐方式是引入 soul-client 构件，手工配置非常麻烦，并且容易出错。</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>芋道 Soul 极简入门（国产微服务网关）：</p>
+<p><a href="http://www.iocoder.cn/Soul/install/">芋道 Soul 极简入门（国产微服务网关） | 芋道源码 – 纯源码解析博客</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Soul 负载均衡</title>
+    <url>/2021/01/18/Soul%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
+    <content><![CDATA[<h1 id="Soul-负载均衡"><a href="#Soul-负载均衡" class="headerlink" title="Soul 负载均衡"></a>Soul 负载均衡</h1><h1 id="负载均衡入口"><a href="#负载均衡入口" class="headerlink" title="负载均衡入口"></a>负载均衡入口</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DivideUpstream divideUpstream = </span><br><span class="line">LoadBalanceUtils.selector(upstreamList, ruleHandle.getLoadBalance(), ip);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h1 id="负载均衡工具类"><a href="#负载均衡工具类" class="headerlink" title="负载均衡工具类"></a>负载均衡工具类</h1><p>LoadBalanceUtils 类只有一个公共的静态方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Selector divide upstream. 选择器上游划分</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DivideUpstream <span class="title">selector</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String algorithm, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    LoadBalance loadBalance = ExtensionLoader.getExtensionLoader(LoadBalance.class).getJoin(algorithm);</span><br><span class="line">    <span class="keyword">return</span> loadBalance.select(upstreamList, ip);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到入参有三个，分别是：</p>
+<ul>
+<li>upstreamList：上游地址列表</li>
+<li>algorithm：算法名称</li>
+<li>ip：请求的 ip 地址</li>
+</ul>
+<p>然后获取到一个扩展加载器：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ExtensionLoader.getExtensionLoader(LoadBalance.class)</span><br></pre></td></tr></table></figure>
+<p>调用 join 方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Gets join.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getJoin</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 判空</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(name)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Holder&lt;Object&gt; objectHolder = cachedInstances.get(name);</span><br><span class="line">    <span class="comment">// 初始化一个 objectHolder </span></span><br><span class="line">    <span class="keyword">if</span> (objectHolder == <span class="keyword">null</span>) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Object value = objectHolder.getValue();</span><br><span class="line">    <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (cachedInstances) &#123;</span><br><span class="line">            value = objectHolder.getValue();</span><br><span class="line">            <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">                value = createExtension(name);</span><br><span class="line">                objectHolder.setValue(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (T) value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进入 AbstractLoadBalance 类的 select 方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">select</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 判空</span></span><br><span class="line">     <span class="keyword">if</span> (CollectionUtils.isEmpty(upstreamList)) &#123;</span><br><span class="line">         ...</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (upstreamList.size() == <span class="number">1</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> upstreamList.get(<span class="number">0</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 调用具体的执行方法</span></span><br><span class="line">     <span class="keyword">return</span> doSelect(upstreamList, ip);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>然后 doSelect 目前有三种实现方式，分别是：</p>
+<ul>
+<li>HashLoadBalance：一致性哈希方式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ConcurrentSkipListMap&lt;Long, DivideUpstream&gt; treeMap = <span class="keyword">new</span> ConcurrentSkipListMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (DivideUpstream address : upstreamList) &#123;</span><br><span class="line">        <span class="comment">// 虚拟节点 VIRTUAL_NODE_NUM 为 5，</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; VIRTUAL_NODE_NUM; i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> addressHash = hash(<span class="string">&quot;SOUL-&quot;</span> + address.getUpstreamUrl() + <span class="string">&quot;-HASH-&quot;</span> + i);</span><br><span class="line">            treeMap.put(addressHash, address);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 对请求ip地址哈希，拿到地址</span></span><br><span class="line">    <span class="keyword">long</span> hash = hash(String.valueOf(ip));</span><br><span class="line">    SortedMap&lt;Long, DivideUpstream&gt; lastRing = treeMap.tailMap(hash);</span><br><span class="line">    <span class="keyword">if</span> (!lastRing.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span> lastRing.get(lastRing.firstKey());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> treeMap.firstEntry().getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RandomLoadBalance：随机方式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 计算总共的权重</span></span><br><span class="line">    <span class="keyword">int</span> totalWeight = calculateTotalWeight(upstreamList);</span><br><span class="line">    <span class="keyword">boolean</span> sameWeight = isAllUpStreamSameWeight(upstreamList);</span><br><span class="line">    <span class="comment">// 根据权重分配</span></span><br><span class="line">    <span class="keyword">if</span> (totalWeight &gt; <span class="number">0</span> &amp;&amp; !sameWeight) &#123;</span><br><span class="line">        <span class="keyword">return</span> random(totalWeight, upstreamList);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果权重相同或权重为 0 则均等随机</span></span><br><span class="line">    <span class="keyword">return</span> random(upstreamList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RoundRobinLoadBalance：轮询方式<br>这部分代码有些复杂，下次分析。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    String key = upstreamList.get(<span class="number">0</span>).getUpstreamUrl();</span><br><span class="line">    ConcurrentMap&lt;String, WeightedRoundRobin&gt; map = methodWeightMap.get(key);</span><br><span class="line">    <span class="keyword">if</span> (map == <span class="keyword">null</span>) &#123;</span><br><span class="line">        methodWeightMap.putIfAbsent(key, <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">16</span>));</span><br><span class="line">        map = methodWeightMap.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> totalWeight = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> maxCurrent = Long.MIN_VALUE;</span><br><span class="line">    <span class="keyword">long</span> now = System.currentTimeMillis();</span><br><span class="line">    DivideUpstream selectedInvoker = <span class="keyword">null</span>;</span><br><span class="line">    WeightedRoundRobin selectedWRR = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (DivideUpstream upstream : upstreamList) &#123;</span><br><span class="line">        String rKey = upstream.getUpstreamUrl();</span><br><span class="line">        WeightedRoundRobin weightedRoundRobin = map.get(rKey);</span><br><span class="line">        <span class="keyword">int</span> weight = getWeight(upstream);</span><br><span class="line">        <span class="keyword">if</span> (weightedRoundRobin == <span class="keyword">null</span>) &#123;</span><br><span class="line">            weightedRoundRobin = <span class="keyword">new</span> WeightedRoundRobin();</span><br><span class="line">            weightedRoundRobin.setWeight(weight);</span><br><span class="line">            map.putIfAbsent(rKey, weightedRoundRobin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (weight != weightedRoundRobin.getWeight()) &#123;</span><br><span class="line">            <span class="comment">//weight changed</span></span><br><span class="line">            weightedRoundRobin.setWeight(weight);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> cur = weightedRoundRobin.increaseCurrent();</span><br><span class="line">        weightedRoundRobin.setLastUpdate(now);</span><br><span class="line">        <span class="keyword">if</span> (cur &gt; maxCurrent) &#123;</span><br><span class="line">            maxCurrent = cur;</span><br><span class="line">            selectedInvoker = upstream;</span><br><span class="line">            selectedWRR = weightedRoundRobin;</span><br><span class="line">        &#125;</span><br><span class="line">        totalWeight += weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!updateLock.get() &amp;&amp; upstreamList.size() != map.size() &amp;&amp; updateLock.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// copy -&gt; modify -&gt; update reference</span></span><br><span class="line">            ConcurrentMap&lt;String, WeightedRoundRobin&gt; newMap = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(map);</span><br><span class="line">            newMap.entrySet().removeIf(item -&gt; now - item.getValue().getLastUpdate() &gt; recyclePeriod);</span><br><span class="line">            methodWeightMap.put(key, newMap);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            updateLock.set(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (selectedInvoker != <span class="keyword">null</span>) &#123;</span><br><span class="line">        selectedWRR.sel(totalWeight);</span><br><span class="line">        <span class="keyword">return</span> selectedInvoker;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// should not happen here</span></span><br><span class="line">    <span class="keyword">return</span> upstreamList.get(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>外包公司</title>
     <url>/2021/03/19/%E5%A4%96%E5%8C%85%E5%85%AC%E5%8F%B8/</url>
-    <content><![CDATA[<ol>
-<li>外包定义：主要看人选所做项目/产品性质，若项目/产品为外包性质，则定义为外包人员</li>
-<li>外包性质：<br>人力外包：人力资源外包/劳务派遣，一般为驻场形式<br>项目外包：阶段性项目开发，驻场/非驻场形式<br>业务外包：业务流程外包</li>
-<li>特别说明：<br>外包公司简介一般带有的关键词：IT服务、技术开发服务、信息技术解决方案、软件服务等<br>如在外包公司内负责内部系统开发，不算为外包</li>
+    <content><![CDATA[<h1 id="外包定义"><a href="#外包定义" class="headerlink" title="外包定义"></a>外包定义</h1><a id="more"></a>
+
+<ol>
+<li>外包定义：主要看人选所做项目/产品性质，若项目/产品为外包性质，则定义为外包人员。</li>
+<li>外包性质：<br>人力外包：人力资源外包/劳务派遣，一般为驻场形式。<br>项目外包：阶段性项目开发，驻场/非驻场形式。<br>业务外包：业务流程外包。</li>
+<li>特别说明：<br>外包公司简介一般带有的关键词：IT服务、技术开发服务、信息技术解决方案、软件服务等。<br>如在外包公司内负责内部系统开发，不算为外包。</li>
 </ol>
-<table>
+<h1 id="外包公司列表"><a href="#外包公司列表" class="headerlink" title="外包公司列表"></a>外包公司列表</h1><table>
 <thead>
 <tr>
 <th>编号</th>
@@ -682,107 +794,36 @@
       </tags>
   </entry>
   <entry>
-    <title>Soul Hystrix 插件</title>
-    <url>/2021/01/30/Soul%20Hystrix%20%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="Soul-Hystrix-插件"><a href="#Soul-Hystrix-插件" class="headerlink" title="Soul Hystrix 插件"></a>Soul Hystrix 插件</h1><p>简单了解 Soul Hystrix 插件。</p>
-<a id="more"></a>
-
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Hystrix 插件是 Soul 网关用来对流量进行熔断的核心实现，主要使用信号量的方式来处理请求。</p>
-<h1 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a><strong>插件设置</strong></h1><p>在 <code>soul-admin</code> –&gt; 插件管理 –&gt; <code>hystrix</code>，设置为开启。</p>
-<h1 id="Hystrix-处理"><a href="#Hystrix-处理" class="headerlink" title="Hystrix 处理"></a><strong>Hystrix 处理</strong></h1><ul>
-<li>跳闸最小请求数量 ：最小的请求量，至少要达到这个量才会触发熔断</li>
-<li>错误半分比阀值 ： 这段时间内，发生异常的百分比。</li>
-<li>最大并发量 ： 最大的并发量</li>
-<li>跳闸休眠时间(ms) ：熔断以后恢复的时间。</li>
-<li>分组Key： 一般设置为:contextPath</li>
-<li>命令Key: 一般设置为具体的 路径接口。</li>
-</ul>
-<h1 id="HystrixPlugin-类"><a href="#HystrixPlugin-类" class="headerlink" title="HystrixPlugin 类"></a>HystrixPlugin 类</h1><p>处理方法在 HystrixPlugin 类的 doExecute 方法中：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title">doExecute</span><span class="params">(<span class="keyword">final</span> ServerWebExchange exchange, <span class="keyword">final</span> SoulPluginChain chain, <span class="keyword">final</span> SelectorData selector, <span class="keyword">final</span> RuleData rule)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 拿到上下文</span></span><br><span class="line">    <span class="keyword">final</span> SoulContext soulContext = exchange.getAttribute(Constants.CONTEXT);</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 拿到熔断规则</span></span><br><span class="line">    <span class="keyword">final</span> HystrixHandle hystrixHandle = GsonUtils.getInstance().fromJson(rule.getHandle(), HystrixHandle.class);</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getGroupKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(hystrixHandle.getCommandKey())) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Command command = fetchCommand(hystrixHandle, exchange, chain);</span><br><span class="line">    <span class="comment">// 这里用到 WebFlux</span></span><br><span class="line">    <span class="keyword">return</span> Mono.create(s -&gt; &#123;</span><br><span class="line">        Subscription sub = command.fetchObservable().subscribe(s::success,</span><br><span class="line">                s::error, s::success);</span><br><span class="line">        s.onCancel(sub::unsubscribe);</span><br><span class="line">        <span class="keyword">if</span> (command.isCircuitBreakerOpen()) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).doOnError(throwable -&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="comment">// 在调用链中放入错误信息</span></span><br><span class="line">        exchange.getAttributes().put(Constants.CLIENT_RESPONSE_RESULT_TYPE, ResultEnum.ERROR.getName());</span><br><span class="line">        chain.execute(exchange);</span><br><span class="line">    &#125;).then();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Hystrix-工作原理"><a href="#Hystrix-工作原理" class="headerlink" title="Hystrix 工作原理"></a>Hystrix 工作原理</h1><ul>
-<li>1、创建HystrixCommand 或者 HystrixObservableCommand 对象</li>
-<li>2、执行命令execute()、queue()、observe()、toObservable()</li>
-<li>3、如果请求结果缓存这个特性被启用，并且缓存命中，则缓存的回应会立即通过一个Observable对象的形式返回</li>
-<li>4、检查熔断器状态，确定请求线路是否是开路，如果请求线路是开路，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
-<li>5、如果和当前需要执行的命令相关联的线程池和请求队列，Hystrix将不会执行这个命令，而是直接执行getFallback</li>
-<li>6、执行HystrixCommand.run()或HystrixObservableCommand.construct()，如果这两个方法执行超时或者执行失败，则执行getFallback()</li>
-<li>7、Hystrix 会将请求成功，失败，被拒绝或超时信息报告给熔断器，熔断器维护一些用于统计数据用的计数器。</li>
-</ul>
-<p>这些计数器产生的统计数据使得熔断器在特定的时刻，能短路某个依赖服务的后续请求，直到恢复期结束，若恢复期结束根据统计数据熔断器判定线路仍然未恢复健康，熔断器会再次关闭线路。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>开源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Soul 网关初探</title>
-    <url>/2021/01/14/Soul%20%E7%BD%91%E5%85%B3%E5%88%9D%E6%8E%A2/</url>
-    <content><![CDATA[<h1 id="Soul-网关初探"><a href="#Soul-网关初探" class="headerlink" title="Soul 网关初探"></a>Soul 网关初探</h1><h1 id="先跑起来"><a href="#先跑起来" class="headerlink" title="先跑起来"></a>先跑起来</h1><ol>
-<li>进入 soul-admin 模块，修改 application.yml 文件中的数据库参数；</li>
-<li>启动 SoulAdminBootstrap，Soul 会自动创建数据表（创建脚本在 META-INF 文件夹中）；</li>
-<li>启动 soul-examples-http 项目；</li>
-<li>通过网关调用接口，实现路由转发功能。</li>
+    <title>走向开源之路</title>
+    <url>/2019/12/10/%E8%B5%B0%E5%90%91%E5%BC%80%E6%BA%90%E4%B9%8B%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="走向开源之路"><a href="#走向开源之路" class="headerlink" title="走向开源之路"></a>走向开源之路</h1><p>首先你需要：</p>
+<ol>
+<li>畅通的网络环境；</li>
+<li>一个Github账号；</li>
+<li>本机安装Git软件；</li>
+<li>Don’t panic !</li>
 </ol>
 <a id="more"></a>
 
-<h3 id="犯错记录"><a href="#犯错记录" class="headerlink" title="犯错记录"></a>犯错记录</h3><ol>
-<li>启动 SoulAdminBootstrap 的时候，因为会执行数据库脚本，会导致覆写数据，所以需要注释掉 <code>init_script: &quot;META-INF/schema.sql&quot;</code> ，否则会出现错误。比如 date_updated 字段的值会改为 ”0000-00-00 00:00:00“，解析时会出错。</li>
-<li>查看控制台日志的时候，发现有些 websocket 连接，于是在 soul-bootstrap 模块中注释掉了相关配置，后面测试网关转发的时候，提示找不到url。排查一番后，不得其果，翻了下官方文档，对比配置后，原来是需要配置 websocket 连接，取消注释后即可正常访问。</li>
-<li>测试负载均衡时，启动另外一个 8189 端口的服务，没有同时修改 <code>soul.http.port</code>，导致网关侧没有感知到。</li>
+<h1 id="Fork项目"><a href="#Fork项目" class="headerlink" title="Fork项目"></a>Fork项目</h1><p>首先，在Github仓库Fork他人项目。然后复制自己仓库的项目地址（HTTP或SSH都可），在本地Clone下来。</p>
+<p>如果项目文件体积大，可使用如下方式：</p>
+<ol>
+<li>（推荐）在浏览器上安装Github加速插件，使用其中的镜像地址；<br>Clone完代码，建议执行<code>git remote set-url origin 自己的Github项目地址</code> 。</li>
+<li>（推荐）在gitee.com网站，导入Github项目，使用gitee的项目地址进行Clone；<br>Clone完代码，建议执行<code>git remote set-url origin 自己的Github项目地址</code> 。</li>
+<li>使用命令 <code>git clone --depth=1</code> 进行Clone最新一次的提交代码，之后使用<code>git pull --unshallow</code> 。</li>
 </ol>
-<h1 id="初步学习"><a href="#初步学习" class="headerlink" title="初步学习"></a>初步学习</h1><p><img src="https://dromara.org/img/architecture/soul-framework.png" alt="img"></p>
-<ul>
-<li>soul-admin 作用：使用网关时，首先需要启动 soul-admin 模块。该模块能够提供前端可视化页面，管理各个插件的配置和开关。同时讲数据落库到数据库中，可选 MySQL 或 H2。</li>
-<li>soul-bootstrap 作用：网关的核心部分，根据插件对请求做一系列的操作，比如限流、转发、签名、黑名单等等。</li>
-<li>为什么 admin 要和 bootstrap 分开部署？因为网关需要做到高性能，某些配置项不能通过数据库查询去获取，否则会导致性能的急剧下降。</li>
-<li>两种配置接口的方法：一种是在业务模块引入 soul-client 构件，在方法上使用 <code>@SoulClient</code>，soul 会自动感知；另外一种是手动在 soul-admin 页面上配置。 推荐方式是引入 soul-client 构件，手工配置非常麻烦，并且容易出错。</li>
-</ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>芋道 Soul 极简入门（国产微服务网关）：</p>
-<p><a href="http://www.iocoder.cn/Soul/install/">芋道 Soul 极简入门（国产微服务网关） | 芋道源码 – 纯源码解析博客</a></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>开源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Soul 负载均衡</title>
-    <url>/2021/01/18/Soul%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
-    <content><![CDATA[<h1 id="Soul-负载均衡"><a href="#Soul-负载均衡" class="headerlink" title="Soul 负载均衡"></a>Soul 负载均衡</h1><h1 id="负载均衡入口"><a href="#负载均衡入口" class="headerlink" title="负载均衡入口"></a>负载均衡入口</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DivideUpstream divideUpstream = </span><br><span class="line">LoadBalanceUtils.selector(upstreamList, ruleHandle.getLoadBalance(), ip);</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-<h1 id="负载均衡工具类"><a href="#负载均衡工具类" class="headerlink" title="负载均衡工具类"></a>负载均衡工具类</h1><p>LoadBalanceUtils 类只有一个公共的静态方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Selector divide upstream. 选择器上游划分</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DivideUpstream <span class="title">selector</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String algorithm, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    LoadBalance loadBalance = ExtensionLoader.getExtensionLoader(LoadBalance.class).getJoin(algorithm);</span><br><span class="line">    <span class="keyword">return</span> loadBalance.select(upstreamList, ip);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到入参有三个，分别是：</p>
-<ul>
-<li>upstreamList：上游地址列表</li>
-<li>algorithm：算法名称</li>
-<li>ip：请求的 ip 地址</li>
-</ul>
-<p>然后获取到一个扩展加载器：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ExtensionLoader.getExtensionLoader(LoadBalance.class)</span><br></pre></td></tr></table></figure>
-<p>调用 join 方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Gets join.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getJoin</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 判空</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(name)) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Holder&lt;Object&gt; objectHolder = cachedInstances.get(name);</span><br><span class="line">    <span class="comment">// 初始化一个 objectHolder </span></span><br><span class="line">    <span class="keyword">if</span> (objectHolder == <span class="keyword">null</span>) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    Object value = objectHolder.getValue();</span><br><span class="line">    <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (cachedInstances) &#123;</span><br><span class="line">            value = objectHolder.getValue();</span><br><span class="line">            <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">                value = createExtension(name);</span><br><span class="line">                objectHolder.setValue(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (T) value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>进入 AbstractLoadBalance 类的 select 方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">select</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 判空</span></span><br><span class="line">     <span class="keyword">if</span> (CollectionUtils.isEmpty(upstreamList)) &#123;</span><br><span class="line">         ...</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (upstreamList.size() == <span class="number">1</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> upstreamList.get(<span class="number">0</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 调用具体的执行方法</span></span><br><span class="line">     <span class="keyword">return</span> doSelect(upstreamList, ip);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>然后 doSelect 目前有三种实现方式，分别是：</p>
-<ul>
-<li>HashLoadBalance：一致性哈希方式</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ConcurrentSkipListMap&lt;Long, DivideUpstream&gt; treeMap = <span class="keyword">new</span> ConcurrentSkipListMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (DivideUpstream address : upstreamList) &#123;</span><br><span class="line">        <span class="comment">// 虚拟节点 VIRTUAL_NODE_NUM 为 5，</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; VIRTUAL_NODE_NUM; i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> addressHash = hash(<span class="string">&quot;SOUL-&quot;</span> + address.getUpstreamUrl() + <span class="string">&quot;-HASH-&quot;</span> + i);</span><br><span class="line">            treeMap.put(addressHash, address);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 对请求ip地址哈希，拿到地址</span></span><br><span class="line">    <span class="keyword">long</span> hash = hash(String.valueOf(ip));</span><br><span class="line">    SortedMap&lt;Long, DivideUpstream&gt; lastRing = treeMap.tailMap(hash);</span><br><span class="line">    <span class="keyword">if</span> (!lastRing.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span> lastRing.get(lastRing.firstKey());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> treeMap.firstEntry().getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>RandomLoadBalance：随机方式</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 计算总共的权重</span></span><br><span class="line">    <span class="keyword">int</span> totalWeight = calculateTotalWeight(upstreamList);</span><br><span class="line">    <span class="keyword">boolean</span> sameWeight = isAllUpStreamSameWeight(upstreamList);</span><br><span class="line">    <span class="comment">// 根据权重分配</span></span><br><span class="line">    <span class="keyword">if</span> (totalWeight &gt; <span class="number">0</span> &amp;&amp; !sameWeight) &#123;</span><br><span class="line">        <span class="keyword">return</span> random(totalWeight, upstreamList);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果权重相同或权重为 0 则均等随机</span></span><br><span class="line">    <span class="keyword">return</span> random(upstreamList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>RoundRobinLoadBalance：轮询方式<br>这部分代码有些复杂，下次分析。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DivideUpstream <span class="title">doSelect</span><span class="params">(<span class="keyword">final</span> List&lt;DivideUpstream&gt; upstreamList, <span class="keyword">final</span> String ip)</span> </span>&#123;</span><br><span class="line">    String key = upstreamList.get(<span class="number">0</span>).getUpstreamUrl();</span><br><span class="line">    ConcurrentMap&lt;String, WeightedRoundRobin&gt; map = methodWeightMap.get(key);</span><br><span class="line">    <span class="keyword">if</span> (map == <span class="keyword">null</span>) &#123;</span><br><span class="line">        methodWeightMap.putIfAbsent(key, <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="number">16</span>));</span><br><span class="line">        map = methodWeightMap.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> totalWeight = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> maxCurrent = Long.MIN_VALUE;</span><br><span class="line">    <span class="keyword">long</span> now = System.currentTimeMillis();</span><br><span class="line">    DivideUpstream selectedInvoker = <span class="keyword">null</span>;</span><br><span class="line">    WeightedRoundRobin selectedWRR = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (DivideUpstream upstream : upstreamList) &#123;</span><br><span class="line">        String rKey = upstream.getUpstreamUrl();</span><br><span class="line">        WeightedRoundRobin weightedRoundRobin = map.get(rKey);</span><br><span class="line">        <span class="keyword">int</span> weight = getWeight(upstream);</span><br><span class="line">        <span class="keyword">if</span> (weightedRoundRobin == <span class="keyword">null</span>) &#123;</span><br><span class="line">            weightedRoundRobin = <span class="keyword">new</span> WeightedRoundRobin();</span><br><span class="line">            weightedRoundRobin.setWeight(weight);</span><br><span class="line">            map.putIfAbsent(rKey, weightedRoundRobin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (weight != weightedRoundRobin.getWeight()) &#123;</span><br><span class="line">            <span class="comment">//weight changed</span></span><br><span class="line">            weightedRoundRobin.setWeight(weight);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> cur = weightedRoundRobin.increaseCurrent();</span><br><span class="line">        weightedRoundRobin.setLastUpdate(now);</span><br><span class="line">        <span class="keyword">if</span> (cur &gt; maxCurrent) &#123;</span><br><span class="line">            maxCurrent = cur;</span><br><span class="line">            selectedInvoker = upstream;</span><br><span class="line">            selectedWRR = weightedRoundRobin;</span><br><span class="line">        &#125;</span><br><span class="line">        totalWeight += weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!updateLock.get() &amp;&amp; upstreamList.size() != map.size() &amp;&amp; updateLock.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// copy -&gt; modify -&gt; update reference</span></span><br><span class="line">            ConcurrentMap&lt;String, WeightedRoundRobin&gt; newMap = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;(map);</span><br><span class="line">            newMap.entrySet().removeIf(item -&gt; now - item.getValue().getLastUpdate() &gt; recyclePeriod);</span><br><span class="line">            methodWeightMap.put(key, newMap);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            updateLock.set(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (selectedInvoker != <span class="keyword">null</span>) &#123;</span><br><span class="line">        selectedWRR.sel(totalWeight);</span><br><span class="line">        <span class="keyword">return</span> selectedInvoker;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// should not happen here</span></span><br><span class="line">    <span class="keyword">return</span> upstreamList.get(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="同步项目代码"><a href="#同步项目代码" class="headerlink" title="同步项目代码"></a>同步项目代码</h1><ol>
+<li>添加上游项目地址：<br><code>git remote add upstream 原始项目地址</code><br>查看远程地址：<br><code>git remote -v</code><br>查看远程分支：<br><code>git branch -r</code></li>
+<li>拉取最新代码：<br><code>git fetch upstream</code></li>
+<li>合并最新代码：<br>本地代码<strong>无修改</strong>：<code>git rebase upstream/master</code><br>本地代码<strong>有修改</strong>：<code>git merge upstream/master</code></li>
+<li>将最新代码上传到自己的远程仓库：<br><code>git push</code></li>
+</ol>
+<h1 id="构建项目（使用Maven）"><a href="#构建项目（使用Maven）" class="headerlink" title="构建项目（使用Maven）"></a>构建项目（使用Maven）</h1><p>确保编译版本和项目建议版本相一致。</p>
+<p>执行命令<code>mvn clean install</code> ，或命令<code>mvn clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Drat.skip=true -Dcheckstyle.skip=true -e</code> 跳过测试等过程。</p>
+<p>如果某个模块构建失败，多次执行<code>mvn install</code> 即可。</p>
+<p>参考链接：</p>
+<p><a href="https://www.yuque.com/docs/share/eedab2ad-6486-4690-b048-d9bb9a6b4a4a">Soul 之 PR 提交流程 · 语雀</a></p>
+<p><a href="http://wuchong.me/blog/2019/02/12/how-to-become-apache-committer/">如何从小白成长为 Apache Committer?</a></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -837,45 +878,6 @@
       </categories>
       <tags>
         <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>走向开源之路</title>
-    <url>/2019/12/10/%E8%B5%B0%E5%90%91%E5%BC%80%E6%BA%90%E4%B9%8B%E8%B7%AF/</url>
-    <content><![CDATA[<h1 id="走向开源之路"><a href="#走向开源之路" class="headerlink" title="走向开源之路"></a>走向开源之路</h1><p>首先你需要：</p>
-<ol>
-<li>畅通的网络环境；</li>
-<li>一个Github账号；</li>
-<li>本机安装Git软件；</li>
-<li>Don’t panic !</li>
-</ol>
-<a id="more"></a>
-
-<h1 id="Fork项目"><a href="#Fork项目" class="headerlink" title="Fork项目"></a>Fork项目</h1><p>首先，在Github仓库Fork他人项目。然后复制自己仓库的项目地址（HTTP或SSH都可），在本地Clone下来。</p>
-<p>如果项目文件体积大，可使用如下方式：</p>
-<ol>
-<li>（推荐）在浏览器上安装Github加速插件，使用其中的镜像地址；<br>Clone完代码，建议执行<code>git remote set-url origin 自己的Github项目地址</code> 。</li>
-<li>（推荐）在gitee.com网站，导入Github项目，使用gitee的项目地址进行Clone；<br>Clone完代码，建议执行<code>git remote set-url origin 自己的Github项目地址</code> 。</li>
-<li>使用命令 <code>git clone --depth=1</code> 进行Clone最新一次的提交代码，之后使用<code>git pull --unshallow</code> 。</li>
-</ol>
-<h1 id="同步项目代码"><a href="#同步项目代码" class="headerlink" title="同步项目代码"></a>同步项目代码</h1><ol>
-<li>添加上游项目地址：<br><code>git remote add upstream 原始项目地址</code><br>查看远程地址：<br><code>git remote -v</code><br>查看远程分支：<br><code>git branch -r</code></li>
-<li>拉取最新代码：<br><code>git fetch upstream</code></li>
-<li>合并最新代码：<br>本地代码<strong>无修改</strong>：<code>git rebase upstream/master</code><br>本地代码<strong>有修改</strong>：<code>git merge upstream/master</code></li>
-<li>将最新代码上传到自己的远程仓库：<br><code>git push</code></li>
-</ol>
-<h1 id="构建项目（使用Maven）"><a href="#构建项目（使用Maven）" class="headerlink" title="构建项目（使用Maven）"></a>构建项目（使用Maven）</h1><p>确保编译版本和项目建议版本相一致。</p>
-<p>执行命令<code>mvn clean install</code> ，或命令<code>mvn clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Drat.skip=true -Dcheckstyle.skip=true -e</code> 跳过测试等过程。</p>
-<p>如果某个模块构建失败，多次执行<code>mvn install</code> 即可。</p>
-<p>参考链接：</p>
-<p><a href="https://www.yuque.com/docs/share/eedab2ad-6486-4690-b048-d9bb9a6b4a4a">Soul 之 PR 提交流程 · 语雀</a></p>
-<p><a href="http://wuchong.me/blog/2019/02/12/how-to-become-apache-committer/">如何从小白成长为 Apache Committer?</a></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>开源</tag>
       </tags>
   </entry>
   <entry>
