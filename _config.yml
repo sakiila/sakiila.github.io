@@ -104,5 +104,5 @@ theme: next
 deploy:
   type: git
   repo:
-    github: https://github.com/sakiila/sakiila.github.io.git
+    github: git@github.com:sakiila/sakiila.github.io.git
   branch: master
