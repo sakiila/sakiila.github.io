@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Spring 动态绑定</title>
+    <url>/1655783544/</url>
+    <content><![CDATA[<h1 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h1><p>在系统运行时，根据不同的场景需要多个类实例。比如一个 Redis 类，需要传入不同的 Category（可以理解为 Key 前缀），从而实现多个 Redis 子类。</p>
+<h1 id="一、自定义注解"><a href="#一、自定义注解" class="headerlink" title="一、自定义注解"></a>一、自定义注解</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以设置为 <code>String value() default &quot;&quot;;</code> ，使用时可以隐藏字段名。</p>
+<h1 id="二、扫描属性上的注解"><a href="#二、扫描属性上的注解" class="headerlink" title="二、扫描属性上的注解"></a>二、扫描属性上的注解</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">CacheService annotation = field.getAnnotation(CacheService.class);</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、向容器注入-Bean"><a href="#三、向容器注入-Bean" class="headerlink" title="三、向容器注入 Bean"></a>三、向容器注入 Bean</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取 context</span></span><br><span class="line">ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line"><span class="comment">// 获取 BeanFactory</span></span><br><span class="line">DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line"><span class="comment">// 创建 bean 信息</span></span><br><span class="line">BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字段</span></span><br><span class="line">beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">field.set(object, bean);</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CacheService(category = Constants.ORDER_DRIVER)</span></span><br><span class="line"><span class="keyword">private</span> RedisService orderDriverCache;</span><br></pre></td></tr></table></figure>
+
+<h1 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h1><p><img src="../images/DynamicBinding.png"></p>
+<h1 id="全部示例代码"><a href="#全部示例代码" class="headerlink" title="全部示例代码"></a>全部示例代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// RedisService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisNioClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> SquirrelClient redisNioClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> RedisStoreClient redisClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> String category;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheService.java</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheServiceAnnotation.java</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CacheServiceAnnotation</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ContextRefreshedEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ContextRefreshedEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ApplicationContext applicationContext = event.getApplicationContext();</span><br><span class="line"></span><br><span class="line">        Arrays.stream(applicationContext.getBeanDefinitionNames())</span><br><span class="line">                .map(applicationContext::getBean)</span><br><span class="line">                .forEach(object -&gt; &#123;</span><br><span class="line">                    <span class="keyword">final</span> Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">                    Arrays.stream(fields)</span><br><span class="line">                            .filter(field -&gt; field.isAnnotationPresent(CacheService.class))</span><br><span class="line">                            .forEach(field -&gt; &#123;</span><br><span class="line">                                <span class="keyword">final</span> RedisService bean = getRedisService(applicationContext, field);</span><br><span class="line">                                <span class="keyword">try</span> &#123;</span><br><span class="line">                                    field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                                    field.set(object, bean);</span><br><span class="line">                                    log.info(<span class="string">&quot;set field success, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName());</span><br><span class="line">                                &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                                    log.error(<span class="string">&quot;set field fail, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName(), e);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> RedisService <span class="title">getRedisService</span><span class="params">(ApplicationContext applicationContext, Field field)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (applicationContext.containsBeanDefinition(field.getName())) &#123;</span><br><span class="line">            <span class="keyword">return</span> (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> CacheService annotation = field.getAnnotation(CacheService.class);</span><br><span class="line">        <span class="keyword">final</span> String category = annotation.category();</span><br><span class="line"></span><br><span class="line">        ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line">        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line">        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置字段</span></span><br><span class="line">        beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">        beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">        RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        log.info(<span class="string">&quot;register Bean success, bean: &#123;&#125;&quot;</span>, field.getName());</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考资料：</p>
+<p><a href="https://blog.csdn.net/u011983531/article/details/70941123">Java获取类、方法、属性上的注解_根号三-CSDN博客_java 获取属性上的注解</a></p>
+<p><a href="https://www.cnblogs.com/east7/p/14390816.html">使用自定义注解动态绑定多实现类实例</a></p>
+<p><a href="https://segmentfault.com/a/1190000024522038">SpringBoot动态注入及操作Bean</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>动态绑定</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>外包</title>
+    <url>/1326063135/</url>
+    <content><![CDATA[<h1 id="外包定义"><a href="#外包定义" class="headerlink" title="外包定义"></a>外包定义</h1><ol>
+<li>外包定义：主要看人选所做项目/产品性质，若项目/产品为外包性质，则定义为外包人员。</li>
+<li>外包性质：<br>人力外包：人力资源外包/劳务派遣，一般为驻场形式。<br>项目外包：阶段性项目开发，驻场/非驻场形式。<br>业务外包：业务流程外包。</li>
+<li>特别说明：<br>外包公司简介一般带有的关键词：IT服务、技术开发服务、信息技术解决方案、软件服务等。<br>如在外包公司内负责内部系统开发，不算为外包。</li>
+</ol>
+<h1 id="外包公司列表"><a href="#外包公司列表" class="headerlink" title="外包公司列表"></a>外包公司列表</h1><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>外包类型</th>
+<th>企业名称</th>
+<th>主要服务公司/具体部门做外包项目</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>人力外包</td>
+<td>中软国际</td>
+<td>华为、中国移动、中国联通、阿里云、百度等</td>
+</tr>
+<tr>
+<td>2</td>
+<td>人力外包</td>
+<td>软通动力</td>
+<td>华为、微软、IBM、联想、中国银行、中国人寿、中石化、中石油、国家电网等</td>
+</tr>
+<tr>
+<td>3</td>
+<td>人力外包</td>
+<td>文思海辉</td>
+<td>微软、IBM、因特尔、花旗银行、索尼以及国内阿里巴巴、腾讯、百度、中移动、联通等</td>
+</tr>
+<tr>
+<td>4</td>
+<td>项目外包</td>
+<td>大展科技</td>
+<td>从欧美及日本客户承接软件项目</td>
+</tr>
+<tr>
+<td>5</td>
+<td>人力外包</td>
+<td>亿达信息</td>
+<td>富士施乐、SOFTBANK、UNISYS、日本乐天、SONY、阪急阪神、腾讯、阿里巴巴、华为、阿斯利康、先正达、赛诺菲、武田制药、美的、顺丰、唯品会、华夏人寿、天安人寿等</td>
+</tr>
+<tr>
+<td>6</td>
+<td>人力外包</td>
+<td>法本信息</td>
+<td>平安、顺丰、腾讯、中国联通、OPPO、苏宁、万科等</td>
+</tr>
+<tr>
+<td>7</td>
+<td>人力外包</td>
+<td>武汉佰钧成</td>
+<td>IBM、华为、Google、HP、Alcatel-Lucent、NTT Data等</td>
+</tr>
+<tr>
+<td>8</td>
+<td>人力外包&amp;项目外包</td>
+<td>紫川软件</td>
+<td>平安、中国移动、中国建设银行、华为、中兴等</td>
+</tr>
+<tr>
+<td>9</td>
+<td>人力外包</td>
+<td>拓保软件</td>
+<td>平安、顺丰、宝能等</td>
+</tr>
+<tr>
+<td>10</td>
+<td>人力外包</td>
+<td>Infosys(印孚瑟斯)</td>
+<td>微软、英特尔、SAP、3M、Arrow、Cisco等</td>
+</tr>
+<tr>
+<td>11</td>
+<td>人力外包</td>
+<td>上海易立德</td>
+<td>华为、美的、Vivo、长安汽车等</td>
+</tr>
+<tr>
+<td>12</td>
+<td>人力外包</td>
+<td>博彦科技</td>
+<td>字节跳动、顺丰等</td>
+</tr>
+<tr>
+<td>13</td>
+<td>项目外包</td>
+<td>易思博软件</td>
+<td>IBM、HP、NEC、Fujitsu、卓望等</td>
+</tr>
+<tr>
+<td>14</td>
+<td>人力外包</td>
+<td>网新科技（网新新思）</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>人力外包</td>
+<td>雁联计算系统有限公司</td>
+<td>银行、各类交易所、第三方支付公司、互联网金融公司等金融及泛金融机构等</td>
+</tr>
+<tr>
+<td>16</td>
+<td>人力外包</td>
+<td>上海启明软件</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>人力外包</td>
+<td>上海华腾软件</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>项目外包</td>
+<td>神州数码</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>项目外包</td>
+<td>IBM</td>
+<td>大连IBM专门做外包</td>
+</tr>
+<tr>
+<td>20</td>
+<td>项目外包</td>
+<td>东软集团</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>项目外包</td>
+<td>浪潮软件</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>项目外包</td>
+<td>群硕软件</td>
+<td>微软、摩托罗拉、Omnitracs、英特尔、SAP、沃尔玛、联合利华、银联、万科、万达、Vivo、康师傅等</td>
+</tr>
+<tr>
+<td>23</td>
+<td>项目外包</td>
+<td>金证科技</td>
+<td>银行外包开发</td>
+</tr>
+<tr>
+<td>24</td>
+<td>项目外包</td>
+<td>信雅达</td>
+<td>华为等</td>
+</tr>
+<tr>
+<td>25</td>
+<td>项目外包</td>
+<td>大连华信</td>
+<td>Pivotal等</td>
+</tr>
+<tr>
+<td>26</td>
+<td>人力外包&amp;项目外包</td>
+<td>信必优</td>
+<td>花旗银行等</td>
+</tr>
+<tr>
+<td>27</td>
+<td>人力外包&amp;业务外包</td>
+<td>易宝软件</td>
+<td>阿里、华为等</td>
+</tr>
+<tr>
+<td>28</td>
+<td>项目外包</td>
+<td>慧讯软件</td>
+<td>国知名跨平台安全解决方案供应商Centrify、知名欧美玩具供应商Mattel（美泰）、Hasbro（孩之宝）、移动电话供应商Philip、Nokia等</td>
+</tr>
+<tr>
+<td>29</td>
+<td>项目外包</td>
+<td>恒拓开源</td>
+<td>航空公司、机场及民航保障企业</td>
+</tr>
+<tr>
+<td>30</td>
+<td>人力外包</td>
+<td>广州赛意信息</td>
+<td>华为</td>
+</tr>
+<tr>
+<td>31</td>
+<td>人力外包</td>
+<td>中兴软件技术（南昌）有限公司</td>
+<td>中兴</td>
+</tr>
+<tr>
+<td>32</td>
+<td>项目外包</td>
+<td>华通科技</td>
+<td>对外合作部是做中兴的外包工作</td>
+</tr>
+<tr>
+<td>33</td>
+<td>人力外包</td>
+<td>中软海纳</td>
+<td>中兴</td>
+</tr>
+<tr>
+<td>34</td>
+<td>人力外包</td>
+<td>微创科技</td>
+<td>腾讯</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>收集</category>
+      </categories>
+      <tags>
+        <tag>外包</tag>
+      </tags>
+  </entry>
+</search>
