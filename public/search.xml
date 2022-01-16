@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java 项目部署实践</title>
+    <url>/1026407118/</url>
+    <content><![CDATA[<p>系统基于 CentOS7。</p>
+<h1 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h1><h3 id="安装-JDK"><a href="#安装-JDK" class="headerlink" title="安装 JDK"></a>安装 JDK</h3><p>查看 yum 库中的 JDK 安装包 ：<code>yum -y list java*</code></p>
+<p>安装需要的 JDK 版本的所有程序：<code>yum -y install java-1.8.0-openjdk*</code></p>
+<p>参考链接：<a href="https://blog.csdn.net/qq_32786873/article/details/78749384">在CentOS7.4中安装jdk的几种方法及配置环境变量_勿忘初心的博客-CSDN博客_centos配置java环境变量</a></p>
+<h3 id="安装-Maven"><a href="#安装-Maven" class="headerlink" title="安装 Maven"></a>安装 Maven</h3><p>安装命令：<code>yum install -y apache-maven</code></p>
+<p>修改镜像：<code>vi /usr/share/apache-maven/conf/settings.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>&lt;http://maven.aliyun.com/nexus/content/groups/public/&gt;<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考链接：<a href="https://www.jianshu.com/p/dfccd5de6032">CentOS上用yum安装Maven</a></p>
+<h3 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h3><p>安装命令：<code>yum -y install docker-ce</code></p>
+<p>启动命令：<code>systemctl start docker</code></p>
+<p>参考链接：<a href="https://cloud.tencent.com/developer/article/1701451">centos7安装Docker详细步骤（无坑版教程）</a></p>
+<p>修改加速地址：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;&lt;https://zaljllfu.mirror.aliyuncs.com&gt;&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>参考链接：<a href="https://help.aliyun.com/document_detail/60750.html#title-s0s-jjs-26k">官方镜像加速</a></p>
+<h1 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h1><h3 id="Jar-包方式"><a href="#Jar-包方式" class="headerlink" title="Jar 包方式"></a>Jar 包方式</h3><p>使用 IDEA 内置 deployment，上传 jar 包到服务器。</p>
+<h3 id="Docker-方式"><a href="#Docker-方式" class="headerlink" title="Docker 方式"></a>Docker 方式</h3><p>在 /usr/lib/systemd/system/docker.service，配置远程访问。</p>
+<p>主要是在[Service]这个部分的 ExecStart 中，加上下面两个参数：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">-H</span> <span class="string">tcp://0.0.0.0:2375</span> <span class="string">-H</span> <span class="string">unix://var/run/docker.sock</span></span><br></pre></td></tr></table></figure>
+
+<p>然后重启：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">systemctl</span> <span class="string">daemon-reload</span></span><br><span class="line"><span class="string">systemctl</span> <span class="string">restart</span> <span class="string">docker</span></span><br></pre></td></tr></table></figure>
+
+<p>在 IDEA 中，连接 Docker：<code>tcp://42.193.137.196:2375</code>。</p>
+<p>参考链接：</p>
+<p><a href="https://cloud.tencent.com/developer/article/1683689">Docker开启Remote API 访问 2375端口</a></p>
+<p><a href="https://blog.csdn.net/weixin_42687829/article/details/104249583">用idea部署springboot项目到docker_今日相乐，皆当喜欢的博客-CSDN博客_idea部署项目到docker</a></p>
+<h1 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h1><p>后台运行：<code>nohup java -jar xxx.jar &gt;temp.txt &amp;</code></p>
+<p>查看运行的任务：<code>jobs</code></p>
+<p>如果想将某个作业调回前台控制，只需要 <code>fg + 编号</code> 即可。</p>
+<p>查看某端口占用的线程的pid：<code>netstat -nlp |grep :9181</code></p>
+<p>查看当前运行的jar包程序进程号：<code>ps -ef|grep xxx.jar</code> 或者 <code>ps -aux | grep java</code></p>
+<p>关闭进程：<code>kill -s 9 24204</code></p>
+<p>参考链接：</p>
+<p><a href="https://cloud.tencent.com/developer/article/1722069">Linux中jar包启动和jar包后台运行的实现方式</a></p>
+<p><a href="https://lullabychen.github.io/2019/10/09/Java-IDEA%E6%89%93jar%E5%8C%85-%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%87%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/">Java：idea打包jar包&amp;部署到服务器过程全记录</a></p>
+<h1 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h1><h3 id="搭建项目"><a href="#搭建项目" class="headerlink" title="搭建项目"></a>搭建项目</h3><ol>
+<li>在代码仓库新建项目，clone 到本地。</li>
+<li>新建 Maven 工程，编辑 pom.xml 文件。（或使用 <a href="http://start.spring.io/">start.spring.io</a>、IDEA 内置 Initializr）groupId 定义当前 Maven项目隶属的实际项目，artifactId 建议使用实际项目作为前缀。</li>
+<li>新建 Modules。</li>
+</ol>
+<p>参考链接：<a href="https://juejin.cn/post/6906453629381804046">Spring Data JDBC入门使用Demo - 掘金</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>实战</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring 动态绑定</title>
     <url>/1655783544/</url>
     <content><![CDATA[<h1 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h1><p>在系统运行时，根据不同的场景需要多个类实例。比如一个 Redis 类，需要传入不同的 Category（可以理解为 Key 前缀），从而实现多个 Redis 子类。</p>
