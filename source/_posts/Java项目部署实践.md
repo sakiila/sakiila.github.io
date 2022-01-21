@@ -13,7 +13,7 @@ date: 2022-01-16 14:37:26
 
 # 配置环境
 
-### 安装 JDK
+## 安装 JDK
 
 查看 yum 库中的 JDK 安装包 ：`yum -y list java*`
 
@@ -21,7 +21,7 @@ date: 2022-01-16 14:37:26
 
 参考链接：[在CentOS7.4中安装jdk的几种方法及配置环境变量_勿忘初心的博客-CSDN博客_centos配置java环境变量](https://blog.csdn.net/qq_32786873/article/details/78749384)
 
-### 安装 Maven
+## 安装 Maven
 
 安装命令：`yum install -y apache-maven`
 
@@ -38,7 +38,7 @@ date: 2022-01-16 14:37:26
 
 参考链接：[CentOS上用yum安装Maven](https://www.jianshu.com/p/dfccd5de6032)
 
-### 安装 Docker
+## 安装 Docker
 
 安装命令：`yum -y install docker-ce`
 
@@ -52,7 +52,7 @@ date: 2022-01-16 14:37:26
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
-  "registry-mirrors": ["<https://zaljllfu.mirror.aliyuncs.com>"]
+  "registry-mirrors": ["<https://xxx.mirror.aliyuncs.com>"]
 }
 EOF
 sudo systemctl daemon-reload
@@ -63,11 +63,11 @@ sudo systemctl restart docker
 
 # 项目部署
 
-### Jar 包方式
+## Jar 包方式
 
 使用 IDEA 内置 deployment，上传 jar 包到服务器。
 
-### Docker 方式
+## Docker 方式
 
 在 /usr/lib/systemd/system/docker.service，配置远程访问。
 
@@ -84,7 +84,7 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-在 IDEA 中，连接 Docker：`tcp://42.193.137.196:2375`。
+在 IDEA 中，连接 Docker：`tcp://ip:2375`。
 
 参考链接：
 
@@ -114,10 +114,12 @@ systemctl restart docker
 
 # 项目架构
 
-### 搭建项目
+## 搭建项目
 
 1. 在代码仓库新建项目，clone 到本地。
 2. 新建 Maven 工程，编辑 pom.xml 文件。（或使用 [start.spring.io](http://start.spring.io)、IDEA 内置 Initializr）groupId 定义当前 Maven项目隶属的实际项目，artifactId 建议使用实际项目作为前缀。
 3. 新建 Modules。
+
+
 
 参考链接：[Spring Data JDBC入门使用Demo - 掘金](https://juejin.cn/post/6906453629381804046)

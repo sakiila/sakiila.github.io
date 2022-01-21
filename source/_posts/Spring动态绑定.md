@@ -13,7 +13,7 @@ date: 2022-01-07 19:55:59
 
 在系统运行时，根据不同的场景需要多个类实例。比如一个 Redis 类，需要传入不同的 Category（可以理解为 Key 前缀），从而实现多个 Redis 子类。
 
-# 一、自定义注解
+# 步骤一、自定义注解
 
 ```java
 @Retention(RetentionPolicy.RUNTIME)
@@ -25,14 +25,14 @@ public @interface CacheService {
 
 可以设置为 `String value() default "";` ，使用时可以隐藏字段名。
 
-# 二、扫描属性上的注解
+# 步骤二、扫描属性上的注解
 
 ```java
 Field[] fields = object.getClass().getDeclaredFields();
 CacheService annotation = field.getAnnotation(CacheService.class);
 ```
 
-# 三、向容器注入 Bean
+# 步骤三、向容器注入 Bean
 
 ```java
 // 获取 context
@@ -52,7 +52,7 @@ field.setAccessible(true);
 field.set(object, bean);
 ```
 
-# 四、使用
+# 步骤四、使用
 
 ```java
 @CacheService(category = Constants.ORDER_DRIVER)
@@ -136,6 +136,8 @@ public class CacheServiceAnnotation implements ApplicationListener<ContextRefres
     }
 }
 ```
+
+
 
 参考资料：
 

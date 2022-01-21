@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_32.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16.ico">
+  <link rel="mask-icon" href="/images/favicon_32.ico" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"baobo.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"baobo.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="通过 Spring 动态绑定实现多实例注入。">
@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://baobo.me/images/DynamicBinding.png">
 <meta property="article:published_time" content="2022-01-07T11:55:59.000Z">
-<meta property="article:modified_time" content="2022-01-07T12:12:32.906Z">
+<meta property="article:modified_time" content="2022-01-18T11:56:16.668Z">
 <meta property="article:author" content="Bob Bao">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="动态绑定">
@@ -146,6 +146,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-shuoshuo">
+
+    <a href="/shuoshuo/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>碎碎</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -187,7 +192,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -224,10 +228,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-07 19:55:59 / 修改时间：20:12:32" itemprop="dateCreated datePublished" datetime="2022-01-07T19:55:59+08:00">2022-01-07</time>
+              <time title="创建时间：2022-01-07 19:55:59" itemprop="dateCreated datePublished" datetime="2022-01-07T19:55:59+08:00">2022-01-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-18 19:56:16" itemprop="dateModified" datetime="2022-01-18T19:56:16+08:00">2022-01-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -239,6 +249,27 @@
             </span>
 
           
+            <span id="/1655783544/" class="post-meta-item leancloud_visitors" data-flag-title="Spring 动态绑定" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/1655783544/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/1655783544/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
             <div class="post-description">通过 Spring 动态绑定实现多实例注入。</div>
 
         </div>
@@ -251,17 +282,19 @@
 
       
         <h1 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h1><p>在系统运行时，根据不同的场景需要多个类实例。比如一个 Redis 类，需要传入不同的 Category（可以理解为 Key 前缀），从而实现多个 Redis 子类。</p>
-<h1 id="一、自定义注解"><a href="#一、自定义注解" class="headerlink" title="一、自定义注解"></a>一、自定义注解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="步骤一、自定义注解"><a href="#步骤一、自定义注解" class="headerlink" title="步骤一、自定义注解"></a>步骤一、自定义注解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以设置为 <code>String value() default &quot;&quot;;</code> ，使用时可以隐藏字段名。</p>
-<h1 id="二、扫描属性上的注解"><a href="#二、扫描属性上的注解" class="headerlink" title="二、扫描属性上的注解"></a>二、扫描属性上的注解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">CacheService annotation = field.getAnnotation(CacheService.class);</span><br></pre></td></tr></table></figure>
+<h1 id="步骤二、扫描属性上的注解"><a href="#步骤二、扫描属性上的注解" class="headerlink" title="步骤二、扫描属性上的注解"></a>步骤二、扫描属性上的注解</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">CacheService annotation = field.getAnnotation(CacheService.class);</span><br></pre></td></tr></table></figure>
 
-<h1 id="三、向容器注入-Bean"><a href="#三、向容器注入-Bean" class="headerlink" title="三、向容器注入 Bean"></a>三、向容器注入 Bean</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 context</span></span><br><span class="line">ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line"><span class="comment">// 获取 BeanFactory</span></span><br><span class="line">DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line"><span class="comment">// 创建 bean 信息</span></span><br><span class="line">BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字段</span></span><br><span class="line">beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">field.set(object, bean);</span><br></pre></td></tr></table></figure>
+<h1 id="步骤三、向容器注入-Bean"><a href="#步骤三、向容器注入-Bean" class="headerlink" title="步骤三、向容器注入 Bean"></a>步骤三、向容器注入 Bean</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 context</span></span><br><span class="line">ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line"><span class="comment">// 获取 BeanFactory</span></span><br><span class="line">DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line"><span class="comment">// 创建 bean 信息</span></span><br><span class="line">BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字段</span></span><br><span class="line">beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">field.set(object, bean);</span><br></pre></td></tr></table></figure>
 
-<h1 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CacheService(category = Constants.ORDER_DRIVER)</span></span><br><span class="line"><span class="keyword">private</span> RedisService orderDriverCache;</span><br></pre></td></tr></table></figure>
+<h1 id="步骤四、使用"><a href="#步骤四、使用" class="headerlink" title="步骤四、使用"></a>步骤四、使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CacheService(category = Constants.ORDER_DRIVER)</span></span><br><span class="line"><span class="keyword">private</span> RedisService orderDriverCache;</span><br></pre></td></tr></table></figure>
 
 <h1 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h1><p><img src="../images/DynamicBinding.png"></p>
 <h1 id="全部示例代码"><a href="#全部示例代码" class="headerlink" title="全部示例代码"></a>全部示例代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RedisService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisNioClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> SquirrelClient redisNioClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> RedisStoreClient redisClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> String category;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheService.java</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheServiceAnnotation.java</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CacheServiceAnnotation</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ContextRefreshedEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ContextRefreshedEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ApplicationContext applicationContext = event.getApplicationContext();</span><br><span class="line"></span><br><span class="line">        Arrays.stream(applicationContext.getBeanDefinitionNames())</span><br><span class="line">                .map(applicationContext::getBean)</span><br><span class="line">                .forEach(object -&gt; &#123;</span><br><span class="line">                    <span class="keyword">final</span> Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">                    Arrays.stream(fields)</span><br><span class="line">                            .filter(field -&gt; field.isAnnotationPresent(CacheService.class))</span><br><span class="line">                            .forEach(field -&gt; &#123;</span><br><span class="line">                                <span class="keyword">final</span> RedisService bean = getRedisService(applicationContext, field);</span><br><span class="line">                                <span class="keyword">try</span> &#123;</span><br><span class="line">                                    field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                                    field.set(object, bean);</span><br><span class="line">                                    log.info(<span class="string">&quot;set field success, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName());</span><br><span class="line">                                &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                                    log.error(<span class="string">&quot;set field fail, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName(), e);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> RedisService <span class="title">getRedisService</span><span class="params">(ApplicationContext applicationContext, Field field)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (applicationContext.containsBeanDefinition(field.getName())) &#123;</span><br><span class="line">            <span class="keyword">return</span> (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> CacheService annotation = field.getAnnotation(CacheService.class);</span><br><span class="line">        <span class="keyword">final</span> String category = annotation.category();</span><br><span class="line"></span><br><span class="line">        ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line">        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line">        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置字段</span></span><br><span class="line">        beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">        beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">        RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        log.info(<span class="string">&quot;register Bean success, bean: &#123;&#125;&quot;</span>, field.getName());</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 <p>参考资料：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011983531/article/details/70941123">Java获取类、方法、属性上的注解_根号三-CSDN博客_java 获取属性上的注解</a></p>
@@ -330,11 +363,7 @@
 
           </div>
           
-    
-  <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC81NTIyNi8zMTY5Mw=="></div>
-  </div>
-  
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -381,7 +410,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">需求场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">一、自定义注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%89%AB%E6%8F%8F%E5%B1%9E%E6%80%A7%E4%B8%8A%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">二、扫描属性上的注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%90%91%E5%AE%B9%E5%99%A8%E6%B3%A8%E5%85%A5-Bean"><span class="nav-number">4.</span> <span class="nav-text">三、向容器注入 Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">四、使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">示意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E9%83%A8%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">全部示例代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">需求场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%80%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">步骤一、自定义注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C%E3%80%81%E6%89%AB%E6%8F%8F%E5%B1%9E%E6%80%A7%E4%B8%8A%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">步骤二、扫描属性上的注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%89%E3%80%81%E5%90%91%E5%AE%B9%E5%99%A8%E6%B3%A8%E5%85%A5-Bean"><span class="nav-number">4.</span> <span class="nav-text">步骤三、向容器注入 Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">步骤四、使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">示意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E9%83%A8%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">全部示例代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,7 +424,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -408,7 +437,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -442,7 +471,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -507,21 +536,36 @@
 
   
 
+
 <script>
-NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'oDJOnSmJhC6rQfeTTa0enuoK-MdYXbMMI',
+      appKey     : '4wCCoG4XPq9uDS5dmmuevwb4',
+      placeholder: "",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://oDJOnSmJ.api.lncldglobal.com'
+    });
+  }, window.Valine);
 });
 </script>
 
 </body>
 </html>
+
+<script type="text/javascript" src="/js/love-click.js"></script>

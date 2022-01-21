@@ -58,3 +58,5 @@
   {%- endif %}
 </body>
 </html>
+
+<script type="text/javascript" src="/js/love-click.js"></script>

@@ -18,34 +18,6 @@
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg-color: #282828;
-    --content-bg-color: #333;
-    --card-bg-color: #555;
-    --text-color: #ccc;
-    --blockquote-color: #bbb;
-    --link-color: #ccc;
-    --link-hover-color: #eee;
-    --brand-color: #ddd;
-    --brand-hover-color: #ddd;
-    --table-row-odd-bg-color: #282828;
-    --table-row-hover-bg-color: #363636;
-    --menu-item-bg-color: #555;
-    --btn-default-bg: #222;
-    --btn-default-color: #ccc;
-    --btn-default-border-color: #555;
-    --btn-default-hover-bg: #666;
-    --btn-default-hover-color: #ccc;
-    --btn-default-hover-border-color: #666;
-  }
-  img {
-    opacity: 0.75;
-  }
-  img:hover {
-    opacity: 0.9;
-  }
-}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -427,13 +399,11 @@ td {
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-  background-color: #eee;
-  background-image: linear-gradient(#fcfcfc, #eee);
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
+  background: #fff;
+  border: 0;
   font-size: 0.8125em;
-  right: 4px;
-  top: 8px;
+  right: 0;
+  top: 0;
 }
 .highlight,
 pre {
@@ -1014,8 +984,8 @@ pre .javascript .function {
   padding: 0 10px;
 }
 .headband {
-  background: #222;
-  height: 3px;
+  background: transparent;
+  height: 10px;
 }
 .site-meta {
   flex-grow: 1;
@@ -1221,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f17ed4;
+  background: #ff1dff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1467,6 +1437,7 @@ pre .javascript .function {
   color: #F05454;
   display: inline-block;
   margin: 0 5px;
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .powered-by,
 .theme-info {
@@ -1560,16 +1531,6 @@ pre .javascript .function {
     left: 20px;
     opacity: 0.8;
   }
-}
-.reading-progress-bar {
-  background: #F05454;
-  display: block;
-  height: 3px;
-  left: 0;
-  position: fixed;
-  width: 0;
-  z-index: 1500;
-  top: 0;
 }
 .post-body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -2349,7 +2310,7 @@ ul.breadcrumb li + li:last-child {
 }
 .header-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 10px;
   box-shadow: initial;
   overflow: hidden;
   padding: 0;
@@ -2382,7 +2343,7 @@ ul.breadcrumb li + li:last-child {
 }
 .content-wrap {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 10px;
   box-shadow: initial;
   box-sizing: border-box;
   padding: 40px;
@@ -2540,7 +2501,7 @@ ul.breadcrumb li + li:last-child {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 10px;
   box-shadow: initial;
   box-sizing: border-box;
   color: var(--text-color);

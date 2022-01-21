@@ -40,10 +40,10 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/favicon_16.ico #/images/favicon-16x16-next.png
+  medium: /images/favicon_32.ico #/images/favicon-32x32-next.png
+  apple_touch_icon: /images/favicon_32.ico #/images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/favicon_32.ico #/images/logo.svg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -52,14 +52,14 @@ language_switcher: false
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  #since: 2015
+  since: 2016
 
   # Icon between year and copyright info.
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
     name: fa fa-heart
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
     color: "#F05454"
 
@@ -121,6 +121,7 @@ menu:
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
+  shuoshuo: /shuoshuo/ || fa fa-heartbeat
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -359,9 +360,9 @@ codeblock:
   copy_button:
     enable: true
     # Show text copy result.
-    show_result: false
+    show_result: true
     # Available values: default | flat | mac
-    style:
+    style: flat
 
 back2top:
   enable: true
@@ -372,7 +373,7 @@ back2top:
 
 # Reading progress bar
 reading_progress:
-  enable: true
+  enable: false
   # Available values: top | bottom
   position: top
   color: "#F05454"
@@ -566,7 +567,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
-  active: livere
+  active: valine
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -610,25 +611,25 @@ changyan:
 # Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: false
-  appid: # Your leancloud application appid
-  appkey: # Your leancloud application appkey
+  enable: true
+  appid: oDJOnSmJhC6rQfeTTa0enuoK-MdYXbMMI
+  appkey: 4wCCoG4XPq9uDS5dmmuevwb4
   notify: false # Mail notifier
   verify: false # Verification code
-  placeholder: Just go go # Comment box placeholder
-  avatar: mm # Gravatar style
+  placeholder: # Comment box placeholder
+  avatar: wavatar # Gravatar style
   guest_info: nick,mail,link # Custom comment header
   pageSize: 10 # Pagination size
-  language: # Language, available values: en, zh-cn
-  visitor: false # Article reading statistic
-  comment_count: true # If false, comment count will only be displayed in post page, not in home page
-  recordIP: false # Whether to record the commenter IP
-  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  language: zh-cn # Language, available values: en, zh-cn
+  visitor: true # Article reading statistic
+  comment_count: false # If false, comment count will only be displayed in post page, not in home page
+  recordIP: true # Whether to record the commenter IP
+  serverURLs: https://oDJOnSmJ.api.lncldglobal.com # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
   #post_meta_order: 0
 
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC81NTIyNi8zMTY5Mw==
+# livere_uid: MTAyMC81NTIyNi8zMTY5Mw==
 
 # Gitalk
 # For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
