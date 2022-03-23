@@ -4,6 +4,6 @@ date: {{ date }}
 categories:
 tags:
   -
-description: 
+description: <center></center>
 ---
 

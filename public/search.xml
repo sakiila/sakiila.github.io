@@ -87,6 +87,137 @@
       </tags>
   </entry>
   <entry>
+    <title>后端工程师学习路径</title>
+    <url>/3201199714/</url>
+    <content><![CDATA[<h1 id="整体脉络"><a href="#整体脉络" class="headerlink" title="整体脉络"></a>整体脉络</h1><p> 操作系统 → 计算机网络 → 数据结构与算法 → 编程语言 → 数据库 → 框架 → 中间件 → 架构思维</p>
+<h1 id="详细资料"><a href="#详细资料" class="headerlink" title="详细资料"></a>详细资料</h1><table>
+<thead>
+<tr>
+<th>技能</th>
+<th>相关资料</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机组成原理</td>
+<td>计算机科学速成课、《计算机是怎样跑起来的》、《程序是怎样跑起来的》、《编码》、掘金《计算机是怎样运行的》</td>
+</tr>
+<tr>
+<td>操作系统</td>
+<td>《操作系统导论》、《现代操作系统》、《深入理解计算机系统》、MIT 608、极客时间《操作系统45讲》</td>
+</tr>
+<tr>
+<td>计算机网络</td>
+<td>《计算机网络自顶向下》</td>
+</tr>
+<tr>
+<td>数据结构与算法</td>
+<td>极客时间《数据结构与算法之美》</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>《Linux高性能服务器编程》</td>
+</tr>
+<tr>
+<td>Java 基础与集合</td>
+<td>《Java 实战》、《Effective Java》</td>
+</tr>
+<tr>
+<td>JVM</td>
+<td>《深入理解 Java 虚拟机》、极客时间《深入拆解 Java 虚拟机》</td>
+</tr>
+<tr>
+<td>Netty</td>
+<td>极客时间《Netty 源码剖析与实战》</td>
+</tr>
+<tr>
+<td>Java 并发编程</td>
+<td>《Java 并发编程的艺术》、极客时间《Java 并发编程实战》</td>
+</tr>
+<tr>
+<td>Spring</td>
+<td><a href="https://javadoop.com/">JavaDoop</a>、《Spring 源码深度解析》、《极客 Spring 编程常见错误 50 例》</td>
+</tr>
+<tr>
+<td>Spring Boot</td>
+<td>慕课网《小马哥 Spring Boot 2.0 深度实践》</td>
+</tr>
+<tr>
+<td>设计模式</td>
+<td>极客时间《设计模式之美》</td>
+</tr>
+<tr>
+<td>单元测试</td>
+<td>Spock</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>《高性能 MySQL》、《MySQL 技术内幕》、极客时间《MySQL 45讲》、掘金《MySQL 是怎样运行的》</td>
+</tr>
+<tr>
+<td>分布式事务</td>
+<td>极客时间《分布式协议与算法》</td>
+</tr>
+<tr>
+<td>RPC</td>
+<td>极客时间《网络编程实战》、极客时间《RPC 实战与核心原理》</td>
+</tr>
+<tr>
+<td>Dubbo</td>
+<td>拉勾教育《Dubbo 源码解读》</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td>《从Paxos 到 Zookeeper》</td>
+</tr>
+<tr>
+<td>Spring Cloud</td>
+<td>慕课网《Spring Cloud 微服务开发实践》</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>《Redis 设计与实现》，《Redis 开发与运维》、极客时间《Redis 核心技术与实战》</td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td>《深入理解 Kafka》、极客时间《Kafka 核心技术与实战》</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>慕课网《跟 BAT 技术专家学 Docker + K8s》</td>
+</tr>
+<tr>
+<td>大数据</td>
+<td>极客时间《从 0 开始学大数据》</td>
+</tr>
+<tr>
+<td>代码整洁</td>
+<td>《代码整洁之道》、《重构》、《修改代码的艺术》</td>
+</tr>
+<tr>
+<td>工作方法</td>
+<td>极客时间《大厂晋升指南》、极客时间《左耳听风》</td>
+</tr>
+<tr>
+<td>架构方法论</td>
+<td>《数据密集型应用系统设计》、极客时间《从 0 开始学架构》、极客时间《后端技术面试》</td>
+</tr>
+<tr>
+<td>外语</td>
+<td>极客时间《互联网人的英语私教课》</td>
+</tr>
+</tbody></table>
+<p>持续更新中。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>学习</tag>
+        <tag>路径</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客脚印</title>
     <url>/1487202510/</url>
     <content><![CDATA[<h1 id="boo516-com"><a href="#boo516-com" class="headerlink" title="boo516.com"></a>boo516.com</h1><p>最初的域名是 boo516.com，搭建在 Godaddy 服务中。截图时间是 2016 年 11 月 5 日。</p>
@@ -336,6 +467,59 @@
       </categories>
       <tags>
         <tag>外包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>走向开源之路</title>
+    <url>/2465020203/</url>
+    <content><![CDATA[<h1 id="首先你需要："><a href="#首先你需要：" class="headerlink" title="首先你需要："></a>首先你需要：</h1><ol>
+<li>畅通的网络环境；</li>
+<li>一个Github账号；</li>
+<li>本机安装Git软件；</li>
+<li>Don’t panic !</li>
+</ol>
+<h1 id="Fork-项目"><a href="#Fork-项目" class="headerlink" title="Fork 项目"></a>Fork 项目</h1><p>首先，在Github仓库Fork他人项目。然后复制自己仓库的项目地址（HTTP或SSH都可），在本地Clone下来。</p>
+<p>如果项目文件体积大，可使用如下方式：</p>
+<ol>
+<li>（推荐）在浏览器上安装Github加速插件，使用其中的镜像地址； Clone完代码，建议执行<code>git remote set-url origin 自己的Github项目地址</code> 。</li>
+<li>（推荐）在gitee.com网站，导入Github项目，使用gitee的项目地址进行Clone； Clone完代码，建议执行<code>git remote set-url origin 自己的Github项目地址</code> 。</li>
+<li>使用命令 <code>git clone --depth=1</code> 进行Clone最新一次的提交代码，之后使用<code>git pull --unshallow</code> 。</li>
+</ol>
+<h1 id="同步项目代码"><a href="#同步项目代码" class="headerlink" title="同步项目代码"></a>同步项目代码</h1><ol>
+<li>添加上游项目地址： <code>git remote add upstream 原始项目地址</code> 查看远程地址： <code>git remote -v</code> 查看远程分支： <code>git branch -r</code></li>
+<li>拉取最新代码： <code>git fetch upstream</code></li>
+<li>合并最新代码： 本地代码<strong>无修改</strong>：<code>git rebase upstream/master</code> 本地代码<strong>有修改</strong>：<code>git merge upstream/master</code></li>
+<li>将最新代码上传到自己的远程仓库： <code>git push</code></li>
+</ol>
+<h1 id="构建项目（使用Maven）"><a href="#构建项目（使用Maven）" class="headerlink" title="构建项目（使用Maven）"></a>构建项目（使用Maven）</h1><p>确保编译版本和项目建议版本相一致。</p>
+<p>执行命令<code>mvn clean install</code> ，或命令<code>mvn clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Drat.skip=true -Dcheckstyle.skip=true -e</code> 跳过测试等过程。</p>
+<p>如果某个模块构建失败，多次执行<code>mvn install</code> 即可。</p>
+<p>参考链接：</p>
+<p><a href="https://www.yuque.com/docs/share/eedab2ad-6486-4690-b048-d9bb9a6b4a4a">Soul 之 PR 提交流程 · 语雀</a></p>
+<p><a href="http://wuchong.me/blog/2019/02/12/how-to-become-apache-committer/">如何从小白成长为 Apache Committer?</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Alfred Workflow 时间转换</title>
+    <url>/393446932/</url>
+    <content><![CDATA[<h1 id="创建-Workflow"><a href="#创建-Workflow" class="headerlink" title="创建 Workflow"></a>创建 Workflow</h1><p>参考教程：<a href="https://sspai.com/post/61754%E3%80%82">https://sspai.com/post/61754。</a></p>
+<h1 id="注意：如果使用-Python3"><a href="#注意：如果使用-Python3" class="headerlink" title="注意：如果使用 Python3"></a>注意：如果使用 Python3</h1><p>需要使用此仓库的 workflow 文件夹内容：<a href="https://github.com/NorthIsUp/alfred-workflow-py3%E3%80%82">https://github.com/NorthIsUp/alfred-workflow-py3。</a></p>
+<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><p><img src="../images/TimeConvert.png" alt="TimeConvert"></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/sakiila/minipy/tree/main/AlfredWorkflow">https://github.com/sakiila/minipy/tree/main/AlfredWorkflow</a></p>
+<p>参考教程：<br><a href="https://pythonmana.com/2022/02/202202252149470874.html">使用python实现一个日期和时间戳互转的Alfred workflow</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>实战</tag>
+        <tag>Alfred</tag>
       </tags>
   </entry>
 </search>

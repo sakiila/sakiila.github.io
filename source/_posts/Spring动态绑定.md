@@ -4,7 +4,7 @@ categories: 笔记
 tags:
   - Spring
   - 动态绑定
-description: 通过 Spring 动态绑定实现多实例注入。
+description: <center>通过 Spring 动态绑定实现多实例注入。</center>
 abbrlink: 1655783544
 date: 2022-01-07 19:55:59
 ---
