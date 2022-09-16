@@ -24,10 +24,10 @@ ExcelGo 是一个能读取 Excel 文件内容，并获取到其中的邮箱，�
 
 # 文件格式
 因为特别的原因，此处将前三列分别定义为员工编号、收件人姓名和其邮箱地址。
-![Excel文件格式](https://upload-images.jianshu.io/upload_images/2348575-ed5d4735a94e7901.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "Excel文件格式")
+![Excel文件格式](../images/Excel文件格式.jpeg)
 
 # 效果展示
-![收件效果](https://upload-images.jianshu.io/upload_images/2348575-46de67c91fe48053.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "收件效果")
+![收件效果](../images/收件效果.jpeg)
 
 # 代码实现
 [https://github.com/sakiila/ExcelGo](https://github.com/sakiila/ExcelGo)

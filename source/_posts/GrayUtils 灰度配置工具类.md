@@ -1,17 +1,17 @@
 ---
 title: GrayUtils 灰度配置工具类
 tags:
-- Java
-- Gray 
+  - Java
+  - Gray
 categories: 开发
 description: <center>使用 GrayUtils 灰度配置工具类来控制灰度开关和流量。</center>
-abbrlink: 2646382575
+abbrlink: 40207247
 date: 2022-01-20 21:15:00
 ---
 # 一、使用方式
 
 1. 添加相关配置，参考配置示例；
-2. 使用 `GrayUtils.IsHitGray(MCC配置, ld)` 方法，进行灰度判断。
+2. 使用 `GrayUtils.IsHitGray(远端配置, Id)` 方法，进行灰度判断。
 
 # 二、配置示例
 
