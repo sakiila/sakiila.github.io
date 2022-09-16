@@ -3,7 +3,7 @@ title: Java 项目部署实践
 tags:
   - Java
   - 实战
-categories: 笔记
+categories: 开发
 description: <center>简要记录如何在服务器上搭建相关环境，配置相关服务等操作。</center>
 abbrlink: 1026407118
 date: 2022-01-16 14:37:26

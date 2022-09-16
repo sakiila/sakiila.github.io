@@ -1,6 +1,6 @@
 ---
 title: Spring 动态绑定
-categories: 笔记
+categories: 开发
 tags:
   - Spring
   - 动态绑定
@@ -138,11 +138,7 @@ public class CacheServiceAnnotation implements ApplicationListener<ContextRefres
 ```
 
 
-
 参考资料：
-
-[Java获取类、方法、属性上的注解_根号三-CSDN博客_java 获取属性上的注解](https://blog.csdn.net/u011983531/article/details/70941123)
-
-[使用自定义注解动态绑定多实现类实例](https://www.cnblogs.com/east7/p/14390816.html)
-
+[Java获取类、方法、属性上的注解_根号三-CSDN博客_java 获取属性上的注解](https://blog.csdn.net/u011983531/article/details/70941123)  
+[使用自定义注解动态绑定多实现类实例](https://www.cnblogs.com/east7/p/14390816.html)    
 [SpringBoot动态注入及操作Bean](https://segmentfault.com/a/1190000024522038)
