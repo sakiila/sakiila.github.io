@@ -1,5 +1,5 @@
 ---
-title: Git 批量 checkout 和 update
+title: Gradle 搭配 Mybatis-Generator 进行代码自动生成
 tags:
   - gradle
   - mybatis

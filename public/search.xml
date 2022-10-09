@@ -147,7 +147,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Git 批量 checkout 和 update</title>
+    <title>Gradle 搭配 Mybatis-Generator 进行代码自动生成</title>
     <url>/1177415153/</url>
     <content><![CDATA[<h1 id="一、Mybatis-Generator-引入"><a href="#一、Mybatis-Generator-引入" class="headerlink" title="一、Mybatis-Generator 引入"></a>一、Mybatis-Generator 引入</h1><p>在 build.gradle 文件的 plugins 模块加上一行配置：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">id &quot;com.thinkimi.gradle.MybatisGenerator&quot; version &quot;2.4&quot;</span><br></pre></td></tr></table></figure>
