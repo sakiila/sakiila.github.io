@@ -58,9 +58,9 @@ state:
   tags: 标签
   categories: 分类
 search:
-  placeholder: 搜索...
+  placeholder: 搜索
 cheers:
-  um: 嗯..
+  um: 嗯
   ok: 还行
   nice: 不错
   good: 很好

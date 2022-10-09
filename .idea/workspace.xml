@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa82c0c7-8bae-49c3-b572-595c321fe912" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/tags/Gray/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/1177415153/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2022/10/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/git/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Git 批量 checkout 和 update.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/1026407118/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/1026407118/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/1326063135/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/1326063135/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/1446338271/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/1446338271/index.html" afterDir="false" />
@@ -26,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/public/3652395819/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/3652395819/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/3890282637/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/3890282637/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/393446932/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/393446932/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/40207247/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/40207247/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/4038172740/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/4038172740/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/4225233647/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/4225233647/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/492101974/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/492101974/index.html" afterDir="false" />
@@ -72,6 +76,7 @@
       <change beforePath="$PROJECT_DIR$/public/tags/DNS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/DNS/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Emacs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Emacs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Excel/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Excel/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Gray/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Gray/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Java/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Java/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Music/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Music/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/RSS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/RSS/index.html" afterDir="false" />
@@ -97,6 +102,7 @@
       <change beforePath="$PROJECT_DIR$/public/tags/路径/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/路径/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/邮箱/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/邮箱/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/驴得水/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/驴得水/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next/languages/zh-CN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/languages/zh-CN.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,17 +164,23 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/baobo/IdeaProjects/sakiila.github.io/source/_posts",
+    "nodejs_package_manager_path": "yarn"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/_posts" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -182,6 +194,9 @@
       <workItem from="1663294426064" duration="789000" />
       <workItem from="1663299502236" duration="901000" />
       <workItem from="1663326128247" duration="528000" />
+      <workItem from="1663330819343" duration="21000" />
+      <workItem from="1663330867007" duration="673000" />
+      <workItem from="1665301711623" duration="333000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1663300493606</created>
