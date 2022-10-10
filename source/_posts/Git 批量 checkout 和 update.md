@@ -16,15 +16,15 @@ branch="production"
 
 if [ "$1" ]
 then
-branch="$1"
+    branch="$1"
 fi
 
 for f in `ls ./`
 do
-if [[ ${f} == moego* ]]
-then
-echo -e "\n${f}"
-cd ${f}
+    if [[ ${f} == * ]]
+    then
+        echo -e "\n${f}"
+        cd ${f}
 
         echo "1. checkout ${branch} result: "
         git checkout ${branch}
@@ -36,7 +36,7 @@ done
 echo "Finished"
 ```
 
-将脚本放置在 MoeGo 项目代码同一目录下。
+将脚本放置在项目代码同一目录下。
 
 
 # 二、赋权
@@ -50,7 +50,7 @@ chmod +x ./update.sh
 
 注意：执行前，记得 commit 或者 shelve 代码，以防本地代码丢失。  
 
-默认将所有 moego 开头的仓库代码 checkout 到 production 分支，并执行 pull --rebase 命令：  
+默认将所有仓库代码 checkout 到 production 分支，并执行 pull --rebase 命令：  
 ```shell
 ./update.sh
 ```
