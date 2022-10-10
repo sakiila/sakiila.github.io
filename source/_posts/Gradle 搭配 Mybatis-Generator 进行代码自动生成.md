@@ -5,7 +5,7 @@ tags:
   - mybatis
 categories: 开发
 description: <center>Gradle 搭配 Mybatis-Generator 进行代码自动生成。</center>
-abbrlink: 1177415153
+abbrlink: 680024629
 date: 2022-08-24 18:10:37
 ---
 # 一、Mybatis-Generator 引入

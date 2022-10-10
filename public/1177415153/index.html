@@ -21,18 +21,17 @@
     var CONFIG = {"hostname":"baobo.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Gradle 搭配 Mybatis-Generator 进行代码自动生成。">
+  <meta name="description" content="Git 批量 checkout 和 update 脚本。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gradle 搭配 Mybatis-Generator 进行代码自动生成">
+<meta property="og:title" content="Git 批量 checkout 和 update">
 <meta property="og:url" content="https://baobo.me/1177415153/index.html">
 <meta property="og:site_name" content="树洞">
-<meta property="og:description" content="Gradle 搭配 Mybatis-Generator 进行代码自动生成。">
+<meta property="og:description" content="Git 批量 checkout 和 update 脚本。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-24T10:10:37.000Z">
-<meta property="article:modified_time" content="2022-10-09T09:26:35.018Z">
+<meta property="article:published_time" content="2022-10-09T07:50:22.000Z">
+<meta property="article:modified_time" content="2022-10-10T01:53:31.503Z">
 <meta property="article:author" content="Bob Bao">
-<meta property="article:tag" content="gradle">
-<meta property="article:tag" content="mybatis">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://baobo.me/1177415153/">
@@ -48,7 +47,7 @@
   };
 </script>
 
-  <title>Gradle 搭配 Mybatis-Generator 进行代码自动生成 | 树洞</title>
+  <title>Git 批量 checkout 和 update | 树洞</title>
   
 
 
@@ -206,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Gradle 搭配 Mybatis-Generator 进行代码自动生成
+          Git 批量 checkout 和 update
         </h1>
 
         <div class="post-meta">
@@ -216,14 +215,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-08-24 18:10:37" itemprop="dateCreated datePublished" datetime="2022-08-24T18:10:37+08:00">2022-08-24</time>
+              <time title="创建时间：2022-10-09 15:50:22" itemprop="dateCreated datePublished" datetime="2022-10-09T15:50:22+08:00">2022-10-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-09 17:26:35" itemprop="dateModified" datetime="2022-10-09T17:26:35+08:00">2022-10-09</time>
+                <time title="修改时间：2022-10-10 09:53:31" itemprop="dateModified" datetime="2022-10-10T09:53:31+08:00">2022-10-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,7 +235,7 @@
             </span>
 
           
-            <span id="/1177415153/" class="post-meta-item leancloud_visitors" data-flag-title="Gradle 搭配 Mybatis-Generator 进行代码自动生成" title="阅读次数">
+            <span id="/1177415153/" class="post-meta-item leancloud_visitors" data-flag-title="Git 批量 checkout 和 update" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -257,7 +256,7 @@
   </span>
   
   
-            <div class="post-description"><center>Gradle 搭配 Mybatis-Generator 进行代码自动生成。</center></div>
+            <div class="post-description"><center>Git 批量 checkout 和 update 脚本。</center></div>
 
         </div>
       </header>
@@ -268,19 +267,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="一、Mybatis-Generator-引入"><a href="#一、Mybatis-Generator-引入" class="headerlink" title="一、Mybatis-Generator 引入"></a>一、Mybatis-Generator 引入</h1><p>在 build.gradle 文件的 plugins 模块加上一行配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id &quot;com.thinkimi.gradle.MybatisGenerator&quot; version &quot;2.4&quot;</span><br></pre></td></tr></table></figure>
+        <h1 id="一、下载脚本"><a href="#一、下载脚本" class="headerlink" title="一、下载脚本"></a>一、下载脚本</h1><p>脚本代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">branch=&quot;production&quot;</span><br><span class="line"></span><br><span class="line">if [ &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">branch=&quot;$1&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">for f in `ls ./`</span><br><span class="line">do</span><br><span class="line">if [[ $&#123;f&#125; == moego* ]]</span><br><span class="line">then</span><br><span class="line">echo -e &quot;\n$&#123;f&#125;&quot;</span><br><span class="line">cd $&#123;f&#125;</span><br><span class="line"></span><br><span class="line">        echo &quot;1. checkout $&#123;branch&#125; result: &quot;</span><br><span class="line">        git checkout $&#123;branch&#125;</span><br><span class="line">        echo &quot;2. pull rebase result: &quot;</span><br><span class="line">        git pull --rebase</span><br><span class="line">        cd ..</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">echo &quot;Finished&quot;</span><br></pre></td></tr></table></figure>
 
-<p>然后，在 build.gradle 文件的末尾加上配置引入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">mybatisGenerator</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mybatisGenerator &#123;</span><br><span class="line">verbose = true</span><br><span class="line">configFile = &#x27;bob-server-模块名/src/main/resources/MyBatisGeneratorConfig.xml&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后 load 一下 Gradle 配置进行刷新。</p>
-<h1 id="二、MyBatisGeneratorConfig-xml-配置文件修改"><a href="#二、MyBatisGeneratorConfig-xml-配置文件修改" class="headerlink" title="二、MyBatisGeneratorConfig.xml 配置文件修改"></a>二、MyBatisGeneratorConfig.xml 配置文件修改</h1><p>将以下配置进行粘贴覆盖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jdbcConnection</span> <span class="attr">driverClass</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">connectionURL</span>=<span class="string">&quot;jdbc:mysql://db&quot;</span> <span class="attr">userId</span>=<span class="string">&quot;username&quot;</span> <span class="attr">password</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jdbcConnection</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">javaModelGenerator</span> <span class="attr">targetPackage</span>=<span class="string">&quot;me.bob.server.模块名.mapperbean&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">targetProject</span>=<span class="string">&quot;bob-server-模块名/src/main/java&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;trimStrings&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">javaModelGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">sqlMapGenerator</span> <span class="attr">targetPackage</span>=<span class="string">&quot;me.bob.server.模块名.mapperxml&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">targetProject</span>=<span class="string">&quot;bob-server-模块名/src/main/java&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">javaClientGenerator</span> <span class="attr">targetPackage</span>=<span class="string">&quot;me.bob.server.模块名.mapper&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">targetProject</span>=<span class="string">&quot;bob-server-模块名/src/main/java&quot;</span> <span class="attr">type</span>=<span class="string">&quot;XMLMAPPER&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">javaClientGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将脚本放置在 MoeGo 项目代码同一目录下。</p>
+<h1 id="二、赋权"><a href="#二、赋权" class="headerlink" title="二、赋权"></a>二、赋权</h1><p>进入当前目录，执行赋权命令：  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./update.sh</span><br></pre></td></tr></table></figure>
 
-<h1 id="三、使用插件进行代码生成"><a href="#三、使用插件进行代码生成" class="headerlink" title="三、使用插件进行代码生成"></a>三、使用插件进行代码生成</h1><p>点击 IDEA 的 Gradle 标签（如果没有标签，见下方备注），打开 Tasks - util，双击 mbGenerator，即可生成代码。如有失败，参考提示信息进行排查。  </p>
-<p>备注：如果没有 Gradle 标签，按以下步骤打开：View -&gt; Tool Windows -&gt; Gradle。</p>
-<p>参考资料：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013534059">https://segmentfault.com/a/1190000013534059</a><br><a target="_blank" rel="noopener" href="https://github.com/kimichen13/mybatis-generator-plugin">https://github.com/kimichen13/mybatis-generator-plugin</a></p>
-
+<h1 id="三、运行"><a href="#三、运行" class="headerlink" title="三、运行"></a>三、运行</h1><p>注意：执行前，记得 commit 或者 shelve 代码，以防本地代码丢失。  </p>
+<p>默认将所有 moego 开头的仓库代码 checkout 到 production 分支，并执行 pull –rebase 命令：  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./update.sh</span><br></pre></td></tr></table></figure>
+<p>如果需要 checkout 到其他分支，可以加上分支名，例如：  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./update.sh master</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -293,15 +291,14 @@
       <div class="popular-posts-title"><a href="/393446932/" rel="bookmark">Alfred Workflow 时间转换</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2646382575/" rel="bookmark">ExcelGo</a></div>
+      <div class="popular-posts-title"><a href="/40207247/" rel="bookmark">GrayUtils 灰度配置工具类</a></div>
     </li>
   </ul>
 
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/gradle/" rel="tag"># gradle</a>
-              <a href="/tags/mybatis/" rel="tag"># mybatis</a>
+              <a href="/tags/git/" rel="tag"># git</a>
           </div>
 
         
@@ -310,13 +307,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/393446932/" rel="prev" title="Alfred Workflow 时间转换">
-      <i class="fa fa-chevron-left"></i> Alfred Workflow 时间转换
+    <a href="/680024629/" rel="prev" title="Gradle 搭配 Mybatis-Generator 进行代码自动生成">
+      <i class="fa fa-chevron-left"></i> Gradle 搭配 Mybatis-Generator 进行代码自动生成
     </a></div>
-      <div class="post-nav-item">
-    <a href="/1177415153/" rel="next" title="Git 批量 checkout 和 update">
-      Git 批量 checkout 和 update <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -376,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Mybatis-Generator-%E5%BC%95%E5%85%A5"><span class="nav-text">一、Mybatis-Generator 引入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81MyBatisGeneratorConfig-xml-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="nav-text">二、MyBatisGeneratorConfig.xml 配置文件修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-text">三、使用插件进行代码生成</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%AC"><span class="nav-text">一、下载脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%B5%8B%E6%9D%83"><span class="nav-text">二、赋权</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%BF%90%E8%A1%8C"><span class="nav-text">三、运行</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

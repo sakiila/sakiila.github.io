@@ -19,33 +19,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Chrome 快捷键</title>
-    <url>/763296652/</url>
-    <content><![CDATA[<h1 id="记录几个比较常用的快捷键"><a href="#记录几个比较常用的快捷键" class="headerlink" title="记录几个比较常用的快捷键"></a>记录几个比较常用的快捷键</h1><ul>
-<li>打开新窗口    Ctrl + n</li>
-<li>打开新的标签页，并跳转到该标签页    Ctrl + t</li>
-<li>重新打开最后关闭的标签页，并跳转到该标签页    Ctrl + Shift + t</li>
-<li>跳转到下一个打开的标签页    Ctrl + Tab 或 Ctrl + PgDn</li>
-<li>跳转到上一个打开的标签页    Ctrl + Shift + Tab 或 Ctrl + PgUp</li>
-<li>在当前标签页中打开主页    Alt + Home</li>
-<li>关闭当前标签页    Ctrl + w 或 Ctrl + F4</li>
-<li>关闭当前窗口    Alt + F4</li>
-<li>退出 Google Chrome    Ctrl + Shift + q </li>
-<li>打开“开发者工具”    Ctrl + Shift + j 或 F12</li>
-<li>跳转到地址栏    Ctrl + l、Alt + d 或 F6 </li>
-<li>重新加载当前网页    F5 或 Ctrl + r</li>
-<li>重新加载当前网页（忽略缓存的内容）    Shift + F5 或 Ctrl + Shift + r</li>
-</ul>
-<p>原网址：<br><a href="https://support.google.com/chrome/answer/157179?hl=zh-Hans">https://support.google.com/chrome/answer/157179?hl=zh-Hans</a></p>
-]]></content>
-      <categories>
-        <category>收集</category>
-      </categories>
-      <tags>
-        <tag>Chrome</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DNS 汇总</title>
     <url>/569693028/</url>
     <content><![CDATA[<p>114:<br>114.114.114.114 114.114.115.115 普通用户使用<br>114.114.114.119 114.114.115.119 拦截钓鱼病毒木马网站<br>114.114.114.110 114.114.115.110 拦截色情网站</p>
@@ -121,34 +94,34 @@
       </tags>
   </entry>
   <entry>
-    <title>ExcelGo</title>
-    <url>/2646382575/</url>
-    <content><![CDATA[<p>ExcelGo 是一个能读取 Excel 文件内容，并获取到其中的邮箱，将表格内容发送至指定的邮箱地址。最初构想来自于需要将公司内部对账单文件中的每行内容发送至各人邮箱。</p>
-<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><ul>
-<li>获取表格内容：通过Apache POI组件读取Excle表格，将内容存放至HashMap集合中。</li>
-<li>发送邮件：通过员工编号将同一个人的信息组合起来，使用JavaMail API 和Java Activation Framework (JAF) 发送至其邮箱。</li>
-</ul>
-<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>主要程序由GoExcel.java、GoMail.java和Main.java三个文件组成。</p>
-<ol>
-<li>GoExcel.java<br> 此文件判断Excel文件后缀类型，读取Excel表格表头和数据内容，并根据Cell类型设置数据。</li>
-<li>GoMail.java<br> 此文件包含名为goMail的方法，其主要功能是获得收件人邮箱和表格内容，通过QQ邮箱来发送消息。</li>
-<li>Main.java<br> 此文件包含Main方法，定义Excel文件路径，组合同一个收件人的消息，并调用goMail方法发送邮件。</li>
+    <title>GrayUtils 灰度配置工具类</title>
+    <url>/40207247/</url>
+    <content><![CDATA[<h1 id="一、使用方式"><a href="#一、使用方式" class="headerlink" title="一、使用方式"></a>一、使用方式</h1><ol>
+<li>添加相关配置，参考配置示例；</li>
+<li>使用 <code>GrayUtils.IsHitGray(远端配置, Id)</code> 方法，进行灰度判断。</li>
 </ol>
-<h1 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h1><p>因为特别的原因，此处将前三列分别定义为员工编号、收件人姓名和其邮箱地址。<br><img src="../images/Excel%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F.jpeg" alt="Excel文件格式"></p>
-<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p><img src="../images/%E6%94%B6%E4%BB%B6%E6%95%88%E6%9E%9C.jpeg" alt="收件效果"></p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/sakiila/ExcelGo">https://github.com/sakiila/ExcelGo</a></p>
-]]></content>
+<h1 id="二、配置示例"><a href="#二、配置示例" class="headerlink" title="二、配置示例"></a>二、配置示例</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">&quot;needGray&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"> <span class="attr">&quot;needCheck&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"> <span class="attr">&quot;whiteldList&quot;</span>:［<span class="number">1386999</span>，<span class="number">13870001</span>],</span><br><span class="line"> <span class="attr">&quot;whitePercent&quot;</span>: <span class="string">&quot;64.5&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数解释：</p>
+<ul>
+<li>needGray：灰度总开关，Boolean 类型，为 true 则继续灰度判断流程，为 false 则跳过判断执行原有逻辑。</li>
+<li>needCheck：校验开关，Boolean 类型。为 true 则继续灰度判断流程，为 false 则跳过判断执行灰度逻辑（等于全量灰度）。</li>
+<li>whiteldList：白名单配置列表，Long 类型数组，命中则执行灰度逻辑，未命中或为空则继续灰度判断流程。</li>
+<li>whitePercent：百分比配置字符串，数字格字符串，可以为小数（最好不超过一位），命中则执行灰度逻辑，未命中或为空则执行原有逻辑。举例：“64.5“ 表示 64.5％ 以下的请求执行灰度逻辑。</li>
+</ul>
+<h1 id="三、执行流程"><a href="#三、执行流程" class="headerlink" title="三、执行流程"></a>三、执行流程</h1><p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/28ff9937-b3d6-4548-a3d2-33a61cddc439/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20220916/us-west-2/s3/aws4_request&X-Amz-Date=20220916T110340Z&X-Amz-Expires=86400&X-Amz-Signature=502f9e912ba4400dfc93b7b86f5ca93aacb17484672d20dad7b6fd3769564855&X-Amz-SignedHeaders=host&response-content-disposition=filename%20=%22Untitled.png%22&x-id=GetObject" alt="GrayUtils"></p>
+<h1 id="四、示例代码"><a href="#四、示例代码" class="headerlink" title="四、示例代码"></a>四、示例代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.CollectionUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 灰度工具</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> &lt;a href=&quot;https://km.sankuai.com/page/1204474051&quot;&gt;使用教程&lt;/a&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrayUtils</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">(String jsonString)</span> </span>&#123;</span><br><span class="line">        GrayConfDTO grayConfDTO = JSONObject.parseObject(jsonString, GrayConfDTO.class);</span><br><span class="line">        <span class="keyword">return</span> grayConfDTO.isHitGray();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">(String jsonString, Long id)</span> </span>&#123;</span><br><span class="line">        GrayConfDTO grayConfDTO = JSONObject.parseObject(jsonString, GrayConfDTO.class);</span><br><span class="line">        <span class="keyword">return</span> grayConfDTO.isHitGray(id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHitGrayWithoutId</span><span class="params">(String jsonString)</span> </span>&#123;</span><br><span class="line">        GrayConfDTO grayConfDTO = JSONObject.parseObject(jsonString, GrayConfDTO.class);</span><br><span class="line">        <span class="keyword">return</span> grayConfDTO.isHitGrayWithoutId();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">GrayConfDTO</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度总开关</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> Boolean needGray;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度校验开关</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> Boolean needCheck;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度列表</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> List&lt;Long&gt; whiteIdList;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度百分比</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> String whitePercent;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> needGray;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 总开关关闭，执行原有逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needGray) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不需要校验，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needCheck) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// id 为空，执行原有逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (id == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>  Boolean.FALSE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// id 在列表中，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (CollectionUtils.isNotEmpty(whiteIdList)</span><br><span class="line">                    &amp;&amp; whiteIdList.contains(id)) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// id 在百分比中，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (StringUtils.isNotBlank(whitePercent)) &#123;</span><br><span class="line">                <span class="keyword">return</span> isHitPercent(id, whitePercent);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHitGrayWithoutId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 总开关关闭，执行原有逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needGray) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不需要校验，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needCheck) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 根据时间戳进行灰度（暂行）</span></span><br><span class="line">            <span class="keyword">if</span> (StringUtils.isNotBlank(whitePercent)) &#123;</span><br><span class="line">                <span class="keyword">return</span> isHitPercent(System.currentTimeMillis(), whitePercent);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 判断是否命中百分比配置</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> whitePercent</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> Boolean <span class="title">isHitPercent</span><span class="params">(Long id, String whitePercent)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 被除数</span></span><br><span class="line">            BigDecimal dividend = <span class="keyword">new</span> BigDecimal(id);</span><br><span class="line">            <span class="comment">// 除数</span></span><br><span class="line">            BigDecimal divisor = <span class="keyword">new</span> BigDecimal(<span class="string">&quot;100&quot;</span>);</span><br><span class="line">            <span class="comment">// 余数</span></span><br><span class="line">            BigDecimal remainder = <span class="keyword">new</span> BigDecimal(whitePercent.trim());</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 计算小数点后位数 n</span></span><br><span class="line">            <span class="keyword">int</span> decimalPlaces = countDecimalPlaces(whitePercent);</span><br><span class="line">            <span class="comment">// 放大 10 ^ n</span></span><br><span class="line">            divisor = divisor.scaleByPowerOfTen(decimalPlaces);</span><br><span class="line">            remainder = remainder.scaleByPowerOfTen(decimalPlaces);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 取余</span></span><br><span class="line">            BigDecimal idRemainder = dividend.remainder(divisor);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 比较</span></span><br><span class="line">            <span class="keyword">if</span> (idRemainder.compareTo(remainder) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 计算小数点后位数</span></span><br><span class="line"><span class="comment">         * 12 = 0</span></span><br><span class="line"><span class="comment">         * 12.5 = 1</span></span><br><span class="line"><span class="comment">         * 12.50 = 2</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> stringNumber</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">countDecimalPlaces</span><span class="params">(String stringNumber)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!stringNumber.contains(<span class="string">&quot;.&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stringNumber.length() - stringNumber.indexOf(<span class="string">&#x27;.&#x27;</span>) - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>开发</category>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Excel</tag>
+        <tag>Gray</tag>
       </tags>
   </entry>
   <entry>
     <title>Gradle 搭配 Mybatis-Generator 进行代码自动生成</title>
-    <url>/1177415153/</url>
+    <url>/680024629/</url>
     <content><![CDATA[<h1 id="一、Mybatis-Generator-引入"><a href="#一、Mybatis-Generator-引入" class="headerlink" title="一、Mybatis-Generator 引入"></a>一、Mybatis-Generator 引入</h1><p>在 build.gradle 文件的 plugins 模块加上一行配置：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">id &quot;com.thinkimi.gradle.MybatisGenerator&quot; version &quot;2.4&quot;</span><br></pre></td></tr></table></figure>
 
@@ -190,6 +163,194 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ExcelGo</title>
+    <url>/2646382575/</url>
+    <content><![CDATA[<p>ExcelGo 是一个能读取 Excel 文件内容，并获取到其中的邮箱，将表格内容发送至指定的邮箱地址。最初构想来自于需要将公司内部对账单文件中的每行内容发送至各人邮箱。</p>
+<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><ul>
+<li>获取表格内容：通过Apache POI组件读取Excle表格，将内容存放至HashMap集合中。</li>
+<li>发送邮件：通过员工编号将同一个人的信息组合起来，使用JavaMail API 和Java Activation Framework (JAF) 发送至其邮箱。</li>
+</ul>
+<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>主要程序由GoExcel.java、GoMail.java和Main.java三个文件组成。</p>
+<ol>
+<li>GoExcel.java<br> 此文件判断Excel文件后缀类型，读取Excel表格表头和数据内容，并根据Cell类型设置数据。</li>
+<li>GoMail.java<br> 此文件包含名为goMail的方法，其主要功能是获得收件人邮箱和表格内容，通过QQ邮箱来发送消息。</li>
+<li>Main.java<br> 此文件包含Main方法，定义Excel文件路径，组合同一个收件人的消息，并调用goMail方法发送邮件。</li>
+</ol>
+<h1 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h1><p>因为特别的原因，此处将前三列分别定义为员工编号、收件人姓名和其邮箱地址。<br><img src="../images/Excel%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F.jpeg" alt="Excel文件格式"></p>
+<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p><img src="../images/%E6%94%B6%E4%BB%B6%E6%95%88%E6%9E%9C.jpeg" alt="收件效果"></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/sakiila/ExcelGo">https://github.com/sakiila/ExcelGo</a></p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RoadToRender</title>
+    <url>/3652395819/</url>
+    <content><![CDATA[<p>使用的语言：Java<br>使用的工具：Eclipse</p>
+<h3 id="一、设计思路"><a href="#一、设计思路" class="headerlink" title="一、设计思路"></a>一、设计思路</h3><p>设计五个类，名字分别为MazeFactory、Maze、Check、Main和Test。</p>
+<h4 id="1-MazeFactory类"><a href="#1-MazeFactory类" class="headerlink" title="1.MazeFactory类"></a>1.MazeFactory类</h4><p>该类包含一个create()方法，传入第一行字符串，使用二维数组进行初始化一个渲染网格，然后返回一个Maze对象。</p>
+<h4 id="2-Maze类"><a href="#2-Maze类" class="headerlink" title="2.Maze类"></a>2.Maze类</h4><p>该类有一个构造方法，参数为二维数组。另外有一个render()方法，传入第二行字符串，连通网格，并使网格字符化。</p>
+<h4 id="3-Check类"><a href="#3-Check类" class="headerlink" title="3.Check类"></a>3.Check类</h4><p>该类有两个方法：checkLine1()和checkLine2()。分别对输入的第一行和第二行字符串做检查，返回一个字符串。</p>
+<h4 id="4-Main类"><a href="#4-Main类" class="headerlink" title="4.Main类"></a>4.Main类</h4><p>该类是主类，有一个main()方法。该方法读取控制台输入的字符串，然后调用Check类的方法检查，再返回一个字符串作为结果。</p>
+<h4 id="5-Test类"><a href="#5-Test类" class="headerlink" title="5.Test类"></a>5.Test类</h4><p>测试类，用来运行程序，并在控制台输出结果。</p>
+<h3 id="二、UML图"><a href="#二、UML图" class="headerlink" title="二、UML图"></a>二、UML图</h3><p><img src="https://upload-images.jianshu.io/upload_images/2348575-d734d316af894e16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RoadToRender-UML"></p>
+<h3 id="三、程序测试"><a href="#三、程序测试" class="headerlink" title="三、程序测试"></a>三、程序测试</h3><h4 id="1-正常输入："><a href="#1-正常输入：" class="headerlink" title="1.正常输入："></a>1.正常输入：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 3</span><br><span class="line">0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<pre><code>Please input:
+3 3
+0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+The result is:
+[W] [W] [W] [W] [W] [W] [W] 
+[W] [R] [W] [R] [R] [R] [W] 
+[W] [R] [W] [R] [W] [R] [W] 
+[W] [R] [R] [R] [R] [R] [W] 
+[W] [W] [W] [R] [W] [R] [W] 
+[W] [R] [R] [R] [W] [R] [W] 
+[W] [W] [W] [W] [W] [W] [W] 
+
+End.
+</code></pre>
+<h4 id="2-无效的数字："><a href="#2-无效的数字：" class="headerlink" title="2.无效的数字："></a>2.无效的数字：</h4><pre><code>3 %
+0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+</code></pre>
+<p>运行结果：</p>
+<pre><code>Please input:
+3 %
+0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+The result is:
+Invalid number format.
+End.
+</code></pre>
+<h4 id="3-数字超出预定范围："><a href="#3-数字超出预定范围：" class="headerlink" title="3.数字超出预定范围："></a>3.数字超出预定范围：</h4><pre><code>3 3
+8,1 0,4;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+</code></pre>
+<p>运行结果：</p>
+<pre><code>Please input:
+3 3
+8,1 0,4;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+The result is:
+Incorrect command format.
+End.
+</code></pre>
+<h4 id="4-格式错误；"><a href="#4-格式错误；" class="headerlink" title="4.格式错误；"></a>4.格式错误；</h4><pre><code>3 3
+0 1 0 2 0 0 1 0 0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+</code></pre>
+<p>运行结果：</p>
+<pre><code>Please input:
+3 3
+0 1 0 2 0 0 1 0 0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+The result is:
+Incorrect command format.
+End.
+</code></pre>
+<h4 id="5-连通性错误："><a href="#5-连通性错误：" class="headerlink" title="5.连通性错误："></a>5.连通性错误：</h4><pre><code>3 3
+0,1 0,3;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+</code></pre>
+<p>运行结果：</p>
+<pre><code>Please input:
+3 3
+0,1 0,3;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
+The result is:
+Incorrect command format.
+End.
+</code></pre>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEO 优化笔记</title>
+    <url>/3036052883/</url>
+    <content><![CDATA[<h2 id="SEO（Search-Engine-Optimization）搜索引擎优化"><a href="#SEO（Search-Engine-Optimization）搜索引擎优化" class="headerlink" title="SEO（Search Engine Optimization）搜索引擎优化"></a>SEO（Search Engine Optimization）搜索引擎优化</h2><ul>
+<li>1、搜索引擎工作原理；</li>
+<li>2、分为白帽SEO和黑帽SEO</li>
+<li>（1）白帽SEO：其改良和规范网站设计的作用，是网站获取合理的流量；</li>
+<li>（2）黒帽SEO：乱加关键字，乱加外链，这类行为利用搜索引擎政策缺陷来获取更多用户的访问量，属于欺骗搜索引擎的；</li>
+<li>3、如何做白帽SEO：</li>
+<li>（1）对网站标题，关键字，描述精心设计，反映网站定位，让搜索引擎知道网站是做什么的；</li>
+<li>（2）网站内容优化；（增加关键字密度，增加长尾关键字…）</li>
+<li>（3）合理设置Robot.txt文件</li>
+<li>（4）网站地图；</li>
+<li>（5）增加外链；</li>
+<li>（6）网站结构优化；（前端攻城狮的分内事！）</li>
+<li>（7）页面代码优化。（前端攻城狮的职责所在！）</li>
+</ul>
+<h2 id="结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了"><a href="#结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了" class="headerlink" title="结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了"></a>结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了</h2><p>控制首页链接数量中小网站100以内，页面导航、底部导航、锚文字链接等<br>扁平化的目录层次（小蜘蛛跳转3次可以到达网站内任何一个内页，网站的设计主页、栏目、内容页，不要用纵线性的结构<br>导航seo优化（头部、底部、内容部分，主导航、副导航、分类导航，尽量用文字，面包屑导航，在每个网站上留下面包屑，使用户可以了解网站组织形式，放于正文的左上方）<br>内容页面的布局细节<br>左面正文，右面热门文章、相关文章，下面是版权信息及链接，栏目排布：首页123456789下拉选择最赞）<br>网站的加载速度会影响小蜘蛛的爬行，页面最好不要超过100k</p>
+<ul>
+<li>1，控制首页链接数量</li>
+<li>2，扁平化的目录层次</li>
+<li>3，导航SEO优化</li>
+<li>4，面包屑导航</li>
+<li>5，其他细节如分页导航的设计</li>
+<li>6，网页加载速度，控制页面大小，最好在100K以内</li>
+</ul>
+<h2 id="网页代码优化（语义化代码）"><a href="#网页代码优化（语义化代码）" class="headerlink" title="网页代码优化（语义化代码）"></a>网页代码优化（语义化代码）</h2><ul>
+<li>A、title标题：强调重点</li>
+<li>B、meta keywords关键词：列举几个关键词</li>
+<li>C、meta description网页描述：高度概括网页的内容</li>
+<li>以上信息不要堆积、重复</li>
+</ul>
+<p>语义话代码（HTML 标签有自己的意义，在适当的位置用适当的标签）<br>1、h1~h6 多用于标题<br>2、ul 多用于无序列表<br>3、ol 多用于有序列表<br>4、dl 用于定义数据列表<br>5、em、strong 表示强调</p>
+<p>div、span 是 html 标签中最没有语义的</p>
+<h2 id="有利搜索引擎"><a href="#有利搜索引擎" class="headerlink" title="有利搜索引擎"></a>有利搜索引擎</h2><ul>
+<li>1、a：访问外部链接时要加上 rel=”nofollow”，告诉搜索引擎外部链接无需追踪，加上 title 说明</li>
+<li>2、h1：搜索引擎外认为 h1 最重要，使用 css 调整，网页正文标题用 h1，副标题用 h2，其他不要乱用 h 标签</li>
+<li>3、br 用于文本间的换行，用在 p 内，也可以用 &lt;p &lt;br/ &lt;/p 表示空行</li>
+<li>4、caption：表格标题</li>
+<li>5、img：使用 title、alt 说明</li>
+<li>6、&lt;strong &lt;em 表示强调，&lt;em的权重仅次于&lt;strong,如果只想表示加粗斜体，建议使用&lt;b&lt;i,表示强调则使用&lt;strong&lt;i</li>
+<li>7、重要内容 HTML 代码放在最前面（使用 css 改变布局）</li>
+<li>8、重要内容不要用 JS 输出（搜索引擎看不懂 JS）</li>
+<li>9、尽量少使用 iframe 框架（搜索引擎不喜欢）</li>
+<li>10、谨慎使用 display:none（搜索引擎会过滤掉其内容，设置 z-index或text-index：”-999em”； 代替）</li>
+<li>11、精简代码</li>
+</ul>
+]]></content>
+      <categories>
+        <category>收集</category>
+      </categories>
+      <tags>
+        <tag>SEO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Chrome 快捷键</title>
+    <url>/763296652/</url>
+    <content><![CDATA[<h1 id="记录几个比较常用的快捷键"><a href="#记录几个比较常用的快捷键" class="headerlink" title="记录几个比较常用的快捷键"></a>记录几个比较常用的快捷键</h1><ul>
+<li>打开新窗口    Ctrl + n</li>
+<li>打开新的标签页，并跳转到该标签页    Ctrl + t</li>
+<li>重新打开最后关闭的标签页，并跳转到该标签页    Ctrl + Shift + t</li>
+<li>跳转到下一个打开的标签页    Ctrl + Tab 或 Ctrl + PgDn</li>
+<li>跳转到上一个打开的标签页    Ctrl + Shift + Tab 或 Ctrl + PgUp</li>
+<li>在当前标签页中打开主页    Alt + Home</li>
+<li>关闭当前标签页    Ctrl + w 或 Ctrl + F4</li>
+<li>关闭当前窗口    Alt + F4</li>
+<li>退出 Google Chrome    Ctrl + Shift + q </li>
+<li>打开“开发者工具”    Ctrl + Shift + j 或 F12</li>
+<li>跳转到地址栏    Ctrl + l、Alt + d 或 F6 </li>
+<li>重新加载当前网页    F5 或 Ctrl + r</li>
+<li>重新加载当前网页（忽略缓存的内容）    Shift + F5 或 Ctrl + Shift + r</li>
+</ul>
+<p>原网址：<br><a href="https://support.google.com/chrome/answer/157179?hl=zh-Hans">https://support.google.com/chrome/answer/157179?hl=zh-Hans</a></p>
+]]></content>
+      <categories>
+        <category>收集</category>
+      </categories>
+      <tags>
+        <tag>Chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -480,112 +641,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GrayUtils 灰度配置工具类</title>
-    <url>/40207247/</url>
-    <content><![CDATA[<h1 id="一、使用方式"><a href="#一、使用方式" class="headerlink" title="一、使用方式"></a>一、使用方式</h1><ol>
-<li>添加相关配置，参考配置示例；</li>
-<li>使用 <code>GrayUtils.IsHitGray(远端配置, Id)</code> 方法，进行灰度判断。</li>
-</ol>
-<h1 id="二、配置示例"><a href="#二、配置示例" class="headerlink" title="二、配置示例"></a>二、配置示例</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">&quot;needGray&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"> <span class="attr">&quot;needCheck&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"> <span class="attr">&quot;whiteldList&quot;</span>:［<span class="number">1386999</span>，<span class="number">13870001</span>],</span><br><span class="line"> <span class="attr">&quot;whitePercent&quot;</span>: <span class="string">&quot;64.5&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参数解释：</p>
-<ul>
-<li>needGray：灰度总开关，Boolean 类型，为 true 则继续灰度判断流程，为 false 则跳过判断执行原有逻辑。</li>
-<li>needCheck：校验开关，Boolean 类型。为 true 则继续灰度判断流程，为 false 则跳过判断执行灰度逻辑（等于全量灰度）。</li>
-<li>whiteldList：白名单配置列表，Long 类型数组，命中则执行灰度逻辑，未命中或为空则继续灰度判断流程。</li>
-<li>whitePercent：百分比配置字符串，数字格字符串，可以为小数（最好不超过一位），命中则执行灰度逻辑，未命中或为空则执行原有逻辑。举例：“64.5“ 表示 64.5％ 以下的请求执行灰度逻辑。</li>
-</ul>
-<h1 id="三、执行流程"><a href="#三、执行流程" class="headerlink" title="三、执行流程"></a>三、执行流程</h1><p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/28ff9937-b3d6-4548-a3d2-33a61cddc439/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20220916/us-west-2/s3/aws4_request&X-Amz-Date=20220916T110340Z&X-Amz-Expires=86400&X-Amz-Signature=502f9e912ba4400dfc93b7b86f5ca93aacb17484672d20dad7b6fd3769564855&X-Amz-SignedHeaders=host&response-content-disposition=filename%20=%22Untitled.png%22&x-id=GetObject" alt="GrayUtils"></p>
-<h1 id="四、示例代码"><a href="#四、示例代码" class="headerlink" title="四、示例代码"></a>四、示例代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.CollectionUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 灰度工具</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> &lt;a href=&quot;https://km.sankuai.com/page/1204474051&quot;&gt;使用教程&lt;/a&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GrayUtils</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">(String jsonString)</span> </span>&#123;</span><br><span class="line">        GrayConfDTO grayConfDTO = JSONObject.parseObject(jsonString, GrayConfDTO.class);</span><br><span class="line">        <span class="keyword">return</span> grayConfDTO.isHitGray();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">(String jsonString, Long id)</span> </span>&#123;</span><br><span class="line">        GrayConfDTO grayConfDTO = JSONObject.parseObject(jsonString, GrayConfDTO.class);</span><br><span class="line">        <span class="keyword">return</span> grayConfDTO.isHitGray(id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isHitGrayWithoutId</span><span class="params">(String jsonString)</span> </span>&#123;</span><br><span class="line">        GrayConfDTO grayConfDTO = JSONObject.parseObject(jsonString, GrayConfDTO.class);</span><br><span class="line">        <span class="keyword">return</span> grayConfDTO.isHitGrayWithoutId();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">GrayConfDTO</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度总开关</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> Boolean needGray;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度校验开关</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> Boolean needCheck;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度列表</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> List&lt;Long&gt; whiteIdList;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 灰度百分比</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> String whitePercent;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> needGray;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHitGray</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 总开关关闭，执行原有逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needGray) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不需要校验，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needCheck) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// id 为空，执行原有逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (id == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>  Boolean.FALSE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// id 在列表中，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (CollectionUtils.isNotEmpty(whiteIdList)</span><br><span class="line">                    &amp;&amp; whiteIdList.contains(id)) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// id 在百分比中，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (StringUtils.isNotBlank(whitePercent)) &#123;</span><br><span class="line">                <span class="keyword">return</span> isHitPercent(id, whitePercent);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHitGrayWithoutId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 总开关关闭，执行原有逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needGray) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不需要校验，执行新逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (!needCheck) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 根据时间戳进行灰度（暂行）</span></span><br><span class="line">            <span class="keyword">if</span> (StringUtils.isNotBlank(whitePercent)) &#123;</span><br><span class="line">                <span class="keyword">return</span> isHitPercent(System.currentTimeMillis(), whitePercent);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 判断是否命中百分比配置</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> whitePercent</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> Boolean <span class="title">isHitPercent</span><span class="params">(Long id, String whitePercent)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 被除数</span></span><br><span class="line">            BigDecimal dividend = <span class="keyword">new</span> BigDecimal(id);</span><br><span class="line">            <span class="comment">// 除数</span></span><br><span class="line">            BigDecimal divisor = <span class="keyword">new</span> BigDecimal(<span class="string">&quot;100&quot;</span>);</span><br><span class="line">            <span class="comment">// 余数</span></span><br><span class="line">            BigDecimal remainder = <span class="keyword">new</span> BigDecimal(whitePercent.trim());</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 计算小数点后位数 n</span></span><br><span class="line">            <span class="keyword">int</span> decimalPlaces = countDecimalPlaces(whitePercent);</span><br><span class="line">            <span class="comment">// 放大 10 ^ n</span></span><br><span class="line">            divisor = divisor.scaleByPowerOfTen(decimalPlaces);</span><br><span class="line">            remainder = remainder.scaleByPowerOfTen(decimalPlaces);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 取余</span></span><br><span class="line">            BigDecimal idRemainder = dividend.remainder(divisor);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 比较</span></span><br><span class="line">            <span class="keyword">if</span> (idRemainder.compareTo(remainder) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 计算小数点后位数</span></span><br><span class="line"><span class="comment">         * 12 = 0</span></span><br><span class="line"><span class="comment">         * 12.5 = 1</span></span><br><span class="line"><span class="comment">         * 12.50 = 2</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> stringNumber</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">countDecimalPlaces</span><span class="params">(String stringNumber)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!stringNumber.contains(<span class="string">&quot;.&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stringNumber.length() - stringNumber.indexOf(<span class="string">&#x27;.&#x27;</span>) - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Gray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RoadToRender</title>
-    <url>/3652395819/</url>
-    <content><![CDATA[<p>使用的语言：Java<br>使用的工具：Eclipse</p>
-<h3 id="一、设计思路"><a href="#一、设计思路" class="headerlink" title="一、设计思路"></a>一、设计思路</h3><p>设计五个类，名字分别为MazeFactory、Maze、Check、Main和Test。</p>
-<h4 id="1-MazeFactory类"><a href="#1-MazeFactory类" class="headerlink" title="1.MazeFactory类"></a>1.MazeFactory类</h4><p>该类包含一个create()方法，传入第一行字符串，使用二维数组进行初始化一个渲染网格，然后返回一个Maze对象。</p>
-<h4 id="2-Maze类"><a href="#2-Maze类" class="headerlink" title="2.Maze类"></a>2.Maze类</h4><p>该类有一个构造方法，参数为二维数组。另外有一个render()方法，传入第二行字符串，连通网格，并使网格字符化。</p>
-<h4 id="3-Check类"><a href="#3-Check类" class="headerlink" title="3.Check类"></a>3.Check类</h4><p>该类有两个方法：checkLine1()和checkLine2()。分别对输入的第一行和第二行字符串做检查，返回一个字符串。</p>
-<h4 id="4-Main类"><a href="#4-Main类" class="headerlink" title="4.Main类"></a>4.Main类</h4><p>该类是主类，有一个main()方法。该方法读取控制台输入的字符串，然后调用Check类的方法检查，再返回一个字符串作为结果。</p>
-<h4 id="5-Test类"><a href="#5-Test类" class="headerlink" title="5.Test类"></a>5.Test类</h4><p>测试类，用来运行程序，并在控制台输出结果。</p>
-<h3 id="二、UML图"><a href="#二、UML图" class="headerlink" title="二、UML图"></a>二、UML图</h3><p><img src="https://upload-images.jianshu.io/upload_images/2348575-d734d316af894e16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RoadToRender-UML"></p>
-<h3 id="三、程序测试"><a href="#三、程序测试" class="headerlink" title="三、程序测试"></a>三、程序测试</h3><h4 id="1-正常输入："><a href="#1-正常输入：" class="headerlink" title="1.正常输入："></a>1.正常输入：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 3</span><br><span class="line">0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<pre><code>Please input:
-3 3
-0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-The result is:
-[W] [W] [W] [W] [W] [W] [W] 
-[W] [R] [W] [R] [R] [R] [W] 
-[W] [R] [W] [R] [W] [R] [W] 
-[W] [R] [R] [R] [R] [R] [W] 
-[W] [W] [W] [R] [W] [R] [W] 
-[W] [R] [R] [R] [W] [R] [W] 
-[W] [W] [W] [W] [W] [W] [W] 
-
-End.
-</code></pre>
-<h4 id="2-无效的数字："><a href="#2-无效的数字：" class="headerlink" title="2.无效的数字："></a>2.无效的数字：</h4><pre><code>3 %
-0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-</code></pre>
-<p>运行结果：</p>
-<pre><code>Please input:
-3 %
-0,1 0,2;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-The result is:
-Invalid number format.
-End.
-</code></pre>
-<h4 id="3-数字超出预定范围："><a href="#3-数字超出预定范围：" class="headerlink" title="3.数字超出预定范围："></a>3.数字超出预定范围：</h4><pre><code>3 3
-8,1 0,4;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-</code></pre>
-<p>运行结果：</p>
-<pre><code>Please input:
-3 3
-8,1 0,4;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-The result is:
-Incorrect command format.
-End.
-</code></pre>
-<h4 id="4-格式错误；"><a href="#4-格式错误；" class="headerlink" title="4.格式错误；"></a>4.格式错误；</h4><pre><code>3 3
-0 1 0 2 0 0 1 0 0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-</code></pre>
-<p>运行结果：</p>
-<pre><code>Please input:
-3 3
-0 1 0 2 0 0 1 0 0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-The result is:
-Incorrect command format.
-End.
-</code></pre>
-<h4 id="5-连通性错误："><a href="#5-连通性错误：" class="headerlink" title="5.连通性错误："></a>5.连通性错误：</h4><pre><code>3 3
-0,1 0,3;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-</code></pre>
-<p>运行结果：</p>
-<pre><code>Please input:
-3 3
-0,1 0,3;0,0 1,0;0,1 1,1;0,2 1,2;1,0 1,1;1,1 1,2;1,1 2,1;1,2 2,2;2,0 2,1
-The result is:
-Incorrect command format.
-End.
-</code></pre>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java 项目部署实践</title>
     <url>/1026407118/</url>
     <content><![CDATA[<p>系统基于 CentOS7。</p>
@@ -638,61 +693,6 @@ End.
       <tags>
         <tag>实战</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEO 优化笔记</title>
-    <url>/3036052883/</url>
-    <content><![CDATA[<h2 id="SEO（Search-Engine-Optimization）搜索引擎优化"><a href="#SEO（Search-Engine-Optimization）搜索引擎优化" class="headerlink" title="SEO（Search Engine Optimization）搜索引擎优化"></a>SEO（Search Engine Optimization）搜索引擎优化</h2><ul>
-<li>1、搜索引擎工作原理；</li>
-<li>2、分为白帽SEO和黑帽SEO</li>
-<li>（1）白帽SEO：其改良和规范网站设计的作用，是网站获取合理的流量；</li>
-<li>（2）黒帽SEO：乱加关键字，乱加外链，这类行为利用搜索引擎政策缺陷来获取更多用户的访问量，属于欺骗搜索引擎的；</li>
-<li>3、如何做白帽SEO：</li>
-<li>（1）对网站标题，关键字，描述精心设计，反映网站定位，让搜索引擎知道网站是做什么的；</li>
-<li>（2）网站内容优化；（增加关键字密度，增加长尾关键字…）</li>
-<li>（3）合理设置Robot.txt文件</li>
-<li>（4）网站地图；</li>
-<li>（5）增加外链；</li>
-<li>（6）网站结构优化；（前端攻城狮的分内事！）</li>
-<li>（7）页面代码优化。（前端攻城狮的职责所在！）</li>
-</ul>
-<h2 id="结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了"><a href="#结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了" class="headerlink" title="结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了"></a>结构布局优化：用扁平化结构层次结构超过三层小蜘蛛就不愿意爬了</h2><p>控制首页链接数量中小网站100以内，页面导航、底部导航、锚文字链接等<br>扁平化的目录层次（小蜘蛛跳转3次可以到达网站内任何一个内页，网站的设计主页、栏目、内容页，不要用纵线性的结构<br>导航seo优化（头部、底部、内容部分，主导航、副导航、分类导航，尽量用文字，面包屑导航，在每个网站上留下面包屑，使用户可以了解网站组织形式，放于正文的左上方）<br>内容页面的布局细节<br>左面正文，右面热门文章、相关文章，下面是版权信息及链接，栏目排布：首页123456789下拉选择最赞）<br>网站的加载速度会影响小蜘蛛的爬行，页面最好不要超过100k</p>
-<ul>
-<li>1，控制首页链接数量</li>
-<li>2，扁平化的目录层次</li>
-<li>3，导航SEO优化</li>
-<li>4，面包屑导航</li>
-<li>5，其他细节如分页导航的设计</li>
-<li>6，网页加载速度，控制页面大小，最好在100K以内</li>
-</ul>
-<h2 id="网页代码优化（语义化代码）"><a href="#网页代码优化（语义化代码）" class="headerlink" title="网页代码优化（语义化代码）"></a>网页代码优化（语义化代码）</h2><ul>
-<li>A、title标题：强调重点</li>
-<li>B、meta keywords关键词：列举几个关键词</li>
-<li>C、meta description网页描述：高度概括网页的内容</li>
-<li>以上信息不要堆积、重复</li>
-</ul>
-<p>语义话代码（HTML 标签有自己的意义，在适当的位置用适当的标签）<br>1、h1~h6 多用于标题<br>2、ul 多用于无序列表<br>3、ol 多用于有序列表<br>4、dl 用于定义数据列表<br>5、em、strong 表示强调</p>
-<p>div、span 是 html 标签中最没有语义的</p>
-<h2 id="有利搜索引擎"><a href="#有利搜索引擎" class="headerlink" title="有利搜索引擎"></a>有利搜索引擎</h2><ul>
-<li>1、a：访问外部链接时要加上 rel=”nofollow”，告诉搜索引擎外部链接无需追踪，加上 title 说明</li>
-<li>2、h1：搜索引擎外认为 h1 最重要，使用 css 调整，网页正文标题用 h1，副标题用 h2，其他不要乱用 h 标签</li>
-<li>3、br 用于文本间的换行，用在 p 内，也可以用 &lt;p &lt;br/ &lt;/p 表示空行</li>
-<li>4、caption：表格标题</li>
-<li>5、img：使用 title、alt 说明</li>
-<li>6、&lt;strong &lt;em 表示强调，&lt;em的权重仅次于&lt;strong,如果只想表示加粗斜体，建议使用&lt;b&lt;i,表示强调则使用&lt;strong&lt;i</li>
-<li>7、重要内容 HTML 代码放在最前面（使用 css 改变布局）</li>
-<li>8、重要内容不要用 JS 输出（搜索引擎看不懂 JS）</li>
-<li>9、尽量少使用 iframe 框架（搜索引擎不喜欢）</li>
-<li>10、谨慎使用 display:none（搜索引擎会过滤掉其内容，设置 z-index或text-index：”-999em”； 代替）</li>
-<li>11、精简代码</li>
-</ul>
-]]></content>
-      <categories>
-        <category>收集</category>
-      </categories>
-      <tags>
-        <tag>SEO</tag>
       </tags>
   </entry>
   <entry>
@@ -750,7 +750,7 @@ End.
 <p>22.五天的免费临时邮箱，多种语言界面，多种邮箱后缀可选。 <a href="http://www.yopmail.com/zh/">http://www.yopmail.com/zh/ </a></p>
 <p>22.二十四小时免费临时邮箱：<a href="http://24mail.chacuo.net/zhtw">http://24mail.chacuo.net/zhtw</a></p>
 <p>23.MailDrop：<a href="http://maildrop.cc/">http://maildrop.cc/</a> 24小时的免费邮箱。可以容纳十封邮件，只能接收纯100kb以下的文本或html邮件。</p>
-<p>24.MailDude:<a href="http://www.maildu.de/">http://www.maildu.de/</a>只需要在网站上输入自己的真实邮箱地址，即可生成一个临时邮箱地址，让你使用<a href="mailto:&#x4e;&#97;&#109;&#x65;&#x40;&#109;&#97;&#105;&#108;&#100;&#x75;&#46;&#x64;&#101;">&#x4e;&#97;&#109;&#x65;&#x40;&#109;&#97;&#105;&#108;&#100;&#x75;&#46;&#x64;&#101;</a>来收信，并且只能收取邮件，而不同发送邮件。支持中文显示。MailDude 会为你收取邮件并保存一小时，让你有足够的时间可以点选邮件内的确认链结，帮助你完成帐号验证。特别是你想测试一些网络服务，又不希望泄漏自己的真实信箱时。不过切记不要使用MailDude 来接收密码、或具有私人资讯的邮件，因为每个MailDude 信箱都是公开的、且每个人都能够存取该讯息。</p>
+<p>24.MailDude:<a href="http://www.maildu.de/">http://www.maildu.de/</a>只需要在网站上输入自己的真实邮箱地址，即可生成一个临时邮箱地址，让你使用<a href="mailto:&#78;&#97;&#x6d;&#101;&#x40;&#x6d;&#x61;&#105;&#x6c;&#100;&#117;&#46;&#100;&#x65;">&#78;&#97;&#x6d;&#101;&#x40;&#x6d;&#x61;&#105;&#x6c;&#100;&#117;&#46;&#100;&#x65;</a>来收信，并且只能收取邮件，而不同发送邮件。支持中文显示。MailDude 会为你收取邮件并保存一小时，让你有足够的时间可以点选邮件内的确认链结，帮助你完成帐号验证。特别是你想测试一些网络服务，又不希望泄漏自己的真实信箱时。不过切记不要使用MailDude 来接收密码、或具有私人资讯的邮件，因为每个MailDude 信箱都是公开的、且每个人都能够存取该讯息。</p>
 <p>25.Forward Cat：<a href="http://www.forward.cat/">http://www.forward.cat/</a> 一个提供临时邮箱服务的平台，通过该工具可以让用户注册网络上的各种服务，而不需使用真实的邮箱，避免被恶意骚扰，同时还可以解决很多未知吧临时邮箱拒之门外的弊端，有了邮件转存发送服务即可解决。</p>
 <p><em>所有资源来自于网络。</em></p>
 ]]></content>
@@ -782,6 +782,37 @@ End.
       </categories>
       <tags>
         <tag>解忧杂货店</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaBrowser 开发</title>
+    <url>/2069714304/</url>
+    <content><![CDATA[<p>开发了一个简单的网页浏览器，可以实现网页访问、保存，以及操作的前进、后退功能。</p>
+<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><ul>
+<li>访问：输入URL，可以在线访问对应网页。</li>
+<li>另存为：可以保存正在访问的页面。</li>
+<li>前进：访问当前页面的上一个页面。</li>
+<li>后退：访问当前页面的下一个页面。</li>
+<li>查看源文件：查看访问页面的HTML源文件，并且可以保存。<br /></li>
+</ul>
+<h1 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h1><ul>
+<li>事件种类（低级事件和语义事件）、事件监听器接口、事件适配器（Adapter）</li>
+<li>Swing相关组件（JFram、JMenu、JButton、JTextField及JOptionPane）</li>
+<li>输入输出流<br /></li>
+</ul>
+<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>主要程序由WebBrowser.java和ViewSourceFrame.java两个文件组成。</p>
+<ol>
+<li>WebBrowser.java<br> 此文件包含名为WebBrowser的public类，其主要功能为生成网页浏览器的主体框架，实现框架上各个组件的事件监听。WebBrowser.java主要包括四个模块：图形用户界面的构建、组件监听接口的实现、文件保存功能的实现、查看源代码框架的生成。</li>
+<li>ViewSourceFrame.java<br> 此文件包含名为ViewSourceFrame的类，其主要功能是实现了源文件查看的主题框架，并实现了源文件的保存功能。ViewSourceFrame.java主要包括两个模块：图形用户界面的构建和组件监听接口的实现。<br /></li>
+</ol>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/s1xt33nth/JavaBrowser" title="https://github.com/s1xt33nth/JavaBrowser">https://github.com/s1xt33nth/JavaBrowser</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.runoob.com/java/java-sending-email.html" title="Java 发送邮件 | 菜鸟教程">Java 发送邮件 | 菜鸟教程</a><br><a href="https://blog.csdn.net/lmb55/article/details/64537293" title="【Apache POI】Java 读取Excel文件">【Apache POI】Java 读取Excel文件</a><br><a href="https://blog.csdn.net/superdog007/article/details/48338337" title="java读取Excel的方法，解析xls、xlsx两种格式">java读取Excel的方法，解析xls、xlsx两种格式</a><br><a href="http://www.cnblogs.com/whgk/p/6506027.html" title="Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)">Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)</a><br><a href="http://yl-fighting.iteye.com/blog/1726285726285" title="POI对Excel自定义日期格式的读取 - ITeye - ITeye博客">POI对Excel自定义日期格式的读取 - ITeye - ITeye博客</a></p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -868,42 +899,6 @@ End.
       </tags>
   </entry>
   <entry>
-    <title>初读《皮囊》</title>
-    <url>/2023509924/</url>
-    <content><![CDATA[<p>最初知道这本书的时候，是某个app上推荐的。</p>
-<p>很喜欢这个名字。皮囊。每个人都是披着皮囊的。</p>
-<p>都说一壶酒，愈酿愈香。可能《皮囊》也是，越读越能悟出大道理。</p>
-<p>就像这本书开头韩寒写的一句话，“我会将这本书带上旅途，在每个静谧陌生的夜晚拿出来慢慢看”。</p>
-<p>文字很干净，读起来很舒服。</p>
-<p>以上。</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>皮囊</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 WMITools 解除浏览器被 hao123 劫持</title>
-    <url>/2135150665/</url>
-    <content><![CDATA[<p>最近使用 Chrome 浏览器时，主页会自动变成 hao123.com。改 hosts，清理注册表都无法彻底解决该问题。</p>
-<p>经过搜索后，发现可以使用 WMITools 工具进行清理 VBScript 调用系统服务项。</p>
-<p><a href="http://www.iefans.net/ie-zhuye-jiechi-www-2345-com-kunown/">原网址</a></p>
-<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>链接：<a href="http://pan.baidu.com/s/1nuTC9Kl">http://pan.baidu.com/s/1nuTC9Kl</a> 密码：1qdv</p>
-<p>安装最好使用默认地址，一路确定即可。</p>
-<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><p>打开安装文件夹，右键 wbemeventviewer.exe 程序，使用管理员身份打开。</p>
-<p>点击左上角钢笔形状按钮<br><img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206223953.jpg"><br> 点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224008.jpg"><br> 再次点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224031.jpg"><br> 将此文件夹下的文件右键删除<br><img src="https://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224059.jpg"></p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>右键桌面上的浏览器，属性中目标一栏，将 hao123 等网址删除。</p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>hao123</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客脚印</title>
     <url>/1487202510/</url>
     <content><![CDATA[<h1 id="boo516-com"><a href="#boo516-com" class="headerlink" title="boo516.com"></a>boo516.com</h1><p>最初的域名是 boo516.com，搭建在 Godaddy 服务中。截图时间是 2016 年 11 月 5 日。</p>
@@ -926,165 +921,20 @@ End.
       </tags>
   </entry>
   <entry>
-    <title>后端工程师学习路径</title>
-    <url>/3201199714/</url>
-    <content><![CDATA[<h1 id="整体脉络"><a href="#整体脉络" class="headerlink" title="整体脉络"></a>整体脉络</h1><p> 操作系统 → 计算机网络 → 数据结构与算法 → 编程语言 → 数据库 → 框架 → 中间件 → 架构思维</p>
-<h1 id="资料路径"><a href="#资料路径" class="headerlink" title="资料路径"></a>资料路径</h1><table>
-<thead>
-<tr>
-<th>技能</th>
-<th>相关资料</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>计算机组成原理</td>
-<td>计算机科学速成课、《计算机是怎样跑起来的》、《程序是怎样跑起来的》、《编码》、掘金《计算机是怎样运行的》</td>
-</tr>
-<tr>
-<td>操作系统</td>
-<td>《操作系统导论》、《现代操作系统》、《深入理解计算机系统》、MIT 608、极客时间《操作系统45讲》</td>
-</tr>
-<tr>
-<td>计算机网络</td>
-<td>《计算机网络自顶向下》</td>
-</tr>
-<tr>
-<td>数据结构与算法</td>
-<td>极客时间《数据结构与算法之美》</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>《Linux高性能服务器编程》</td>
-</tr>
-<tr>
-<td>Java 基础与集合</td>
-<td>《Java 实战》、《Effective Java》</td>
-</tr>
-<tr>
-<td>JVM</td>
-<td>《深入理解 Java 虚拟机》、极客时间《深入拆解 Java 虚拟机》</td>
-</tr>
-<tr>
-<td>Netty</td>
-<td>极客时间《Netty 源码剖析与实战》</td>
-</tr>
-<tr>
-<td>Java 并发编程</td>
-<td>《Java 并发编程的艺术》、极客时间《Java 并发编程实战》</td>
-</tr>
-<tr>
-<td>Spring</td>
-<td><a href="https://javadoop.com/">JavaDoop</a>、《Spring 源码深度解析》、《极客 Spring 编程常见错误 50 例》</td>
-</tr>
-<tr>
-<td>Spring Boot</td>
-<td>慕课网《小马哥 Spring Boot 2.0 深度实践》</td>
-</tr>
-<tr>
-<td>设计模式</td>
-<td>极客时间《设计模式之美》</td>
-</tr>
-<tr>
-<td>单元测试</td>
-<td>Spock</td>
-</tr>
-<tr>
-<td>MySQL</td>
-<td>《高性能 MySQL》、《MySQL 技术内幕》、极客时间《MySQL 45讲》、掘金《MySQL 是怎样运行的》</td>
-</tr>
-<tr>
-<td>分布式事务</td>
-<td>极客时间《分布式协议与算法》</td>
-</tr>
-<tr>
-<td>RPC</td>
-<td>极客时间《网络编程实战》、极客时间《RPC 实战与核心原理》</td>
-</tr>
-<tr>
-<td>Dubbo</td>
-<td>拉勾教育《Dubbo 源码解读》</td>
-</tr>
-<tr>
-<td>ZooKeeper</td>
-<td>《从Paxos 到 Zookeeper》</td>
-</tr>
-<tr>
-<td>Spring Cloud</td>
-<td>慕课网《Spring Cloud 微服务开发实践》</td>
-</tr>
-<tr>
-<td>Redis</td>
-<td>《Redis 设计与实现》，《Redis 开发与运维》、极客时间《Redis 核心技术与实战》</td>
-</tr>
-<tr>
-<td>Kafka</td>
-<td>《深入理解 Kafka》、极客时间《Kafka 核心技术与实战》</td>
-</tr>
-<tr>
-<td>Docker</td>
-<td>慕课网《跟 BAT 技术专家学 Docker + K8s》</td>
-</tr>
-<tr>
-<td>大数据</td>
-<td>极客时间《从 0 开始学大数据》</td>
-</tr>
-<tr>
-<td>代码整洁</td>
-<td>《代码整洁之道》、《重构》、《修改代码的艺术》</td>
-</tr>
-<tr>
-<td>工作方法</td>
-<td>极客时间《大厂晋升指南》、极客时间《左耳听风》</td>
-</tr>
-<tr>
-<td>架构方法论</td>
-<td>《数据密集型应用系统设计》、极客时间《从 0 开始学架构》、极客时间《后端技术面试》</td>
-</tr>
-<tr>
-<td>外语</td>
-<td>极客时间《互联网人的英语私教课》</td>
-</tr>
-</tbody></table>
-<p>持续更新中。</p>
+    <title>初读《皮囊》</title>
+    <url>/2023509924/</url>
+    <content><![CDATA[<p>最初知道这本书的时候，是某个app上推荐的。</p>
+<p>很喜欢这个名字。皮囊。每个人都是披着皮囊的。</p>
+<p>都说一壶酒，愈酿愈香。可能《皮囊》也是，越读越能悟出大道理。</p>
+<p>就像这本书开头韩寒写的一句话，“我会将这本书带上旅途，在每个静谧陌生的夜晚拿出来慢慢看”。</p>
+<p>文字很干净，读起来很舒服。</p>
+<p>以上。</p>
 ]]></content>
       <categories>
-        <category>收集</category>
+        <category>阅读</category>
       </categories>
       <tags>
-        <tag>后端</tag>
-        <tag>学习</tag>
-        <tag>路径</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaBrowser 开发</title>
-    <url>/2069714304/</url>
-    <content><![CDATA[<p>开发了一个简单的网页浏览器，可以实现网页访问、保存，以及操作的前进、后退功能。</p>
-<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><ul>
-<li>访问：输入URL，可以在线访问对应网页。</li>
-<li>另存为：可以保存正在访问的页面。</li>
-<li>前进：访问当前页面的上一个页面。</li>
-<li>后退：访问当前页面的下一个页面。</li>
-<li>查看源文件：查看访问页面的HTML源文件，并且可以保存。<br /></li>
-</ul>
-<h1 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h1><ul>
-<li>事件种类（低级事件和语义事件）、事件监听器接口、事件适配器（Adapter）</li>
-<li>Swing相关组件（JFram、JMenu、JButton、JTextField及JOptionPane）</li>
-<li>输入输出流<br /></li>
-</ul>
-<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>主要程序由WebBrowser.java和ViewSourceFrame.java两个文件组成。</p>
-<ol>
-<li>WebBrowser.java<br> 此文件包含名为WebBrowser的public类，其主要功能为生成网页浏览器的主体框架，实现框架上各个组件的事件监听。WebBrowser.java主要包括四个模块：图形用户界面的构建、组件监听接口的实现、文件保存功能的实现、查看源代码框架的生成。</li>
-<li>ViewSourceFrame.java<br> 此文件包含名为ViewSourceFrame的类，其主要功能是实现了源文件查看的主题框架，并实现了源文件的保存功能。ViewSourceFrame.java主要包括两个模块：图形用户界面的构建和组件监听接口的实现。<br /></li>
-</ol>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/s1xt33nth/JavaBrowser" title="https://github.com/s1xt33nth/JavaBrowser">https://github.com/s1xt33nth/JavaBrowser</a></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.runoob.com/java/java-sending-email.html" title="Java 发送邮件 | 菜鸟教程">Java 发送邮件 | 菜鸟教程</a><br><a href="https://blog.csdn.net/lmb55/article/details/64537293" title="【Apache POI】Java 读取Excel文件">【Apache POI】Java 读取Excel文件</a><br><a href="https://blog.csdn.net/superdog007/article/details/48338337" title="java读取Excel的方法，解析xls、xlsx两种格式">java读取Excel的方法，解析xls、xlsx两种格式</a><br><a href="http://www.cnblogs.com/whgk/p/6506027.html" title="Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)">Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)</a><br><a href="http://yl-fighting.iteye.com/blog/1726285726285" title="POI对Excel自定义日期格式的读取 - ITeye - ITeye博客">POI对Excel自定义日期格式的读取 - ITeye - ITeye博客</a></p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
+        <tag>皮囊</tag>
       </tags>
   </entry>
   <entry>
@@ -1318,6 +1168,175 @@ End.
       </tags>
   </entry>
   <entry>
+    <title>使用 WMITools 解除浏览器被 hao123 劫持</title>
+    <url>/2135150665/</url>
+    <content><![CDATA[<p>最近使用 Chrome 浏览器时，主页会自动变成 hao123.com。改 hosts，清理注册表都无法彻底解决该问题。</p>
+<p>经过搜索后，发现可以使用 WMITools 工具进行清理 VBScript 调用系统服务项。</p>
+<p><a href="http://www.iefans.net/ie-zhuye-jiechi-www-2345-com-kunown/">原网址</a></p>
+<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>链接：<a href="http://pan.baidu.com/s/1nuTC9Kl">http://pan.baidu.com/s/1nuTC9Kl</a> 密码：1qdv</p>
+<p>安装最好使用默认地址，一路确定即可。</p>
+<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><p>打开安装文件夹，右键 wbemeventviewer.exe 程序，使用管理员身份打开。</p>
+<p>点击左上角钢笔形状按钮<br><img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206223953.jpg"><br> 点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224008.jpg"><br> 再次点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224031.jpg"><br> 将此文件夹下的文件右键删除<br><img src="https://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224059.jpg"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>右键桌面上的浏览器，属性中目标一栏，将 hao123 等网址删除。</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>hao123</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后端工程师学习路径</title>
+    <url>/3201199714/</url>
+    <content><![CDATA[<h1 id="整体脉络"><a href="#整体脉络" class="headerlink" title="整体脉络"></a>整体脉络</h1><p> 操作系统 → 计算机网络 → 数据结构与算法 → 编程语言 → 数据库 → 框架 → 中间件 → 架构思维</p>
+<h1 id="资料路径"><a href="#资料路径" class="headerlink" title="资料路径"></a>资料路径</h1><table>
+<thead>
+<tr>
+<th>技能</th>
+<th>相关资料</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机组成原理</td>
+<td>计算机科学速成课、《计算机是怎样跑起来的》、《程序是怎样跑起来的》、《编码》、掘金《计算机是怎样运行的》</td>
+</tr>
+<tr>
+<td>操作系统</td>
+<td>《操作系统导论》、《现代操作系统》、《深入理解计算机系统》、MIT 608、极客时间《操作系统45讲》</td>
+</tr>
+<tr>
+<td>计算机网络</td>
+<td>《计算机网络自顶向下》</td>
+</tr>
+<tr>
+<td>数据结构与算法</td>
+<td>极客时间《数据结构与算法之美》</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>《Linux高性能服务器编程》</td>
+</tr>
+<tr>
+<td>Java 基础与集合</td>
+<td>《Java 实战》、《Effective Java》</td>
+</tr>
+<tr>
+<td>JVM</td>
+<td>《深入理解 Java 虚拟机》、极客时间《深入拆解 Java 虚拟机》</td>
+</tr>
+<tr>
+<td>Netty</td>
+<td>极客时间《Netty 源码剖析与实战》</td>
+</tr>
+<tr>
+<td>Java 并发编程</td>
+<td>《Java 并发编程的艺术》、极客时间《Java 并发编程实战》</td>
+</tr>
+<tr>
+<td>Spring</td>
+<td><a href="https://javadoop.com/">JavaDoop</a>、《Spring 源码深度解析》、《极客 Spring 编程常见错误 50 例》</td>
+</tr>
+<tr>
+<td>Spring Boot</td>
+<td>慕课网《小马哥 Spring Boot 2.0 深度实践》</td>
+</tr>
+<tr>
+<td>设计模式</td>
+<td>极客时间《设计模式之美》</td>
+</tr>
+<tr>
+<td>单元测试</td>
+<td>Spock</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>《高性能 MySQL》、《MySQL 技术内幕》、极客时间《MySQL 45讲》、掘金《MySQL 是怎样运行的》</td>
+</tr>
+<tr>
+<td>分布式事务</td>
+<td>极客时间《分布式协议与算法》</td>
+</tr>
+<tr>
+<td>RPC</td>
+<td>极客时间《网络编程实战》、极客时间《RPC 实战与核心原理》</td>
+</tr>
+<tr>
+<td>Dubbo</td>
+<td>拉勾教育《Dubbo 源码解读》</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td>《从Paxos 到 Zookeeper》</td>
+</tr>
+<tr>
+<td>Spring Cloud</td>
+<td>慕课网《Spring Cloud 微服务开发实践》</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>《Redis 设计与实现》，《Redis 开发与运维》、极客时间《Redis 核心技术与实战》</td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td>《深入理解 Kafka》、极客时间《Kafka 核心技术与实战》</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>慕课网《跟 BAT 技术专家学 Docker + K8s》</td>
+</tr>
+<tr>
+<td>大数据</td>
+<td>极客时间《从 0 开始学大数据》</td>
+</tr>
+<tr>
+<td>代码整洁</td>
+<td>《代码整洁之道》、《重构》、《修改代码的艺术》</td>
+</tr>
+<tr>
+<td>工作方法</td>
+<td>极客时间《大厂晋升指南》、极客时间《左耳听风》</td>
+</tr>
+<tr>
+<td>架构方法论</td>
+<td>《数据密集型应用系统设计》、极客时间《从 0 开始学架构》、极客时间《后端技术面试》</td>
+</tr>
+<tr>
+<td>外语</td>
+<td>极客时间《互联网人的英语私教课》</td>
+</tr>
+</tbody></table>
+<p>持续更新中。</p>
+]]></content>
+      <categories>
+        <category>收集</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>学习</tag>
+        <tag>路径</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我们终此一生</title>
+    <url>/3890282637/</url>
+    <content><![CDATA[<blockquote>
+<p>我们终此一生，就是要摆脱他人的期待，找到真正的自己。</p>
+</blockquote>
+<p>《无声告白》讲述了莉迪亚自杀前后，她的一家人的生活发生的一系列变化。故事细水长流，生动的人物动作，丰富的心理活动，仿佛我们在这些角色的脑海里可以随意走动，随意聆听。十二章，每一章似乎都在刻画一个或者一次人物，幼时被视为“Ching Chong”的中国父亲詹姆斯，想成为医生却被家庭琐事耽误的母亲玛丽琳，疼爱妹妹的哥哥内斯，被寄予太多期望的莉迪亚以及常常被忽视的妹妹汉娜。</p>
+<p>故事开头第一句话便是：莉迪亚死了。莉迪亚死了，她试图从湖中心游到岸边，以此来证实自己不被压力妥协不被自己许下的承诺兑现，可是，莉迪亚不会游泳。</p>
+<p>莉迪亚的死那么真实，真实到她似乎从来不存在一样。她更像是集成了书中其他人物身上的一部分，妈妈对医学的渴望，爸爸的中国血统，哥哥考入哈佛的成绩单。玛丽琳从小就立志成为一名优秀的医生，成年后的婚姻犹如一座大山压在身上，然后在某一天，突然离家出走去外地学习考取医生资格。虽然因为有孕在身，玛丽琳放弃了，但她把这些希望寄托给女儿莉迪亚。每一年女儿生日，玛丽莲都送给她一本本医学相关的书籍，《人体解剖学彩图》、《医学的故事》等等。而詹姆斯，偷渡到美国的中国人生下来的孩子，从小便和那些棕色头发，蓝色眼睛的孩子不同，被嘲笑被挖苦被捉弄，没有什么朋友。而仅仅是外貌上的不同，詹姆斯也害怕自己的女儿受到这样的对待，因为女儿继承了他的褐色眼睛。和女儿的谈话话题永远都是多交好友，“多交一些朋友总不是什么坏事”。而内斯，一直想成为父母眼中的乖孩子，希望得到表扬与赞赏。可以这样说，是他们害死了莉迪亚，是他们将莉迪亚逼上绝路。</p>
+<p>只是，莉迪亚真的存在吗，还是，莉迪亚是他们臆想出来的人物，承载了他们的愿望。回头看看书封面的那句话“我们终此一生，就是要摆脱他人的期待，找到真正的自己”，詹姆斯，玛丽琳他们最后真的找到真正的自己了吗？</p>
+<p>愿世上的人，不被压力摧毁不被感情绊倒，“找到真正的自己”。</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>无声告白</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何获取 Apple Music 学生会员资格</title>
     <url>/4038172740/</url>
     <content><![CDATA[<blockquote>
@@ -1346,6 +1365,23 @@ End.
       </tags>
   </entry>
   <entry>
+    <title>我要你</title>
+    <url>/528950990/</url>
+    <content><![CDATA[<p>我多么多么希望， 一曼没有死去。</p>
+<p>在看《驴得水》之前，我以为从来没有这样一个女子， 像一曼这样落落大方，乐观开朗。多想认识这样的人，聪慧美丽，会唱《我要你》，会体贴顾人。可是后来的故事，多让人心痛。也许美好的人多会让人嫉妒，被人咒骂，被剪去秀丽的卷发。<br>这是部好真实的故事，让我深深喜欢上张一曼这个角色，也喜欢上她唱的这首情歌。</p>
+<blockquote>
+<p>都怪这月色 撩人的疯狂</p>
+</blockquote>
+<p>以后，做像她一样的人，落落大方，乐观开朗。</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>驴得水</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我是如何用 Feed43 为教务处网站制作 RSS 的</title>
     <url>/492101974/</url>
     <content><![CDATA[<p>教务处网站当年有正方制作，并未考虑到RSS源。每次去查阅通知都需要主动打开网站检索，于是试图利用Feed43将通知被动的发送到个人邮箱中。</p>
@@ -1366,6 +1402,29 @@ End.
       </categories>
       <tags>
         <tag>RSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读《断舍离》</title>
+    <url>/1857977170/</url>
+    <content><![CDATA[<h1 id="断舍离是什么"><a href="#断舍离是什么" class="headerlink" title="断舍离是什么"></a>断舍离是什么</h1><p>拆开来看：</p>
+<ol>
+<li>物品要用才有价值，是为断。</li>
+<li>物品在此时、当下，应当出现在需要它的地方，是为舍。</li>
+<li>物品处于恰当的位置，才能展现美感，是为离。</li>
+</ol>
+<h1 id="为什么要断舍离"><a href="#为什么要断舍离" class="headerlink" title="为什么要断舍离"></a>为什么要断舍离</h1><p>举个简单的例子，你有一部１６Ｇ的iPhone，舍去４Ｇ的系统内存，你如何分配剩下的空间？是的，我曾经就遇到这样的情况，社交软件好几款，游戏动不动就吃掉千兆容量，想录个视频更是要左思右想去增大空闲容量。再比如人成长了这么久，总会有些纪念的物品放在房间里。日积月累下来，也很占位置吧。断舍离也不仅仅是在有限的空间内对物品进行取舍，也是一个整理收拾的方法。</p>
+<p>断舍离的精髓就是先诊断出物品从你身上掠去了多少能量，然后通过筛选物品的行动，实现自我完善。</p>
+<h1 id="如何断舍离"><a href="#如何断舍离" class="headerlink" title="如何断舍离"></a>如何断舍离</h1><p>《断舍离》这本书中讲了好几个方法，让我印象最深刻的是“以自我为轴心”。在拿到一个物品时，不应该思考“这件物品还需不需要还用不用”，而应该思考“我需不需要我还用不用”。物品原本就因为“我”而产生它的使用价值。因此，人应该为主语，去考虑物品的去留。</p>
+<p>选择物品的窍门，不是“能不能用”，而是“我要不要用”，这一点必须铭刻在心。</p>
+<p>另一个方法则是“试着使用高于自我形象的物品”。在挑选时，尝试那些更美好更有意思的东西。比如朋友送你一个精致的杯子，不要将它放入橱柜存放着，试着在每一次喝水喝牛奶使用它。即使一开始会很担心它摔落，但你会慢慢发现，自己的心情会渐渐愉悦起来，周围的环境也会令人舒畅起来。物品与人息息相关，近朱者赤大概就是这个意思吧。</p>
+<p>物品是一面能映照出真实的自己的镜子，直面物品，就是直面真实的自己。</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>断舍离</tag>
       </tags>
   </entry>
   <entry>
@@ -1393,99 +1452,6 @@ End.
       </categories>
       <tags>
         <tag>自白</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读《断舍离》</title>
-    <url>/1857977170/</url>
-    <content><![CDATA[<h1 id="断舍离是什么"><a href="#断舍离是什么" class="headerlink" title="断舍离是什么"></a>断舍离是什么</h1><p>拆开来看：</p>
-<ol>
-<li>物品要用才有价值，是为断。</li>
-<li>物品在此时、当下，应当出现在需要它的地方，是为舍。</li>
-<li>物品处于恰当的位置，才能展现美感，是为离。</li>
-</ol>
-<h1 id="为什么要断舍离"><a href="#为什么要断舍离" class="headerlink" title="为什么要断舍离"></a>为什么要断舍离</h1><p>举个简单的例子，你有一部１６Ｇ的iPhone，舍去４Ｇ的系统内存，你如何分配剩下的空间？是的，我曾经就遇到这样的情况，社交软件好几款，游戏动不动就吃掉千兆容量，想录个视频更是要左思右想去增大空闲容量。再比如人成长了这么久，总会有些纪念的物品放在房间里。日积月累下来，也很占位置吧。断舍离也不仅仅是在有限的空间内对物品进行取舍，也是一个整理收拾的方法。</p>
-<p>断舍离的精髓就是先诊断出物品从你身上掠去了多少能量，然后通过筛选物品的行动，实现自我完善。</p>
-<h1 id="如何断舍离"><a href="#如何断舍离" class="headerlink" title="如何断舍离"></a>如何断舍离</h1><p>《断舍离》这本书中讲了好几个方法，让我印象最深刻的是“以自我为轴心”。在拿到一个物品时，不应该思考“这件物品还需不需要还用不用”，而应该思考“我需不需要我还用不用”。物品原本就因为“我”而产生它的使用价值。因此，人应该为主语，去考虑物品的去留。</p>
-<p>选择物品的窍门，不是“能不能用”，而是“我要不要用”，这一点必须铭刻在心。</p>
-<p>另一个方法则是“试着使用高于自我形象的物品”。在挑选时，尝试那些更美好更有意思的东西。比如朋友送你一个精致的杯子，不要将它放入橱柜存放着，试着在每一次喝水喝牛奶使用它。即使一开始会很担心它摔落，但你会慢慢发现，自己的心情会渐渐愉悦起来，周围的环境也会令人舒畅起来。物品与人息息相关，近朱者赤大概就是这个意思吧。</p>
-<p>物品是一面能映照出真实的自己的镜子，直面物品，就是直面真实的自己。</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>断舍离</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最小生成树和 Prim 算法</title>
-    <url>/3564408376/</url>
-    <content><![CDATA[<h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><p>最小生成树<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91">1</a>（也称最小权重生成树）是一副连通加权无向图中一棵权值最小的生成树。</p>
-<h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><p>Prim算法（普里姆算法），图论中的一种算法，可在加权连通图里搜索最小生成树。意即由此算法搜索到的边子集所构成的树中，不但包括了连通图里的所有顶点（英语：Vertex (graph theory)），且其所有边的权值之和亦为最小。该算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法<a href="https://www.cnblogs.com/biyeymyhjob/archive/2012/07/30/2615542.html">2</a>。</p>
-<p>算法实现过程：以图的顶点为基础，从一个初始顶点开始，寻找触达其他顶点权值最小的边，并把该顶点加入到已触达顶点的集合中。当全部顶点都加入到集合时，算法的工作就完成了。Prim算法的本质，是基于贪心算法。</p>
-<p>算法实现代码<a href="https://mp.weixin.qq.com/s/x7JT7re7W7IgNCgMf1kJTA">3</a>：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Prim</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> INF = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] prim(<span class="keyword">int</span>[][] matrix) &#123;</span><br><span class="line">        List&lt;Integer&gt; reachedVertextList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//选择顶点0为初始顶点，放入已触达顶点集合中</span></span><br><span class="line">        reachedVertextList.add(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建最小生成树数组，首元素设为-1</span></span><br><span class="line">        <span class="keyword">int</span>[] parents = <span class="keyword">new</span> <span class="keyword">int</span>[matrix.length];</span><br><span class="line">        parents[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//边的权重</span></span><br><span class="line">        <span class="keyword">int</span> weight;</span><br><span class="line">        <span class="comment">//源顶点下标</span></span><br><span class="line">        <span class="keyword">int</span> fromIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//目标顶点下标</span></span><br><span class="line">        <span class="keyword">int</span> toIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (reachedVertextList.size() &lt; matrix.length) &#123;</span><br><span class="line">            weight = INF;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//在已触达的顶点中，寻找到达新顶点的最短边</span></span><br><span class="line">            <span class="keyword">for</span> (Integer vertexIndex : reachedVertextList) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!reachedVertextList.contains(i)) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (matrix[vertexIndex][i] &lt; weight) &#123;</span><br><span class="line">                            fromIndex = vertexIndex;</span><br><span class="line">                            toIndex = i;</span><br><span class="line">                            weight = matrix[vertexIndex][i];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//确定了权值最小的目标顶点，放入已触达顶点集合</span></span><br><span class="line">            reachedVertextList.add(toIndex);</span><br><span class="line">            <span class="comment">//放入最小生成树的数组</span></span><br><span class="line">            parents[toIndex] = fromIndex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> parents;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[][] matrix = <span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;</span><br><span class="line">                &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, INF, INF&#125;,</span><br><span class="line">                &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">7</span>, INF&#125;,</span><br><span class="line">                &#123;<span class="number">3</span>, <span class="number">8</span>, <span class="number">0</span>, INF, <span class="number">1</span>&#125;,</span><br><span class="line">                &#123;INF, <span class="number">7</span>, INF, <span class="number">0</span>, <span class="number">9</span>&#125;,</span><br><span class="line">                &#123;INF, INF, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] parents = prim(matrix);</span><br><span class="line">        System.out.println(Arrays.toString(parents));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我要你</title>
-    <url>/528950990/</url>
-    <content><![CDATA[<p>我多么多么希望， 一曼没有死去。</p>
-<p>在看《驴得水》之前，我以为从来没有这样一个女子， 像一曼这样落落大方，乐观开朗。多想认识这样的人，聪慧美丽，会唱《我要你》，会体贴顾人。可是后来的故事，多让人心痛。也许美好的人多会让人嫉妒，被人咒骂，被剪去秀丽的卷发。<br>这是部好真实的故事，让我深深喜欢上张一曼这个角色，也喜欢上她唱的这首情歌。</p>
-<blockquote>
-<p>都怪这月色 撩人的疯狂</p>
-</blockquote>
-<p>以后，做像她一样的人，落落大方，乐观开朗。</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>驴得水</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我们终此一生</title>
-    <url>/3890282637/</url>
-    <content><![CDATA[<blockquote>
-<p>我们终此一生，就是要摆脱他人的期待，找到真正的自己。</p>
-</blockquote>
-<p>《无声告白》讲述了莉迪亚自杀前后，她的一家人的生活发生的一系列变化。故事细水长流，生动的人物动作，丰富的心理活动，仿佛我们在这些角色的脑海里可以随意走动，随意聆听。十二章，每一章似乎都在刻画一个或者一次人物，幼时被视为“Ching Chong”的中国父亲詹姆斯，想成为医生却被家庭琐事耽误的母亲玛丽琳，疼爱妹妹的哥哥内斯，被寄予太多期望的莉迪亚以及常常被忽视的妹妹汉娜。</p>
-<p>故事开头第一句话便是：莉迪亚死了。莉迪亚死了，她试图从湖中心游到岸边，以此来证实自己不被压力妥协不被自己许下的承诺兑现，可是，莉迪亚不会游泳。</p>
-<p>莉迪亚的死那么真实，真实到她似乎从来不存在一样。她更像是集成了书中其他人物身上的一部分，妈妈对医学的渴望，爸爸的中国血统，哥哥考入哈佛的成绩单。玛丽琳从小就立志成为一名优秀的医生，成年后的婚姻犹如一座大山压在身上，然后在某一天，突然离家出走去外地学习考取医生资格。虽然因为有孕在身，玛丽琳放弃了，但她把这些希望寄托给女儿莉迪亚。每一年女儿生日，玛丽莲都送给她一本本医学相关的书籍，《人体解剖学彩图》、《医学的故事》等等。而詹姆斯，偷渡到美国的中国人生下来的孩子，从小便和那些棕色头发，蓝色眼睛的孩子不同，被嘲笑被挖苦被捉弄，没有什么朋友。而仅仅是外貌上的不同，詹姆斯也害怕自己的女儿受到这样的对待，因为女儿继承了他的褐色眼睛。和女儿的谈话话题永远都是多交好友，“多交一些朋友总不是什么坏事”。而内斯，一直想成为父母眼中的乖孩子，希望得到表扬与赞赏。可以这样说，是他们害死了莉迪亚，是他们将莉迪亚逼上绝路。</p>
-<p>只是，莉迪亚真的存在吗，还是，莉迪亚是他们臆想出来的人物，承载了他们的愿望。回头看看书封面的那句话“我们终此一生，就是要摆脱他人的期待，找到真正的自己”，詹姆斯，玛丽琳他们最后真的找到真正的自己了吗？</p>
-<p>愿世上的人，不被压力摧毁不被感情绊倒，“找到真正的自己”。</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>无声告白</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>白茶花，红茶花</title>
-    <url>/3287404792/</url>
-    <content><![CDATA[<p>今天正好是茶花女逝世 170 周年，对了，《茶花女》是来自于真实的故事。</p>
-<p>阿尔丰西娜·普莱西就是茶花女的原型，命途多舛，二十三岁即离开了人世。小仲马深深地爱着，对她的离去痛苦不堪。阿尔丰西娜“既是一个纯洁无瑕的贞女，又是一个彻头彻尾的娼妇”。</p>
-<p>读到后来玛格丽特死之前写给阿尔芒的日记，里面才解释了离开他的原因。玛格丽特多么善良，她不愿阿尔芒的妹妹失去美好的婚姻，不愿玷污他家高贵的姓氏。可又多么无奈，不知真情的阿尔芒却和另一个情妇一起折磨一起羞辱她。这样痛苦地死去，又没能见到心上人一眼，恐怕谁也承受不了吧。</p>
-<p>看到玛格丽特和阿尔芒在布吉瓦尔这个美丽的乡村生活时，会觉得爱情多美纯洁美好，不论债务多么沉重，感情就该有感情它该有的幸福模样。看到玛格丽特一句话没留下就离开阿尔芒，以为她仍旧视金钱为重，把这种可能会消失的爱情当后患，可是后来她病倒了，一边思恋着阿尔芒，一边拖着病写下日记，为的就是希望在她死后，阿尔芒会原谅她的离开，她的不辞而去。正是做出这样的牺牲，玛格丽特才是真正的爱着他。爱情多伟大，但在现实面前，却又那么不堪一击。</p>
-<p>谨以此纪念茶花女。</p>
-<p>2017 年 2 月 3 日</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>茶花女</tag>
       </tags>
   </entry>
   <entry>
@@ -1522,6 +1488,40 @@ End.
       </categories>
       <tags>
         <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白茶花，红茶花</title>
+    <url>/3287404792/</url>
+    <content><![CDATA[<p>今天正好是茶花女逝世 170 周年，对了，《茶花女》是来自于真实的故事。</p>
+<p>阿尔丰西娜·普莱西就是茶花女的原型，命途多舛，二十三岁即离开了人世。小仲马深深地爱着，对她的离去痛苦不堪。阿尔丰西娜“既是一个纯洁无瑕的贞女，又是一个彻头彻尾的娼妇”。</p>
+<p>读到后来玛格丽特死之前写给阿尔芒的日记，里面才解释了离开他的原因。玛格丽特多么善良，她不愿阿尔芒的妹妹失去美好的婚姻，不愿玷污他家高贵的姓氏。可又多么无奈，不知真情的阿尔芒却和另一个情妇一起折磨一起羞辱她。这样痛苦地死去，又没能见到心上人一眼，恐怕谁也承受不了吧。</p>
+<p>看到玛格丽特和阿尔芒在布吉瓦尔这个美丽的乡村生活时，会觉得爱情多美纯洁美好，不论债务多么沉重，感情就该有感情它该有的幸福模样。看到玛格丽特一句话没留下就离开阿尔芒，以为她仍旧视金钱为重，把这种可能会消失的爱情当后患，可是后来她病倒了，一边思恋着阿尔芒，一边拖着病写下日记，为的就是希望在她死后，阿尔芒会原谅她的离开，她的不辞而去。正是做出这样的牺牲，玛格丽特才是真正的爱着他。爱情多伟大，但在现实面前，却又那么不堪一击。</p>
+<p>谨以此纪念茶花女。</p>
+<p>2017 年 2 月 3 日</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>茶花女</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最小生成树和 Prim 算法</title>
+    <url>/3564408376/</url>
+    <content><![CDATA[<h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><p>最小生成树<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91">1</a>（也称最小权重生成树）是一副连通加权无向图中一棵权值最小的生成树。</p>
+<h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><p>Prim算法（普里姆算法），图论中的一种算法，可在加权连通图里搜索最小生成树。意即由此算法搜索到的边子集所构成的树中，不但包括了连通图里的所有顶点（英语：Vertex (graph theory)），且其所有边的权值之和亦为最小。该算法于1930年由捷克数学家沃伊捷赫·亚尔尼克（英语：Vojtěch Jarník）发现；并在1957年由美国计算机科学家罗伯特·普里姆（英语：Robert C. Prim）独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法<a href="https://www.cnblogs.com/biyeymyhjob/archive/2012/07/30/2615542.html">2</a>。</p>
+<p>算法实现过程：以图的顶点为基础，从一个初始顶点开始，寻找触达其他顶点权值最小的边，并把该顶点加入到已触达顶点的集合中。当全部顶点都加入到集合时，算法的工作就完成了。Prim算法的本质，是基于贪心算法。</p>
+<p>算法实现代码<a href="https://mp.weixin.qq.com/s/x7JT7re7W7IgNCgMf1kJTA">3</a>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Prim</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> INF = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] prim(<span class="keyword">int</span>[][] matrix) &#123;</span><br><span class="line">        List&lt;Integer&gt; reachedVertextList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//选择顶点0为初始顶点，放入已触达顶点集合中</span></span><br><span class="line">        reachedVertextList.add(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建最小生成树数组，首元素设为-1</span></span><br><span class="line">        <span class="keyword">int</span>[] parents = <span class="keyword">new</span> <span class="keyword">int</span>[matrix.length];</span><br><span class="line">        parents[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//边的权重</span></span><br><span class="line">        <span class="keyword">int</span> weight;</span><br><span class="line">        <span class="comment">//源顶点下标</span></span><br><span class="line">        <span class="keyword">int</span> fromIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//目标顶点下标</span></span><br><span class="line">        <span class="keyword">int</span> toIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (reachedVertextList.size() &lt; matrix.length) &#123;</span><br><span class="line">            weight = INF;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//在已触达的顶点中，寻找到达新顶点的最短边</span></span><br><span class="line">            <span class="keyword">for</span> (Integer vertexIndex : reachedVertextList) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!reachedVertextList.contains(i)) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (matrix[vertexIndex][i] &lt; weight) &#123;</span><br><span class="line">                            fromIndex = vertexIndex;</span><br><span class="line">                            toIndex = i;</span><br><span class="line">                            weight = matrix[vertexIndex][i];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//确定了权值最小的目标顶点，放入已触达顶点集合</span></span><br><span class="line">            reachedVertextList.add(toIndex);</span><br><span class="line">            <span class="comment">//放入最小生成树的数组</span></span><br><span class="line">            parents[toIndex] = fromIndex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> parents;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[][] matrix = <span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;</span><br><span class="line">                &#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">3</span>, INF, INF&#125;,</span><br><span class="line">                &#123;<span class="number">4</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">7</span>, INF&#125;,</span><br><span class="line">                &#123;<span class="number">3</span>, <span class="number">8</span>, <span class="number">0</span>, INF, <span class="number">1</span>&#125;,</span><br><span class="line">                &#123;INF, <span class="number">7</span>, INF, <span class="number">0</span>, <span class="number">9</span>&#125;,</span><br><span class="line">                &#123;INF, INF, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>&#125;,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] parents = prim(matrix);</span><br><span class="line">        System.out.println(Arrays.toString(parents));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>

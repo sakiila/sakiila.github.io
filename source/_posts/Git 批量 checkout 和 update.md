@@ -3,7 +3,7 @@ title: Git 批量 checkout 和 update
 tags:
   - git
 categories: 开发
-description: <center>批量 checkout 和 update 脚本。</center>
+description: <center>Git 批量 checkout 和 update 脚本。</center>
 abbrlink: 1177415153
 date: 2022-10-09 15:50:22
 ---
