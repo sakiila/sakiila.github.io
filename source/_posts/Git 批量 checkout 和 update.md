@@ -58,3 +58,34 @@ chmod +x ./update.sh
 ```shell
 ./update.sh master
 ```
+
+# 四、配合 Alfred Workflow
+
+创建 Blank Workflow，再创建一个 Inputs - Keyword 和 Actions - Run Script。  
+在 Keyword 和 Run Script 分别设置 Argument Optional 和 with input as {query}。  
+脚本代码，需要修项目目录：  
+```shell
+#!/bin/bash
+
+# 修改项目目录
+cd /Users/IdeaProjects/
+
+branch="production"
+param={query}
+
+if [ "$param" ]
+then
+    branch="$param"
+fi
+
+for f in `ls ./`
+do
+    if [[ ${f} == moego* ]]
+    then
+        cd ${f}
+        git checkout ${branch}
+        git pull --rebase
+        cd ..
+    fi
+done
+```
