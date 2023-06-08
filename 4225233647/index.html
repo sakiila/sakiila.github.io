@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_32.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16.ico">
+  <link rel="mask-icon" href="/images/favicon_32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"baobo.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基于 Swing 的可视化界面企业人员信息管理系统。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="企业人员信息管理系统开发">
+<meta property="og:url" content="https://baobo.me/4225233647/index.html">
+<meta property="og:site_name" content="树洞">
+<meta property="og:description" content="基于 Swing 的可视化界面企业人员信息管理系统。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://baobo.me/images/Employee%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%9B%BE.png">
+<meta property="og:image" content="https://baobo.me/images/%E5%B8%83%E5%B1%80%E5%8E%9F%E5%9E%8B%E5%9B%BE.png">
+<meta property="og:image" content="https://baobo.me/images/Employee%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/Manager%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/Saler%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/Technician%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/CompanyList%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/OperationPanel%E7%B1%BB.png">
+<meta property="og:image" content="https://baobo.me/images/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png">
+<meta property="article:published_time" content="2017-02-12T10:49:00.000Z">
+<meta property="article:modified_time" content="2023-06-08T07:26:08.759Z">
+<meta property="article:author" content="Bob Bao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://baobo.me/images/Employee%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png">
+
+<link rel="canonical" href="https://baobo.me/4225233647/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>企业人员信息管理系统开发 | 树洞</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">树洞</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">靡不有初，鲜克有终</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索" spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://baobo.me/4225233647/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bob Bao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="树洞">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          企业人员信息管理系统开发
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-12 18:49:00" itemprop="dateCreated datePublished" datetime="2017-02-12T18:49:00+08:00">2017-02-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-08 15:26:08" itemprop="dateModified" datetime="2023-06-08T15:26:08+08:00">2023-06-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/4225233647/" class="post-meta-item leancloud_visitors" data-flag-title="企业人员信息管理系统开发" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4225233647/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4225233647/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description"><center>基于 Swing 的可视化界面企业人员信息管理系统。</center></div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="企业人员信息管理系统"><a href="#企业人员信息管理系统" class="headerlink" title="企业人员信息管理系统"></a>企业人员信息管理系统</h1><p>Swing-based visual interface enterprise personnel information management system.</p>
+<p>基于 Swing 的可视化界面企业人员信息管理系统。</p>
+<h2 id="一、需求分析："><a href="#一、需求分析：" class="headerlink" title="一、需求分析："></a>一、需求分析：</h2><p>某小型公司，主要有三类人员：经理、兼职技术人员和兼职推销员。这三类人员共同拥有的相关属性：姓名、编号；相关方法：获取当月薪水的getPay()方法、显示个人信息的toString()方法。</p>
+<p>人员编号基数为1000，每创建一个人员实例对象，其编号属性的值顺序加1。月薪计算方法：经理拿固定月薪8000元；兼职技术人员按每小时100元领取月薪；兼职推销人员的月薪按当月的销售额的4%提成。</p>
+<p>要求：采用面向对象的编程思想，结合题意自己确定需要定义的类及各类的属性、构造方法和其他方法，并编写程序实现功能：</p>
+<ol>
+<li>查询职工个人信息，可通过姓名、编号查询；</li>
+<li>查询部门所有职工的详细信息；</li>
+<li>修改职工信息；</li>
+<li>删除职工信息；</li>
+<li>添加职工信息；</li>
+<li>查询所有职工信息，并将其存储到外设职工信息文件EmployeeData.txt中或者SQLServer数据库中，数据库中的表根据系统需求自己定义。</li>
+</ol>
+<h2 id="二、概要设计："><a href="#二、概要设计：" class="headerlink" title="二、概要设计："></a>二、概要设计：</h2><p>实现整个系统需要五个类文件。Employee类是所有人员的父类，Manager类、Saler类和Technician类继承于这个父类，并有自己的构造方法和其他方法，如图1所示。CompanyList类实现一个ArrayList集合，用来存放公司人员信息。其有增删改查等相关的方法，如图2所示。OperationPanel类是继承于JFrame类、实现ActionListener类的界面类，包含actionPerformed方法和main方法。</p>
+<p>Employee类及其子类：</p>
+<p><img src="../images/Employee%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png" alt="Employee类及其子类"></p>
+<p>系统功能模块图：</p>
+<p><img src="../images/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%9B%BE.png" alt="系统功能模块图"></p>
+<h3 id="三、详细设计："><a href="#三、详细设计：" class="headerlink" title="三、详细设计："></a>三、详细设计：</h3><ol>
+<li>Employee类：</li>
+</ol>
+<p>String类型的变量name存放员工姓名，long类型的变量id存放员工编号，int类型的静态变量ID具有1000的初值，表示员工的编号基数。构造方法中将形参name放入域变量name，并让ID自增一次。</p>
+<ol start="2">
+<li>Manager类：</li>
+</ol>
+<p>经理的工资因为是个常量，所以用double类型的变量salary来赋初值。构造方法调用父类的构造方法，并将自增后的ID放入id中。方法getPay()返回经理的工资数目，方法toString()返回其个人姓名、编号和工资。</p>
+<ol start="3">
+<li>Saler类：</li>
+</ol>
+<p>销售人员类和经理类相似，只是重新定义一个double类型的salesNum变量，用来表示销售人员的销售额。在方法getPay()中，计算出工资并返回。</p>
+<ol start="4">
+<li>Technician类：</li>
+</ol>
+<p>技术人员类和销售人员类相似，重新定义一个double类型的workHours变量，表示技术人员的工作小时数。在方法getPay()中，计算出工资并返回。</p>
+<ol start="5">
+<li>CompanyList类：</li>
+</ol>
+<p>该类初始化一个ArrayList集合，用来存放公司所有人员信息。有以下几种方法：方法add()添加人员信息，方法remove()删除人员信息，方法modify()修改员工的姓名和编号，方法queryAll()用来查询所有人员的信息，方法query()查询单个员工的个人信息，方法save()可以将公司员工所有人员信息存放之外部EmployeeData.txt文件中。</p>
+<ol start="6">
+<li>OperationPanel类：</li>
+</ol>
+<p>该类继承JFrame类，实现ActionListener接口。其中包含JLabel、JtextField、JButton、JeditorPane等Swing控件。在其构造方法中，使用采用了GridBagLayout布局的主面板，采用BoxLayout布局的子面板来放置各个功能模块的控件，并对每个按钮控件添加监听器。重写方法actionPerformed()，使其响应各个按钮对应的方法。在方法main()中初始化界面。</p>
+<p>布局原型图：</p>
+<p><img src="../images/%E5%B8%83%E5%B1%80%E5%8E%9F%E5%9E%8B%E5%9B%BE.png" alt="布局原型图"></p>
+<h2 id="四、主要源程序代码："><a href="#四、主要源程序代码：" class="headerlink" title="四、主要源程序代码："></a>四、主要源程序代码：</h2><ol>
+<li>Employee类：</li>
+</ol>
+<p><img src="../images/Employee%E7%B1%BB.png" alt="Employee"></p>
+<ol start="2">
+<li>Manager类：</li>
+</ol>
+<p><img src="../images/Manager%E7%B1%BB.png" alt="Manager"></p>
+<ol start="3">
+<li>Saler类：</li>
+</ol>
+<p><img src="../images/Saler%E7%B1%BB.png" alt="Saler"></p>
+<ol start="4">
+<li>Technician类：</li>
+</ol>
+<p><img src="../images/Technician%E7%B1%BB.png" alt="Technician"></p>
+<ol start="5">
+<li>CompanyList类：（部分程序）</li>
+</ol>
+<p><img src="../images/CompanyList%E7%B1%BB.png" alt="CompanyLis"></p>
+<ol start="6">
+<li>OperationPanel类：（部分程序）</li>
+</ol>
+<p><img src="../images/OperationPanel%E7%B1%BB.png" alt="OperationPanel"></p>
+<h2 id="五、程序运行结果"><a href="#五、程序运行结果" class="headerlink" title="五、程序运行结果"></a>五、程序运行结果</h2><p><img src="../images/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="程序运行结果"></p>
+<h2 id="六、源程序"><a href="#六、源程序" class="headerlink" title="六、源程序"></a>六、源程序</h2><p><a target="_blank" rel="noopener" href="https://github.com/sakiila/CompanyManagement">CompanyManagement 项目</a></p>
+<h2 id="七、运行"><a href="#七、运行" class="headerlink" title="七、运行"></a>七、运行</h2><p>方式一：在右侧 Releases 中下载最新的 CompanyManagement.jar 文件，在本地环境的控制台使用 <code>java -jar CompanyManagement.jar</code> 命令运行即可。</p>
+<p>方式二（推荐）：Fork 本项目代码，Clone 到本地环境，使用 Eclipse 或 IntelliJ 打开本项目工程，运行 OperationPanel 类的 main 方法即可。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">推荐文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2646382575/" rel="bookmark">ExcelGo</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2069714304/" rel="bookmark">JavaBrowser 开发</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/40207247/" rel="bookmark">GrayUtils 灰度配置工具类</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/393446932/" rel="bookmark">Alfred Workflow 时间转换</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1177415153/" rel="bookmark">Git 批量 checkout 和 update</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2567344891/" rel="prev" title="何以解忧">
+      <i class="fa fa-chevron-left"></i> 何以解忧
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023509924/" rel="next" title="初读《皮囊》">
+      初读《皮囊》 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%81%E4%B8%9A%E4%BA%BA%E5%91%98%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">企业人员信息管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-text">一、需求分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1%EF%BC%9A"><span class="nav-text">二、概要设计：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%EF%BC%9A"><span class="nav-text">三、详细设计：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%BB%E8%A6%81%E6%BA%90%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-text">四、主要源程序代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">五、程序运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%BA%90%E7%A8%8B%E5%BA%8F"><span class="nav-text">六、源程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E8%BF%90%E8%A1%8C"><span class="nav-text">七、运行</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bob Bao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sakiila" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sakiila" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:me@baobo.me" title="E-Mail → mailto:me@baobo.me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob Bao</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'oDJOnSmJhC6rQfeTTa0enuoK-MdYXbMMI',
+      appKey     : '4wCCoG4XPq9uDS5dmmuevwb4',
+      placeholder: "",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://oDJOnSmJ.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/love-click.js"></script>
