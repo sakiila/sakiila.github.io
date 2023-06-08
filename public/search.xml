@@ -1,59 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2018 年阅读清单</title>
-    <url>/2106794902/</url>
-    <content><![CDATA[<h1 id="读过的书："><a href="#读过的书：" class="headerlink" title="读过的书："></a>读过的书：</h1><h3 id="技术类"><a href="#技术类" class="headerlink" title="技术类"></a>技术类</h3><ul>
-<li>《JavaScript Dom编程艺术》</li>
-<li>《Java核心技术 卷一》</li>
-<li>《计算机是怎样跑起来的》</li>
-<li>《跟阿铭学Linux》</li>
-<li>《Sql必知必会》</li>
-<li>《算法图解》</li>
-</ul>
-<h3 id="文学类"><a href="#文学类" class="headerlink" title="文学类"></a>文学类</h3><ul>
-<li>《黑客与画家》</li>
-</ul>
-<h1 id="正在读的书："><a href="#正在读的书：" class="headerlink" title="正在读的书："></a>正在读的书：</h1><h3 id="技术类："><a href="#技术类：" class="headerlink" title="技术类："></a>技术类：</h3><ul>
-<li>《程序员面试金典》</li>
-<li>《Java编程思想》</li>
-<li>《算法》</li>
-<li>《精通Spring 4.x 企业应用开发实战》</li>
-<li>《Linux命令行与shell脚本编程大全》</li>
-<li>《Merriam-Webster’s Vocabulary Builder》</li>
-</ul>
-<h3 id="文学类："><a href="#文学类：" class="headerlink" title="文学类："></a>文学类：</h3><ul>
-<li>《围城》</li>
-<li>《堂吉诃德》</li>
-</ul>
-<h1 id="计划读的书："><a href="#计划读的书：" class="headerlink" title="计划读的书："></a>计划读的书：</h1><h3 id="技术类：-1"><a href="#技术类：-1" class="headerlink" title="技术类："></a>技术类：</h3><ul>
-<li>《剑指Offer》</li>
-<li>《Mysql必知必会》</li>
-<li>《程序是怎样跑起来的》</li>
-<li>《深入理解Java虚拟机》</li>
-<li>《图解HTTP》</li>
-<li>《图解Java多线程设计模式》</li>
-<li>《图解设计模式》</li>
-<li>《Structure and Interpretation of Computer Programs》</li>
-<li>《Clean Code》</li>
-<li>《The pragmatic programmer》</li>
-<li>《Land of Lisp》</li>
-<li>《Common Lisp》</li>
-</ul>
-<h3 id="文学类：-1"><a href="#文学类：-1" class="headerlink" title="文学类："></a>文学类：</h3><ul>
-<li>《时间简史》</li>
-<li>《小小小小的火》</li>
-</ul>
-<p>加油！</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>清单</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Alfred Workflow 时间转换</title>
     <url>/393446932/</url>
     <content><![CDATA[<h1 id="创建-Workflow"><a href="#创建-Workflow" class="headerlink" title="创建 Workflow"></a>创建 Workflow</h1><p>参考教程：<a href="https://sspai.com/post/61754">https://sspai.com/post/61754</a> 。</p>
@@ -99,28 +46,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DNS 汇总</title>
-    <url>/569693028/</url>
-    <content><![CDATA[<p>114:<br>114.114.114.114 114.114.115.115 普通用户使用<br>114.114.114.119 114.114.115.119 拦截钓鱼病毒木马网站<br>114.114.114.110 114.114.115.110 拦截色情网站</p>
-<p>Google Public DNS：<br>8.8.8.8<br>8.8.4.4<br>2001:4860:4860::8888<br>2001:4860:4860::8844</p>
-<p>OpenDNS:<br>208.67.222.222<br>208.67.220.220</p>
-<p>OpenNIC:<br>128.199.248.105<br>106.186.17.181</p>
-<p>V2EX DNS:<br>199.91.73.222<br>178.79.131.110</p>
-<p>giga.net.tw:<br>203.133.1.6<br>203.133.1.7<br>203.133.1.8</p>
-<p>阿里巴巴 DNS:<br>223.5.5.5<br>223.6.6.6</p>
-<p>Urns – 具备抗污染/具备科学网<br>218.59.181.182<br>115.159.157.26<br>115.159.158.38</p>
-<p>PandaDNS – 具备抗污染/具备科学网<br>182.254.158.191<br>120.27.30.176</p>
-<p>OneDNS – 具备抗污染/广告/加速<br>南方首选:112.124.47.27<br>北方首选:114.215.126.16﻿</p>
-<p>科学上网：<br>123.207.137.88</p>
-]]></content>
-      <categories>
-        <category>收集</category>
-      </categories>
-      <tags>
-        <tag>DNS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ExcelGo</title>
     <url>/2646382575/</url>
     <content><![CDATA[<p>ExcelGo 是一个能读取 Excel 文件内容，并获取到其中的邮箱，将表格内容发送至指定的邮箱地址。最初构想来自于需要将公司内部对账单文件中的每行内容发送至各人邮箱。</p>
@@ -144,6 +69,62 @@
       <tags>
         <tag>Java</tag>
         <tag>Excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 批量 checkout 和 update</title>
+    <url>/1177415153/</url>
+    <content><![CDATA[<h1 id="一、下载脚本"><a href="#一、下载脚本" class="headerlink" title="一、下载脚本"></a>一、下载脚本</h1><p>脚本代码：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">branch=&quot;production&quot;</span><br><span class="line"></span><br><span class="line">if [ &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    branch=&quot;$1&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">for f in `ls ./`</span><br><span class="line">do</span><br><span class="line">    if [[ $&#123;f&#125; == * ]]</span><br><span class="line">    then</span><br><span class="line">        echo -e &quot;\n$&#123;f&#125;&quot;</span><br><span class="line">        cd $&#123;f&#125;</span><br><span class="line"></span><br><span class="line">        echo &quot;1. checkout $&#123;branch&#125; result: &quot;</span><br><span class="line">        git checkout $&#123;branch&#125;</span><br><span class="line">        echo &quot;2. pull rebase result: &quot;</span><br><span class="line">        git pull --rebase</span><br><span class="line">        cd ..</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">echo &quot;Finished&quot;</span><br></pre></td></tr></table></figure>
+
+<p>将脚本放置在项目代码同一目录下。</p>
+<h1 id="二、赋权"><a href="#二、赋权" class="headerlink" title="二、赋权"></a>二、赋权</h1><p>进入当前目录，执行赋权命令：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod +x ./update.sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、运行"><a href="#三、运行" class="headerlink" title="三、运行"></a>三、运行</h1><p>注意：执行前，记得 commit 或者 shelve 代码，以防本地代码丢失。  </p>
+<p>默认将所有仓库代码 checkout 到 production 分支，并执行 pull –rebase 命令：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./update.sh</span><br></pre></td></tr></table></figure>
+<p>如果需要 checkout 到其他分支，可以加上分支名，例如：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./update.sh master</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、配合-Alfred-Workflow"><a href="#四、配合-Alfred-Workflow" class="headerlink" title="四、配合 Alfred Workflow"></a>四、配合 Alfred Workflow</h1><p>创建 Blank Workflow，再创建一个 Inputs - Keyword 和 Actions - Run Script。<br>在 Keyword 和 Run Script 分别设置 Argument Optional 和 with input as {query}。<br>脚本代码，需要修项目目录：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改项目目录</span></span><br><span class="line">cd /Users/IdeaProjects/</span><br><span class="line"></span><br><span class="line">branch=&quot;production&quot;</span><br><span class="line">param=&#123;query&#125;</span><br><span class="line"></span><br><span class="line">if [ &quot;$param&quot; ]</span><br><span class="line">then</span><br><span class="line">    branch=&quot;$param&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">for f in `ls ./`</span><br><span class="line">do</span><br><span class="line">    if [[ $&#123;f&#125; == moego* ]]</span><br><span class="line">    then</span><br><span class="line">        cd $&#123;f&#125;</span><br><span class="line">        git checkout $&#123;branch&#125;</span><br><span class="line">        git pull --rebase</span><br><span class="line">        cd ..</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaBrowser 开发</title>
+    <url>/2069714304/</url>
+    <content><![CDATA[<p>开发了一个简单的网页浏览器，可以实现网页访问、保存，以及操作的前进、后退功能。</p>
+<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><ul>
+<li>访问：输入URL，可以在线访问对应网页。</li>
+<li>另存为：可以保存正在访问的页面。</li>
+<li>前进：访问当前页面的上一个页面。</li>
+<li>后退：访问当前页面的下一个页面。</li>
+<li>查看源文件：查看访问页面的HTML源文件，并且可以保存。<br /></li>
+</ul>
+<h1 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h1><ul>
+<li>事件种类（低级事件和语义事件）、事件监听器接口、事件适配器（Adapter）</li>
+<li>Swing相关组件（JFram、JMenu、JButton、JTextField及JOptionPane）</li>
+<li>输入输出流<br /></li>
+</ul>
+<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>主要程序由WebBrowser.java和ViewSourceFrame.java两个文件组成。</p>
+<ol>
+<li>WebBrowser.java<br> 此文件包含名为WebBrowser的public类，其主要功能为生成网页浏览器的主体框架，实现框架上各个组件的事件监听。WebBrowser.java主要包括四个模块：图形用户界面的构建、组件监听接口的实现、文件保存功能的实现、查看源代码框架的生成。</li>
+<li>ViewSourceFrame.java<br> 此文件包含名为ViewSourceFrame的类，其主要功能是实现了源文件查看的主题框架，并实现了源文件的保存功能。ViewSourceFrame.java主要包括两个模块：图形用户界面的构建和组件监听接口的实现。<br /></li>
+</ol>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/s1xt33nth/JavaBrowser" title="https://github.com/s1xt33nth/JavaBrowser">https://github.com/s1xt33nth/JavaBrowser</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.runoob.com/java/java-sending-email.html" title="Java 发送邮件 | 菜鸟教程">Java 发送邮件 | 菜鸟教程</a><br><a href="https://blog.csdn.net/lmb55/article/details/64537293" title="【Apache POI】Java 读取Excel文件">【Apache POI】Java 读取Excel文件</a><br><a href="https://blog.csdn.net/superdog007/article/details/48338337" title="java读取Excel的方法，解析xls、xlsx两种格式">java读取Excel的方法，解析xls、xlsx两种格式</a><br><a href="http://www.cnblogs.com/whgk/p/6506027.html" title="Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)">Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)</a><br><a href="http://yl-fighting.iteye.com/blog/1726285726285" title="POI对Excel自定义日期格式的读取 - ITeye - ITeye博客">POI对Excel自定义日期格式的读取 - ITeye - ITeye博客</a></p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -194,37 +175,6 @@
       <tags>
         <tag>Java</tag>
         <tag>Gray</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaBrowser 开发</title>
-    <url>/2069714304/</url>
-    <content><![CDATA[<p>开发了一个简单的网页浏览器，可以实现网页访问、保存，以及操作的前进、后退功能。</p>
-<h1 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h1><ul>
-<li>访问：输入URL，可以在线访问对应网页。</li>
-<li>另存为：可以保存正在访问的页面。</li>
-<li>前进：访问当前页面的上一个页面。</li>
-<li>后退：访问当前页面的下一个页面。</li>
-<li>查看源文件：查看访问页面的HTML源文件，并且可以保存。<br /></li>
-</ul>
-<h1 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h1><ul>
-<li>事件种类（低级事件和语义事件）、事件监听器接口、事件适配器（Adapter）</li>
-<li>Swing相关组件（JFram、JMenu、JButton、JTextField及JOptionPane）</li>
-<li>输入输出流<br /></li>
-</ul>
-<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>主要程序由WebBrowser.java和ViewSourceFrame.java两个文件组成。</p>
-<ol>
-<li>WebBrowser.java<br> 此文件包含名为WebBrowser的public类，其主要功能为生成网页浏览器的主体框架，实现框架上各个组件的事件监听。WebBrowser.java主要包括四个模块：图形用户界面的构建、组件监听接口的实现、文件保存功能的实现、查看源代码框架的生成。</li>
-<li>ViewSourceFrame.java<br> 此文件包含名为ViewSourceFrame的类，其主要功能是实现了源文件查看的主题框架，并实现了源文件的保存功能。ViewSourceFrame.java主要包括两个模块：图形用户界面的构建和组件监听接口的实现。<br /></li>
-</ol>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><a href="https://github.com/s1xt33nth/JavaBrowser" title="https://github.com/s1xt33nth/JavaBrowser">https://github.com/s1xt33nth/JavaBrowser</a></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.runoob.com/java/java-sending-email.html" title="Java 发送邮件 | 菜鸟教程">Java 发送邮件 | 菜鸟教程</a><br><a href="https://blog.csdn.net/lmb55/article/details/64537293" title="【Apache POI】Java 读取Excel文件">【Apache POI】Java 读取Excel文件</a><br><a href="https://blog.csdn.net/superdog007/article/details/48338337" title="java读取Excel的方法，解析xls、xlsx两种格式">java读取Excel的方法，解析xls、xlsx两种格式</a><br><a href="http://www.cnblogs.com/whgk/p/6506027.html" title="Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)">Java Web(十三) 使用javamail进行发送邮件，(使用QQ，163，新浪邮箱服务器)</a><br><a href="http://yl-fighting.iteye.com/blog/1726285726285" title="POI对Excel自定义日期格式的读取 - ITeye - ITeye博客">POI对Excel自定义日期格式的读取 - ITeye - ITeye博客</a></p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -360,175 +310,6 @@ End.
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>何以解忧</title>
-    <url>/2567344891/</url>
-    <content><![CDATA[<p>好久没有在一天内读完一本书了。</p>
-<p>高中的某一天，偶然从同学手上看到《解忧杂货店》，听说获得了某某大奖。</p>
-<p>刚刚又查到，明年会有同名电影上映。莫名的期待。</p>
-<p>很喜欢其中写的一句话</p>
-<blockquote>
-<p>相信我，即使现在再怎么痛苦，明天一定会比今天更美好。——浪矢杂货店。</p>
-</blockquote>
-<p>全世界七十亿人，每一个人心底都会积淀着小小心事，安安静静，历经这岁月的洗礼。</p>
-<p>我也曾几何时想，和人分享那些心里不曾被光照的故事，也许很幼稚，也许很可笑，也许我再也不会提起。</p>
-<p>可是故事，会像那首《重生》一样吗，一样被后人在某个温暖的午后轻轻地说起，然后会心一笑吗。</p>
-<p>平平淡淡，却不失精彩。</p>
-<p>何以解忧？</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>解忧杂货店</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring 动态绑定</title>
-    <url>/1655783544/</url>
-    <content><![CDATA[<h1 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h1><p>在系统运行时，根据不同的场景需要多个类实例。比如一个 Redis 类，需要传入不同的 Category（可以理解为 Key 前缀），从而实现多个 Redis 子类。</p>
-<h1 id="步骤一、自定义注解"><a href="#步骤一、自定义注解" class="headerlink" title="步骤一、自定义注解"></a>步骤一、自定义注解</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以设置为 <code>String value() default &quot;&quot;;</code> ，使用时可以隐藏字段名。</p>
-<h1 id="步骤二、扫描属性上的注解"><a href="#步骤二、扫描属性上的注解" class="headerlink" title="步骤二、扫描属性上的注解"></a>步骤二、扫描属性上的注解</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">CacheService annotation = field.getAnnotation(CacheService.class);</span><br></pre></td></tr></table></figure>
-
-<h1 id="步骤三、向容器注入-Bean"><a href="#步骤三、向容器注入-Bean" class="headerlink" title="步骤三、向容器注入 Bean"></a>步骤三、向容器注入 Bean</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取 context</span></span><br><span class="line">ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line"><span class="comment">// 获取 BeanFactory</span></span><br><span class="line">DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line"><span class="comment">// 创建 bean 信息</span></span><br><span class="line">BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字段</span></span><br><span class="line">beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">field.set(object, bean);</span><br></pre></td></tr></table></figure>
-
-<h1 id="步骤四、使用"><a href="#步骤四、使用" class="headerlink" title="步骤四、使用"></a>步骤四、使用</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CacheService(category = Constants.ORDER_DRIVER)</span></span><br><span class="line"><span class="keyword">private</span> RedisService orderDriverCache;</span><br></pre></td></tr></table></figure>
-
-<h1 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h1><p><img src="../images/DynamicBinding.png"></p>
-<h1 id="全部示例代码"><a href="#全部示例代码" class="headerlink" title="全部示例代码"></a>全部示例代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// RedisService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisNioClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> SquirrelClient redisNioClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> RedisStoreClient redisClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> String category;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheService.java</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheServiceAnnotation.java</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CacheServiceAnnotation</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ContextRefreshedEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ContextRefreshedEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ApplicationContext applicationContext = event.getApplicationContext();</span><br><span class="line"></span><br><span class="line">        Arrays.stream(applicationContext.getBeanDefinitionNames())</span><br><span class="line">                .map(applicationContext::getBean)</span><br><span class="line">                .forEach(object -&gt; &#123;</span><br><span class="line">                    <span class="keyword">final</span> Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">                    Arrays.stream(fields)</span><br><span class="line">                            .filter(field -&gt; field.isAnnotationPresent(CacheService.class))</span><br><span class="line">                            .forEach(field -&gt; &#123;</span><br><span class="line">                                <span class="keyword">final</span> RedisService bean = getRedisService(applicationContext, field);</span><br><span class="line">                                <span class="keyword">try</span> &#123;</span><br><span class="line">                                    field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                                    field.set(object, bean);</span><br><span class="line">                                    log.info(<span class="string">&quot;set field success, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName());</span><br><span class="line">                                &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                                    log.error(<span class="string">&quot;set field fail, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName(), e);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> RedisService <span class="title">getRedisService</span><span class="params">(ApplicationContext applicationContext, Field field)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (applicationContext.containsBeanDefinition(field.getName())) &#123;</span><br><span class="line">            <span class="keyword">return</span> (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> CacheService annotation = field.getAnnotation(CacheService.class);</span><br><span class="line">        <span class="keyword">final</span> String category = annotation.category();</span><br><span class="line"></span><br><span class="line">        ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line">        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line">        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置字段</span></span><br><span class="line">        beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">        beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">        RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        log.info(<span class="string">&quot;register Bean success, bean: &#123;&#125;&quot;</span>, field.getName());</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>参考资料：<br><a href="https://blog.csdn.net/u011983531/article/details/70941123">Java获取类、方法、属性上的注解_根号三-CSDN博客_java 获取属性上的注解</a><br><a href="https://www.cnblogs.com/east7/p/14390816.html">使用自定义注解动态绑定多实现类实例</a><br><a href="https://segmentfault.com/a/1190000024522038">SpringBoot动态注入及操作Bean</a></p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>动态绑定</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>企业人员信息管理系统开发</title>
-    <url>/4225233647/</url>
-    <content><![CDATA[<h1 id="企业人员信息管理系统"><a href="#企业人员信息管理系统" class="headerlink" title="企业人员信息管理系统"></a>企业人员信息管理系统</h1><p>Swing-based visual interface enterprise personnel information management system.</p>
-<p>基于 Swing 的可视化界面企业人员信息管理系统。</p>
-<h2 id="一、需求分析："><a href="#一、需求分析：" class="headerlink" title="一、需求分析："></a>一、需求分析：</h2><p>某小型公司，主要有三类人员：经理、兼职技术人员和兼职推销员。这三类人员共同拥有的相关属性：姓名、编号；相关方法：获取当月薪水的getPay()方法、显示个人信息的toString()方法。</p>
-<p>人员编号基数为1000，每创建一个人员实例对象，其编号属性的值顺序加1。月薪计算方法：经理拿固定月薪8000元；兼职技术人员按每小时100元领取月薪；兼职推销人员的月薪按当月的销售额的4%提成。</p>
-<p>要求：采用面向对象的编程思想，结合题意自己确定需要定义的类及各类的属性、构造方法和其他方法，并编写程序实现功能：</p>
-<ol>
-<li>查询职工个人信息，可通过姓名、编号查询；</li>
-<li>查询部门所有职工的详细信息；</li>
-<li>修改职工信息；</li>
-<li>删除职工信息；</li>
-<li>添加职工信息；</li>
-<li>查询所有职工信息，并将其存储到外设职工信息文件EmployeeData.txt中或者SQLServer数据库中，数据库中的表根据系统需求自己定义。</li>
-</ol>
-<h2 id="二、概要设计："><a href="#二、概要设计：" class="headerlink" title="二、概要设计："></a>二、概要设计：</h2><p>实现整个系统需要五个类文件。Employee类是所有人员的父类，Manager类、Saler类和Technician类继承于这个父类，并有自己的构造方法和其他方法，如图1所示。CompanyList类实现一个ArrayList集合，用来存放公司人员信息。其有增删改查等相关的方法，如图2所示。OperationPanel类是继承于JFrame类、实现ActionListener类的界面类，包含actionPerformed方法和main方法。</p>
-<p>Employee类及其子类：</p>
-<p><img src="../images/Employee%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png" alt="Employee类及其子类"></p>
-<p>系统功能模块图：</p>
-<p><img src="../images/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%9B%BE.png" alt="系统功能模块图"></p>
-<h3 id="三、详细设计："><a href="#三、详细设计：" class="headerlink" title="三、详细设计："></a>三、详细设计：</h3><ol>
-<li>Employee类：</li>
-</ol>
-<p>String类型的变量name存放员工姓名，long类型的变量id存放员工编号，int类型的静态变量ID具有1000的初值，表示员工的编号基数。构造方法中将形参name放入域变量name，并让ID自增一次。</p>
-<ol start="2">
-<li>Manager类：</li>
-</ol>
-<p>经理的工资因为是个常量，所以用double类型的变量salary来赋初值。构造方法调用父类的构造方法，并将自增后的ID放入id中。方法getPay()返回经理的工资数目，方法toString()返回其个人姓名、编号和工资。</p>
-<ol start="3">
-<li>Saler类：</li>
-</ol>
-<p>销售人员类和经理类相似，只是重新定义一个double类型的salesNum变量，用来表示销售人员的销售额。在方法getPay()中，计算出工资并返回。</p>
-<ol start="4">
-<li>Technician类：</li>
-</ol>
-<p>技术人员类和销售人员类相似，重新定义一个double类型的workHours变量，表示技术人员的工作小时数。在方法getPay()中，计算出工资并返回。</p>
-<ol start="5">
-<li>CompanyList类：</li>
-</ol>
-<p>该类初始化一个ArrayList集合，用来存放公司所有人员信息。有以下几种方法：方法add()添加人员信息，方法remove()删除人员信息，方法modify()修改员工的姓名和编号，方法queryAll()用来查询所有人员的信息，方法query()查询单个员工的个人信息，方法save()可以将公司员工所有人员信息存放之外部EmployeeData.txt文件中。</p>
-<ol start="6">
-<li>OperationPanel类：</li>
-</ol>
-<p>该类继承JFrame类，实现ActionListener接口。其中包含JLabel、JtextField、JButton、JeditorPane等Swing控件。在其构造方法中，使用采用了GridBagLayout布局的主面板，采用BoxLayout布局的子面板来放置各个功能模块的控件，并对每个按钮控件添加监听器。重写方法actionPerformed()，使其响应各个按钮对应的方法。在方法main()中初始化界面。</p>
-<p>布局原型图：</p>
-<p><img src="../images/%E5%B8%83%E5%B1%80%E5%8E%9F%E5%9E%8B%E5%9B%BE.png" alt="布局原型图"></p>
-<h2 id="四、主要源程序代码："><a href="#四、主要源程序代码：" class="headerlink" title="四、主要源程序代码："></a>四、主要源程序代码：</h2><ol>
-<li>Employee类：</li>
-</ol>
-<p><img src="../images/Employee%E7%B1%BB.png" alt="Employee"></p>
-<ol start="2">
-<li>Manager类：</li>
-</ol>
-<p><img src="../images/Manager%E7%B1%BB.png" alt="Manager"></p>
-<ol start="3">
-<li>Saler类：</li>
-</ol>
-<p><img src="../images/Saler%E7%B1%BB.png" alt="Saler"></p>
-<ol start="4">
-<li>Technician类：</li>
-</ol>
-<p><img src="../images/Technician%E7%B1%BB.png" alt="Technician"></p>
-<ol start="5">
-<li>CompanyList类：（部分程序）</li>
-</ol>
-<p><img src="../images/CompanyList%E7%B1%BB.png" alt="CompanyLis"></p>
-<ol start="6">
-<li>OperationPanel类：（部分程序）</li>
-</ol>
-<p><img src="../images/OperationPanel%E7%B1%BB.png" alt="OperationPanel"></p>
-<h2 id="五、程序运行结果"><a href="#五、程序运行结果" class="headerlink" title="五、程序运行结果"></a>五、程序运行结果</h2><p><img src="../images/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="程序运行结果"></p>
-<h2 id="六、源程序"><a href="#六、源程序" class="headerlink" title="六、源程序"></a>六、源程序</h2><p><a href="https://github.com/sakiila/CompanyManagement">CompanyManagement 项目</a></p>
-<h2 id="七、运行"><a href="#七、运行" class="headerlink" title="七、运行"></a>七、运行</h2><p>方式一：在右侧 Releases 中下载最新的 CompanyManagement.jar 文件，在本地环境的控制台使用 <code>java -jar CompanyManagement.jar</code> 命令运行即可。</p>
-<p>方式二（推荐）：Fork 本项目代码，Clone 到本地环境，使用 Eclipse 或 IntelliJ 打开本项目工程，运行 OperationPanel 类的 main 方法即可。</p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初读《皮囊》</title>
-    <url>/2023509924/</url>
-    <content><![CDATA[<p>最初知道这本书的时候，是某个app上推荐的。</p>
-<p>很喜欢这个名字。皮囊。每个人都是披着皮囊的。</p>
-<p>都说一壶酒，愈酿愈香。可能《皮囊》也是，越读越能悟出大道理。</p>
-<p>就像这本书开头韩寒写的一句话，“我会将这本书带上旅途，在每个静谧陌生的夜晚拿出来慢慢看”。</p>
-<p>文字很干净，读起来很舒服。</p>
-<p>以上。</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>皮囊</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 WMITools 解除浏览器被 hao123 劫持</title>
-    <url>/2135150665/</url>
-    <content><![CDATA[<p>最近使用 Chrome 浏览器时，主页会自动变成 hao123.com。改 hosts，清理注册表都无法彻底解决该问题。</p>
-<p>经过搜索后，发现可以使用 WMITools 工具进行清理 VBScript 调用系统服务项。</p>
-<p><a href="http://www.iefans.net/ie-zhuye-jiechi-www-2345-com-kunown/">原网址</a></p>
-<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>链接：<a href="http://pan.baidu.com/s/1nuTC9Kl">http://pan.baidu.com/s/1nuTC9Kl</a> 密码：1qdv</p>
-<p>安装最好使用默认地址，一路确定即可。</p>
-<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><p>打开安装文件夹，右键 wbemeventviewer.exe 程序，使用管理员身份打开。</p>
-<p>点击左上角钢笔形状按钮<br><img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206223953.jpg"><br> 点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224008.jpg"><br> 再次点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224031.jpg"><br> 将此文件夹下的文件右键删除<br><img src="https://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224059.jpg"></p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>右键桌面上的浏览器，属性中目标一栏，将 hao123 等网址删除。</p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>hao123</tag>
       </tags>
   </entry>
   <entry>
@@ -819,28 +600,25 @@ End.
       </tags>
   </entry>
   <entry>
-    <title>Git 批量 checkout 和 update</title>
-    <url>/1177415153/</url>
-    <content><![CDATA[<h1 id="一、下载脚本"><a href="#一、下载脚本" class="headerlink" title="一、下载脚本"></a>一、下载脚本</h1><p>脚本代码：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">branch=&quot;production&quot;</span><br><span class="line"></span><br><span class="line">if [ &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    branch=&quot;$1&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">for f in `ls ./`</span><br><span class="line">do</span><br><span class="line">    if [[ $&#123;f&#125; == * ]]</span><br><span class="line">    then</span><br><span class="line">        echo -e &quot;\n$&#123;f&#125;&quot;</span><br><span class="line">        cd $&#123;f&#125;</span><br><span class="line"></span><br><span class="line">        echo &quot;1. checkout $&#123;branch&#125; result: &quot;</span><br><span class="line">        git checkout $&#123;branch&#125;</span><br><span class="line">        echo &quot;2. pull rebase result: &quot;</span><br><span class="line">        git pull --rebase</span><br><span class="line">        cd ..</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">echo &quot;Finished&quot;</span><br></pre></td></tr></table></figure>
-
-<p>将脚本放置在项目代码同一目录下。</p>
-<h1 id="二、赋权"><a href="#二、赋权" class="headerlink" title="二、赋权"></a>二、赋权</h1><p>进入当前目录，执行赋权命令：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod +x ./update.sh</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、运行"><a href="#三、运行" class="headerlink" title="三、运行"></a>三、运行</h1><p>注意：执行前，记得 commit 或者 shelve 代码，以防本地代码丢失。  </p>
-<p>默认将所有仓库代码 checkout 到 production 分支，并执行 pull –rebase 命令：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./update.sh</span><br></pre></td></tr></table></figure>
-<p>如果需要 checkout 到其他分支，可以加上分支名，例如：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./update.sh master</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、配合-Alfred-Workflow"><a href="#四、配合-Alfred-Workflow" class="headerlink" title="四、配合 Alfred Workflow"></a>四、配合 Alfred Workflow</h1><p>创建 Blank Workflow，再创建一个 Inputs - Keyword 和 Actions - Run Script。<br>在 Keyword 和 Run Script 分别设置 Argument Optional 和 with input as {query}。<br>脚本代码，需要修项目目录：  </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改项目目录</span></span><br><span class="line">cd /Users/IdeaProjects/</span><br><span class="line"></span><br><span class="line">branch=&quot;production&quot;</span><br><span class="line">param=&#123;query&#125;</span><br><span class="line"></span><br><span class="line">if [ &quot;$param&quot; ]</span><br><span class="line">then</span><br><span class="line">    branch=&quot;$param&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">for f in `ls ./`</span><br><span class="line">do</span><br><span class="line">    if [[ $&#123;f&#125; == moego* ]]</span><br><span class="line">    then</span><br><span class="line">        cd $&#123;f&#125;</span><br><span class="line">        git checkout $&#123;branch&#125;</span><br><span class="line">        git pull --rebase</span><br><span class="line">        cd ..</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>]]></content>
+    <title>DNS 汇总</title>
+    <url>/569693028/</url>
+    <content><![CDATA[<p>114:<br>114.114.114.114 114.114.115.115 普通用户使用<br>114.114.114.119 114.114.115.119 拦截钓鱼病毒木马网站<br>114.114.114.110 114.114.115.110 拦截色情网站</p>
+<p>Google Public DNS：<br>8.8.8.8<br>8.8.4.4<br>2001:4860:4860::8888<br>2001:4860:4860::8844</p>
+<p>OpenDNS:<br>208.67.222.222<br>208.67.220.220</p>
+<p>OpenNIC:<br>128.199.248.105<br>106.186.17.181</p>
+<p>V2EX DNS:<br>199.91.73.222<br>178.79.131.110</p>
+<p>giga.net.tw:<br>203.133.1.6<br>203.133.1.7<br>203.133.1.8</p>
+<p>阿里巴巴 DNS:<br>223.5.5.5<br>223.6.6.6</p>
+<p>Urns – 具备抗污染/具备科学网<br>218.59.181.182<br>115.159.157.26<br>115.159.158.38</p>
+<p>PandaDNS – 具备抗污染/具备科学网<br>182.254.158.191<br>120.27.30.176</p>
+<p>OneDNS – 具备抗污染/广告/加速<br>南方首选:112.124.47.27<br>北方首选:114.215.126.16﻿</p>
+<p>科学上网：<br>123.207.137.88</p>
+]]></content>
       <categories>
-        <category>开发</category>
+        <category>收集</category>
       </categories>
       <tags>
-        <tag>git</tag>
+        <tag>DNS</tag>
       </tags>
   </entry>
   <entry>
@@ -926,7 +704,7 @@ End.
 <p>22.五天的免费临时邮箱，多种语言界面，多种邮箱后缀可选。 <a href="http://www.yopmail.com/zh/">http://www.yopmail.com/zh/ </a></p>
 <p>22.二十四小时免费临时邮箱：<a href="http://24mail.chacuo.net/zhtw">http://24mail.chacuo.net/zhtw</a></p>
 <p>23.MailDrop：<a href="http://maildrop.cc/">http://maildrop.cc/</a> 24小时的免费邮箱。可以容纳十封邮件，只能接收纯100kb以下的文本或html邮件。</p>
-<p>24.MailDude:<a href="http://www.maildu.de/">http://www.maildu.de/</a>只需要在网站上输入自己的真实邮箱地址，即可生成一个临时邮箱地址，让你使用<a href="mailto:&#78;&#x61;&#109;&#x65;&#x40;&#x6d;&#x61;&#x69;&#108;&#x64;&#117;&#46;&#x64;&#x65;">&#78;&#x61;&#109;&#x65;&#x40;&#x6d;&#x61;&#x69;&#108;&#x64;&#117;&#46;&#x64;&#x65;</a>来收信，并且只能收取邮件，而不同发送邮件。支持中文显示。MailDude 会为你收取邮件并保存一小时，让你有足够的时间可以点选邮件内的确认链结，帮助你完成帐号验证。特别是你想测试一些网络服务，又不希望泄漏自己的真实信箱时。不过切记不要使用MailDude 来接收密码、或具有私人资讯的邮件，因为每个MailDude 信箱都是公开的、且每个人都能够存取该讯息。</p>
+<p>24.MailDude:<a href="http://www.maildu.de/">http://www.maildu.de/</a>只需要在网站上输入自己的真实邮箱地址，即可生成一个临时邮箱地址，让你使用<a href="mailto:&#78;&#x61;&#109;&#101;&#x40;&#109;&#x61;&#x69;&#108;&#x64;&#x75;&#x2e;&#x64;&#101;">&#78;&#x61;&#109;&#101;&#x40;&#109;&#x61;&#x69;&#108;&#x64;&#x75;&#x2e;&#x64;&#101;</a>来收信，并且只能收取邮件，而不同发送邮件。支持中文显示。MailDude 会为你收取邮件并保存一小时，让你有足够的时间可以点选邮件内的确认链结，帮助你完成帐号验证。特别是你想测试一些网络服务，又不希望泄漏自己的真实信箱时。不过切记不要使用MailDude 来接收密码、或具有私人资讯的邮件，因为每个MailDude 信箱都是公开的、且每个人都能够存取该讯息。</p>
 <p>25.Forward Cat：<a href="http://www.forward.cat/">http://www.forward.cat/</a> 一个提供临时邮箱服务的平台，通过该工具可以让用户注册网络上的各种服务，而不需使用真实的邮箱，避免被恶意骚扰，同时还可以解决很多未知吧临时邮箱拒之门外的弊端，有了邮件转存发送服务即可解决。</p>
 <p><em>所有资源来自于网络。</em></p>
 ]]></content>
@@ -935,6 +713,197 @@ End.
       </categories>
       <tags>
         <tag>邮箱</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring 动态绑定</title>
+    <url>/1655783544/</url>
+    <content><![CDATA[<h1 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h1><p>在系统运行时，根据不同的场景需要多个类实例。比如一个 Redis 类，需要传入不同的 Category（可以理解为 Key 前缀），从而实现多个 Redis 子类。</p>
+<h1 id="步骤一、自定义注解"><a href="#步骤一、自定义注解" class="headerlink" title="步骤一、自定义注解"></a>步骤一、自定义注解</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以设置为 <code>String value() default &quot;&quot;;</code> ，使用时可以隐藏字段名。</p>
+<h1 id="步骤二、扫描属性上的注解"><a href="#步骤二、扫描属性上的注解" class="headerlink" title="步骤二、扫描属性上的注解"></a>步骤二、扫描属性上的注解</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">CacheService annotation = field.getAnnotation(CacheService.class);</span><br></pre></td></tr></table></figure>
+
+<h1 id="步骤三、向容器注入-Bean"><a href="#步骤三、向容器注入-Bean" class="headerlink" title="步骤三、向容器注入 Bean"></a>步骤三、向容器注入 Bean</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取 context</span></span><br><span class="line">ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line"><span class="comment">// 获取 BeanFactory</span></span><br><span class="line">DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line"><span class="comment">// 创建 bean 信息</span></span><br><span class="line">BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字段</span></span><br><span class="line">beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">field.set(object, bean);</span><br></pre></td></tr></table></figure>
+
+<h1 id="步骤四、使用"><a href="#步骤四、使用" class="headerlink" title="步骤四、使用"></a>步骤四、使用</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CacheService(category = Constants.ORDER_DRIVER)</span></span><br><span class="line"><span class="keyword">private</span> RedisService orderDriverCache;</span><br></pre></td></tr></table></figure>
+
+<h1 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h1><p><img src="../images/DynamicBinding.png"></p>
+<h1 id="全部示例代码"><a href="#全部示例代码" class="headerlink" title="全部示例代码"></a>全部示例代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// RedisService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisNioClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> SquirrelClient redisNioClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource(name = &quot;redisClient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> RedisStoreClient redisClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> String category;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheService.java</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CacheService &#123;</span><br><span class="line">    <span class="function">String <span class="title">category</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CacheServiceAnnotation.java</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CacheServiceAnnotation</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ContextRefreshedEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ContextRefreshedEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ApplicationContext applicationContext = event.getApplicationContext();</span><br><span class="line"></span><br><span class="line">        Arrays.stream(applicationContext.getBeanDefinitionNames())</span><br><span class="line">                .map(applicationContext::getBean)</span><br><span class="line">                .forEach(object -&gt; &#123;</span><br><span class="line">                    <span class="keyword">final</span> Field[] fields = object.getClass().getDeclaredFields();</span><br><span class="line">                    Arrays.stream(fields)</span><br><span class="line">                            .filter(field -&gt; field.isAnnotationPresent(CacheService.class))</span><br><span class="line">                            .forEach(field -&gt; &#123;</span><br><span class="line">                                <span class="keyword">final</span> RedisService bean = getRedisService(applicationContext, field);</span><br><span class="line">                                <span class="keyword">try</span> &#123;</span><br><span class="line">                                    field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                                    field.set(object, bean);</span><br><span class="line">                                    log.info(<span class="string">&quot;set field success, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName());</span><br><span class="line">                                &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                                    log.error(<span class="string">&quot;set field fail, object: &#123;&#125;, bean: &#123;&#125;&quot;</span>, object.getClass().getSimpleName(), field.getName(), e);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> RedisService <span class="title">getRedisService</span><span class="params">(ApplicationContext applicationContext, Field field)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (applicationContext.containsBeanDefinition(field.getName())) &#123;</span><br><span class="line">            <span class="keyword">return</span> (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> CacheService annotation = field.getAnnotation(CacheService.class);</span><br><span class="line">        <span class="keyword">final</span> String category = annotation.category();</span><br><span class="line"></span><br><span class="line">        ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;</span><br><span class="line">        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();</span><br><span class="line">        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RedisService.class);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置字段</span></span><br><span class="line">        beanDefinitionBuilder.addPropertyValue(<span class="string">&quot;category&quot;</span>, category);</span><br><span class="line">        beanFactory.registerBeanDefinition(field.getName(), beanDefinitionBuilder.getBeanDefinition());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取动态注册的 bean</span></span><br><span class="line">        RedisService bean = (RedisService) applicationContext.getBean(field.getName());</span><br><span class="line">        log.info(<span class="string">&quot;register Bean success, bean: &#123;&#125;&quot;</span>, field.getName());</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>参考资料：<br><a href="https://blog.csdn.net/u011983531/article/details/70941123">Java获取类、方法、属性上的注解_根号三-CSDN博客_java 获取属性上的注解</a><br><a href="https://www.cnblogs.com/east7/p/14390816.html">使用自定义注解动态绑定多实现类实例</a><br><a href="https://segmentfault.com/a/1190000024522038">SpringBoot动态注入及操作Bean</a></p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>动态绑定</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>企业人员信息管理系统开发</title>
+    <url>/4225233647/</url>
+    <content><![CDATA[<h1 id="企业人员信息管理系统"><a href="#企业人员信息管理系统" class="headerlink" title="企业人员信息管理系统"></a>企业人员信息管理系统</h1><p>Swing-based visual interface enterprise personnel information management system.</p>
+<p>基于 Swing 的可视化界面企业人员信息管理系统。</p>
+<h2 id="一、需求分析："><a href="#一、需求分析：" class="headerlink" title="一、需求分析："></a>一、需求分析：</h2><p>某小型公司，主要有三类人员：经理、兼职技术人员和兼职推销员。这三类人员共同拥有的相关属性：姓名、编号；相关方法：获取当月薪水的getPay()方法、显示个人信息的toString()方法。</p>
+<p>人员编号基数为1000，每创建一个人员实例对象，其编号属性的值顺序加1。月薪计算方法：经理拿固定月薪8000元；兼职技术人员按每小时100元领取月薪；兼职推销人员的月薪按当月的销售额的4%提成。</p>
+<p>要求：采用面向对象的编程思想，结合题意自己确定需要定义的类及各类的属性、构造方法和其他方法，并编写程序实现功能：</p>
+<ol>
+<li>查询职工个人信息，可通过姓名、编号查询；</li>
+<li>查询部门所有职工的详细信息；</li>
+<li>修改职工信息；</li>
+<li>删除职工信息；</li>
+<li>添加职工信息；</li>
+<li>查询所有职工信息，并将其存储到外设职工信息文件EmployeeData.txt中或者SQLServer数据库中，数据库中的表根据系统需求自己定义。</li>
+</ol>
+<h2 id="二、概要设计："><a href="#二、概要设计：" class="headerlink" title="二、概要设计："></a>二、概要设计：</h2><p>实现整个系统需要五个类文件。Employee类是所有人员的父类，Manager类、Saler类和Technician类继承于这个父类，并有自己的构造方法和其他方法，如图1所示。CompanyList类实现一个ArrayList集合，用来存放公司人员信息。其有增删改查等相关的方法，如图2所示。OperationPanel类是继承于JFrame类、实现ActionListener类的界面类，包含actionPerformed方法和main方法。</p>
+<p>Employee类及其子类：</p>
+<p><img src="../images/Employee%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB.png" alt="Employee类及其子类"></p>
+<p>系统功能模块图：</p>
+<p><img src="../images/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%9B%BE.png" alt="系统功能模块图"></p>
+<h3 id="三、详细设计："><a href="#三、详细设计：" class="headerlink" title="三、详细设计："></a>三、详细设计：</h3><ol>
+<li>Employee类：</li>
+</ol>
+<p>String类型的变量name存放员工姓名，long类型的变量id存放员工编号，int类型的静态变量ID具有1000的初值，表示员工的编号基数。构造方法中将形参name放入域变量name，并让ID自增一次。</p>
+<ol start="2">
+<li>Manager类：</li>
+</ol>
+<p>经理的工资因为是个常量，所以用double类型的变量salary来赋初值。构造方法调用父类的构造方法，并将自增后的ID放入id中。方法getPay()返回经理的工资数目，方法toString()返回其个人姓名、编号和工资。</p>
+<ol start="3">
+<li>Saler类：</li>
+</ol>
+<p>销售人员类和经理类相似，只是重新定义一个double类型的salesNum变量，用来表示销售人员的销售额。在方法getPay()中，计算出工资并返回。</p>
+<ol start="4">
+<li>Technician类：</li>
+</ol>
+<p>技术人员类和销售人员类相似，重新定义一个double类型的workHours变量，表示技术人员的工作小时数。在方法getPay()中，计算出工资并返回。</p>
+<ol start="5">
+<li>CompanyList类：</li>
+</ol>
+<p>该类初始化一个ArrayList集合，用来存放公司所有人员信息。有以下几种方法：方法add()添加人员信息，方法remove()删除人员信息，方法modify()修改员工的姓名和编号，方法queryAll()用来查询所有人员的信息，方法query()查询单个员工的个人信息，方法save()可以将公司员工所有人员信息存放之外部EmployeeData.txt文件中。</p>
+<ol start="6">
+<li>OperationPanel类：</li>
+</ol>
+<p>该类继承JFrame类，实现ActionListener接口。其中包含JLabel、JtextField、JButton、JeditorPane等Swing控件。在其构造方法中，使用采用了GridBagLayout布局的主面板，采用BoxLayout布局的子面板来放置各个功能模块的控件，并对每个按钮控件添加监听器。重写方法actionPerformed()，使其响应各个按钮对应的方法。在方法main()中初始化界面。</p>
+<p>布局原型图：</p>
+<p><img src="../images/%E5%B8%83%E5%B1%80%E5%8E%9F%E5%9E%8B%E5%9B%BE.png" alt="布局原型图"></p>
+<h2 id="四、主要源程序代码："><a href="#四、主要源程序代码：" class="headerlink" title="四、主要源程序代码："></a>四、主要源程序代码：</h2><ol>
+<li>Employee类：</li>
+</ol>
+<p><img src="../images/Employee%E7%B1%BB.png" alt="Employee"></p>
+<ol start="2">
+<li>Manager类：</li>
+</ol>
+<p><img src="../images/Manager%E7%B1%BB.png" alt="Manager"></p>
+<ol start="3">
+<li>Saler类：</li>
+</ol>
+<p><img src="../images/Saler%E7%B1%BB.png" alt="Saler"></p>
+<ol start="4">
+<li>Technician类：</li>
+</ol>
+<p><img src="../images/Technician%E7%B1%BB.png" alt="Technician"></p>
+<ol start="5">
+<li>CompanyList类：（部分程序）</li>
+</ol>
+<p><img src="../images/CompanyList%E7%B1%BB.png" alt="CompanyLis"></p>
+<ol start="6">
+<li>OperationPanel类：（部分程序）</li>
+</ol>
+<p><img src="../images/OperationPanel%E7%B1%BB.png" alt="OperationPanel"></p>
+<h2 id="五、程序运行结果"><a href="#五、程序运行结果" class="headerlink" title="五、程序运行结果"></a>五、程序运行结果</h2><p><img src="../images/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="程序运行结果"></p>
+<h2 id="六、源程序"><a href="#六、源程序" class="headerlink" title="六、源程序"></a>六、源程序</h2><p><a href="https://github.com/sakiila/CompanyManagement">CompanyManagement 项目</a></p>
+<h2 id="七、运行"><a href="#七、运行" class="headerlink" title="七、运行"></a>七、运行</h2><p>方式一：在右侧 Releases 中下载最新的 CompanyManagement.jar 文件，在本地环境的控制台使用 <code>java -jar CompanyManagement.jar</code> 命令运行即可。</p>
+<p>方式二（推荐）：Fork 本项目代码，Clone 到本地环境，使用 Eclipse 或 IntelliJ 打开本项目工程，运行 OperationPanel 类的 main 方法即可。</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>何以解忧</title>
+    <url>/2567344891/</url>
+    <content><![CDATA[<p>好久没有在一天内读完一本书了。</p>
+<p>高中的某一天，偶然从同学手上看到《解忧杂货店》，听说获得了某某大奖。</p>
+<p>刚刚又查到，明年会有同名电影上映。莫名的期待。</p>
+<p>很喜欢其中写的一句话</p>
+<blockquote>
+<p>相信我，即使现在再怎么痛苦，明天一定会比今天更美好。——浪矢杂货店。</p>
+</blockquote>
+<p>全世界七十亿人，每一个人心底都会积淀着小小心事，安安静静，历经这岁月的洗礼。</p>
+<p>我也曾几何时想，和人分享那些心里不曾被光照的故事，也许很幼稚，也许很可笑，也许我再也不会提起。</p>
+<p>可是故事，会像那首《重生》一样吗，一样被后人在某个温暖的午后轻轻地说起，然后会心一笑吗。</p>
+<p>平平淡淡，却不失精彩。</p>
+<p>何以解忧？</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>解忧杂货店</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初读《皮囊》</title>
+    <url>/2023509924/</url>
+    <content><![CDATA[<p>最初知道这本书的时候，是某个app上推荐的。</p>
+<p>很喜欢这个名字。皮囊。每个人都是披着皮囊的。</p>
+<p>都说一壶酒，愈酿愈香。可能《皮囊》也是，越读越能悟出大道理。</p>
+<p>就像这本书开头韩寒写的一句话，“我会将这本书带上旅途，在每个静谧陌生的夜晚拿出来慢慢看”。</p>
+<p>文字很干净，读起来很舒服。</p>
+<p>以上。</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>皮囊</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 WMITools 解除浏览器被 hao123 劫持</title>
+    <url>/2135150665/</url>
+    <content><![CDATA[<p>最近使用 Chrome 浏览器时，主页会自动变成 hao123.com。改 hosts，清理注册表都无法彻底解决该问题。</p>
+<p>经过搜索后，发现可以使用 WMITools 工具进行清理 VBScript 调用系统服务项。</p>
+<p><a href="http://www.iefans.net/ie-zhuye-jiechi-www-2345-com-kunown/">原网址</a></p>
+<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>链接：<a href="http://pan.baidu.com/s/1nuTC9Kl">http://pan.baidu.com/s/1nuTC9Kl</a> 密码：1qdv</p>
+<p>安装最好使用默认地址，一路确定即可。</p>
+<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><p>打开安装文件夹，右键 wbemeventviewer.exe 程序，使用管理员身份打开。</p>
+<p>点击左上角钢笔形状按钮<br><img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206223953.jpg"><br> 点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224008.jpg"><br> 再次点击OK<br> <img src="http://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224031.jpg"><br> 将此文件夹下的文件右键删除<br><img src="https://hibaobo.com/wp-content/uploads/2016/12/QQ%E6%88%AA%E5%9B%BE20161206224059.jpg"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>右键桌面上的浏览器，属性中目标一栏，将 hao123 等网址删除。</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>hao123</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客脚印</title>
+    <url>/1487202510/</url>
+    <content><![CDATA[<h1 id="boo516-com"><a href="#boo516-com" class="headerlink" title="boo516.com"></a>boo516.com</h1><p>最初的域名是 boo516.com，搭建在 Godaddy 服务中。截图时间是 2016 年 11 月 5 日。</p>
+<p><img src="../images/boo516_com.jpg" alt="boo516_com"></p>
+<h1 id="hibaobo-com"><a href="#hibaobo-com" class="headerlink" title="hibaobo.com"></a>hibaobo.com</h1><p>后来换了纯英文域名，也将网站服务搭建在各种不同的服务器上。</p>
+<p>比如搬瓦工、腾讯云、知了云等等。也使用了 WordPress 这些博客系统。</p>
+<p>不过因为学业和工作，暂停了挺长时间，也没留下太多网站的记录。</p>
+<p><img src="../images/hibaobo_com.png" alt="hibaobo_com"></p>
+<h1 id="baobo-me"><a href="#baobo-me" class="headerlink" title="baobo.me"></a>baobo.me</h1><p>有一天觉得原来的域名太长了，在 NameCheap 上购买了 .me 的域名，非常喜欢。</p>
+<p>网站的服务也从知了云，到老薛主机，最后到 Github Pages。</p>
+<p>来来回回折腾着，决定了现在的最终形式。</p>
+<p>后续会多花些时间在博客上，写写教程，聊聊想法。</p>
+<p>2022年，也要加油呀。</p>
+]]></content>
+      <categories>
+        <category>收集</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1299,6 +1268,29 @@ End.
       </tags>
   </entry>
   <entry>
+    <title>我是如何用 Feed43 为教务处网站制作 RSS 的</title>
+    <url>/492101974/</url>
+    <content><![CDATA[<p>教务处网站当年有正方制作，并未考虑到RSS源。每次去查阅通知都需要主动打开网站检索，于是试图利用Feed43将通知被动的发送到个人邮箱中。</p>
+<h2 id="使用Feed43"><a href="#使用Feed43" class="headerlink" title="使用Feed43"></a>使用Feed43</h2><p>打开 feed43.com，点击创建 feed。输入教务处通知网站网址。成功读取。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2348575-d7d3475a55dc734d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<h2 id="代码抓取"><a href="#代码抓取" class="headerlink" title="代码抓取"></a>代码抓取</h2><p>第二步时，我遇到困难。教务处网站代码的div标签过多，尝试多次都无法抓取到内容。<br>于是使用教务处首页网址进行读取。重新改写检索规则。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2348575-000e0d42c61a1899.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p>成功。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2348575-78d9e679281a5200.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<h2 id="检索代码："><a href="#检索代码：" class="headerlink" title="检索代码："></a>检索代码：</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;%&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&#123;%&#125;</span>&gt;</span>&#123;%&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;time&quot;</span>&gt;</span>&#123;%&#125;</span><br><span class="line">&#123;%&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;*&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#123;*&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="RSS如下："><a href="#RSS如下：" class="headerlink" title="RSS如下："></a>RSS如下：</h2><p><a href="http://feed43.com/wust-notify.xml">http://feed43.com/wust-notify.xml</a></p>
+<p>2016年11月27日 12:28:05<br>自己做的rss源还是有很多不足的地方，过段时间再来修改。<br>大神勿喷。</p>
+<p>2016年11月30日 23:19:39<br>新检索代码测试成功。可以推送到邮箱。</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>RSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何获取 Apple Music 学生会员资格</title>
     <url>/4038172740/</url>
     <content><![CDATA[<blockquote>
@@ -1327,20 +1319,56 @@ End.
       </tags>
   </entry>
   <entry>
-    <title>我要你</title>
-    <url>/528950990/</url>
-    <content><![CDATA[<p>我多么多么希望， 一曼没有死去。</p>
-<p>在看《驴得水》之前，我以为从来没有这样一个女子， 像一曼这样落落大方，乐观开朗。多想认识这样的人，聪慧美丽，会唱《我要你》，会体贴顾人。可是后来的故事，多让人心痛。也许美好的人多会让人嫉妒，被人咒骂，被剪去秀丽的卷发。<br>这是部好真实的故事，让我深深喜欢上张一曼这个角色，也喜欢上她唱的这首情歌。</p>
-<blockquote>
-<p>都怪这月色 撩人的疯狂</p>
-</blockquote>
-<p>以后，做像她一样的人，落落大方，乐观开朗。</p>
+    <title>2018 年阅读清单</title>
+    <url>/2106794902/</url>
+    <content><![CDATA[<h1 id="读过的书："><a href="#读过的书：" class="headerlink" title="读过的书："></a>读过的书：</h1><h3 id="技术类"><a href="#技术类" class="headerlink" title="技术类"></a>技术类</h3><ul>
+<li>《JavaScript Dom编程艺术》</li>
+<li>《Java核心技术 卷一》</li>
+<li>《计算机是怎样跑起来的》</li>
+<li>《跟阿铭学Linux》</li>
+<li>《Sql必知必会》</li>
+<li>《算法图解》</li>
+</ul>
+<h3 id="文学类"><a href="#文学类" class="headerlink" title="文学类"></a>文学类</h3><ul>
+<li>《黑客与画家》</li>
+</ul>
+<h1 id="正在读的书："><a href="#正在读的书：" class="headerlink" title="正在读的书："></a>正在读的书：</h1><h3 id="技术类："><a href="#技术类：" class="headerlink" title="技术类："></a>技术类：</h3><ul>
+<li>《程序员面试金典》</li>
+<li>《Java编程思想》</li>
+<li>《算法》</li>
+<li>《精通Spring 4.x 企业应用开发实战》</li>
+<li>《Linux命令行与shell脚本编程大全》</li>
+<li>《Merriam-Webster’s Vocabulary Builder》</li>
+</ul>
+<h3 id="文学类："><a href="#文学类：" class="headerlink" title="文学类："></a>文学类：</h3><ul>
+<li>《围城》</li>
+<li>《堂吉诃德》</li>
+</ul>
+<h1 id="计划读的书："><a href="#计划读的书：" class="headerlink" title="计划读的书："></a>计划读的书：</h1><h3 id="技术类：-1"><a href="#技术类：-1" class="headerlink" title="技术类："></a>技术类：</h3><ul>
+<li>《剑指Offer》</li>
+<li>《Mysql必知必会》</li>
+<li>《程序是怎样跑起来的》</li>
+<li>《深入理解Java虚拟机》</li>
+<li>《图解HTTP》</li>
+<li>《图解Java多线程设计模式》</li>
+<li>《图解设计模式》</li>
+<li>《Structure and Interpretation of Computer Programs》</li>
+<li>《Clean Code》</li>
+<li>《The pragmatic programmer》</li>
+<li>《Land of Lisp》</li>
+<li>《Common Lisp》</li>
+</ul>
+<h3 id="文学类：-1"><a href="#文学类：-1" class="headerlink" title="文学类："></a>文学类：</h3><ul>
+<li>《时间简史》</li>
+<li>《小小小小的火》</li>
+</ul>
+<p>加油！</p>
 ]]></content>
       <categories>
         <category>阅读</category>
       </categories>
       <tags>
-        <tag>驴得水</tag>
+        <tag>清单</tag>
       </tags>
   </entry>
   <entry>
@@ -1371,22 +1399,20 @@ End.
       </tags>
   </entry>
   <entry>
-    <title>我们终此一生</title>
-    <url>/3890282637/</url>
-    <content><![CDATA[<blockquote>
-<p>我们终此一生，就是要摆脱他人的期待，找到真正的自己。</p>
+    <title>我要你</title>
+    <url>/528950990/</url>
+    <content><![CDATA[<p>我多么多么希望， 一曼没有死去。</p>
+<p>在看《驴得水》之前，我以为从来没有这样一个女子， 像一曼这样落落大方，乐观开朗。多想认识这样的人，聪慧美丽，会唱《我要你》，会体贴顾人。可是后来的故事，多让人心痛。也许美好的人多会让人嫉妒，被人咒骂，被剪去秀丽的卷发。<br>这是部好真实的故事，让我深深喜欢上张一曼这个角色，也喜欢上她唱的这首情歌。</p>
+<blockquote>
+<p>都怪这月色 撩人的疯狂</p>
 </blockquote>
-<p>《无声告白》讲述了莉迪亚自杀前后，她的一家人的生活发生的一系列变化。故事细水长流，生动的人物动作，丰富的心理活动，仿佛我们在这些角色的脑海里可以随意走动，随意聆听。十二章，每一章似乎都在刻画一个或者一次人物，幼时被视为“Ching Chong”的中国父亲詹姆斯，想成为医生却被家庭琐事耽误的母亲玛丽琳，疼爱妹妹的哥哥内斯，被寄予太多期望的莉迪亚以及常常被忽视的妹妹汉娜。</p>
-<p>故事开头第一句话便是：莉迪亚死了。莉迪亚死了，她试图从湖中心游到岸边，以此来证实自己不被压力妥协不被自己许下的承诺兑现，可是，莉迪亚不会游泳。</p>
-<p>莉迪亚的死那么真实，真实到她似乎从来不存在一样。她更像是集成了书中其他人物身上的一部分，妈妈对医学的渴望，爸爸的中国血统，哥哥考入哈佛的成绩单。玛丽琳从小就立志成为一名优秀的医生，成年后的婚姻犹如一座大山压在身上，然后在某一天，突然离家出走去外地学习考取医生资格。虽然因为有孕在身，玛丽琳放弃了，但她把这些希望寄托给女儿莉迪亚。每一年女儿生日，玛丽莲都送给她一本本医学相关的书籍，《人体解剖学彩图》、《医学的故事》等等。而詹姆斯，偷渡到美国的中国人生下来的孩子，从小便和那些棕色头发，蓝色眼睛的孩子不同，被嘲笑被挖苦被捉弄，没有什么朋友。而仅仅是外貌上的不同，詹姆斯也害怕自己的女儿受到这样的对待，因为女儿继承了他的褐色眼睛。和女儿的谈话话题永远都是多交好友，“多交一些朋友总不是什么坏事”。而内斯，一直想成为父母眼中的乖孩子，希望得到表扬与赞赏。可以这样说，是他们害死了莉迪亚，是他们将莉迪亚逼上绝路。</p>
-<p>只是，莉迪亚真的存在吗，还是，莉迪亚是他们臆想出来的人物，承载了他们的愿望。回头看看书封面的那句话“我们终此一生，就是要摆脱他人的期待，找到真正的自己”，詹姆斯，玛丽琳他们最后真的找到真正的自己了吗？</p>
-<p>愿世上的人，不被压力摧毁不被感情绊倒，“找到真正的自己”。</p>
+<p>以后，做像她一样的人，落落大方，乐观开朗。</p>
 ]]></content>
       <categories>
         <category>阅读</category>
       </categories>
       <tags>
-        <tag>无声告白</tag>
+        <tag>驴得水</tag>
       </tags>
   </entry>
   <entry>
@@ -1404,6 +1430,23 @@ End.
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>白茶花，红茶花</title>
+    <url>/3287404792/</url>
+    <content><![CDATA[<p>今天正好是茶花女逝世 170 周年，对了，《茶花女》是来自于真实的故事。</p>
+<p>阿尔丰西娜·普莱西就是茶花女的原型，命途多舛，二十三岁即离开了人世。小仲马深深地爱着，对她的离去痛苦不堪。阿尔丰西娜“既是一个纯洁无瑕的贞女，又是一个彻头彻尾的娼妇”。</p>
+<p>读到后来玛格丽特死之前写给阿尔芒的日记，里面才解释了离开他的原因。玛格丽特多么善良，她不愿阿尔芒的妹妹失去美好的婚姻，不愿玷污他家高贵的姓氏。可又多么无奈，不知真情的阿尔芒却和另一个情妇一起折磨一起羞辱她。这样痛苦地死去，又没能见到心上人一眼，恐怕谁也承受不了吧。</p>
+<p>看到玛格丽特和阿尔芒在布吉瓦尔这个美丽的乡村生活时，会觉得爱情多美纯洁美好，不论债务多么沉重，感情就该有感情它该有的幸福模样。看到玛格丽特一句话没留下就离开阿尔芒，以为她仍旧视金钱为重，把这种可能会消失的爱情当后患，可是后来她病倒了，一边思恋着阿尔芒，一边拖着病写下日记，为的就是希望在她死后，阿尔芒会原谅她的离开，她的不辞而去。正是做出这样的牺牲，玛格丽特才是真正的爱着他。爱情多伟大，但在现实面前，却又那么不堪一击。</p>
+<p>谨以此纪念茶花女。</p>
+<p>2017 年 2 月 3 日</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>茶花女</tag>
       </tags>
   </entry>
   <entry>
@@ -1427,68 +1470,6 @@ End.
       </categories>
       <tags>
         <tag>断舍离</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我是如何用 Feed43 为教务处网站制作 RSS 的</title>
-    <url>/492101974/</url>
-    <content><![CDATA[<p>教务处网站当年有正方制作，并未考虑到RSS源。每次去查阅通知都需要主动打开网站检索，于是试图利用Feed43将通知被动的发送到个人邮箱中。</p>
-<h2 id="使用Feed43"><a href="#使用Feed43" class="headerlink" title="使用Feed43"></a>使用Feed43</h2><p>打开 feed43.com，点击创建 feed。输入教务处通知网站网址。成功读取。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2348575-d7d3475a55dc734d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<h2 id="代码抓取"><a href="#代码抓取" class="headerlink" title="代码抓取"></a>代码抓取</h2><p>第二步时，我遇到困难。教务处网站代码的div标签过多，尝试多次都无法抓取到内容。<br>于是使用教务处首页网址进行读取。重新改写检索规则。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2348575-000e0d42c61a1899.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<p>成功。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2348575-78d9e679281a5200.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<h2 id="检索代码："><a href="#检索代码：" class="headerlink" title="检索代码："></a>检索代码：</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;%&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&#123;%&#125;</span>&gt;</span>&#123;%&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;time&quot;</span>&gt;</span>&#123;%&#125;</span><br><span class="line">&#123;%&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;*&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span>&#123;*&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="RSS如下："><a href="#RSS如下：" class="headerlink" title="RSS如下："></a>RSS如下：</h2><p><a href="http://feed43.com/wust-notify.xml">http://feed43.com/wust-notify.xml</a></p>
-<p>2016年11月27日 12:28:05<br>自己做的rss源还是有很多不足的地方，过段时间再来修改。<br>大神勿喷。</p>
-<p>2016年11月30日 23:19:39<br>新检索代码测试成功。可以推送到邮箱。</p>
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>RSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>白茶花，红茶花</title>
-    <url>/3287404792/</url>
-    <content><![CDATA[<p>今天正好是茶花女逝世 170 周年，对了，《茶花女》是来自于真实的故事。</p>
-<p>阿尔丰西娜·普莱西就是茶花女的原型，命途多舛，二十三岁即离开了人世。小仲马深深地爱着，对她的离去痛苦不堪。阿尔丰西娜“既是一个纯洁无瑕的贞女，又是一个彻头彻尾的娼妇”。</p>
-<p>读到后来玛格丽特死之前写给阿尔芒的日记，里面才解释了离开他的原因。玛格丽特多么善良，她不愿阿尔芒的妹妹失去美好的婚姻，不愿玷污他家高贵的姓氏。可又多么无奈，不知真情的阿尔芒却和另一个情妇一起折磨一起羞辱她。这样痛苦地死去，又没能见到心上人一眼，恐怕谁也承受不了吧。</p>
-<p>看到玛格丽特和阿尔芒在布吉瓦尔这个美丽的乡村生活时，会觉得爱情多美纯洁美好，不论债务多么沉重，感情就该有感情它该有的幸福模样。看到玛格丽特一句话没留下就离开阿尔芒，以为她仍旧视金钱为重，把这种可能会消失的爱情当后患，可是后来她病倒了，一边思恋着阿尔芒，一边拖着病写下日记，为的就是希望在她死后，阿尔芒会原谅她的离开，她的不辞而去。正是做出这样的牺牲，玛格丽特才是真正的爱着他。爱情多伟大，但在现实面前，却又那么不堪一击。</p>
-<p>谨以此纪念茶花女。</p>
-<p>2017 年 2 月 3 日</p>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>茶花女</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客脚印</title>
-    <url>/1487202510/</url>
-    <content><![CDATA[<h1 id="boo516-com"><a href="#boo516-com" class="headerlink" title="boo516.com"></a>boo516.com</h1><p>最初的域名是 boo516.com，搭建在 Godaddy 服务中。截图时间是 2016 年 11 月 5 日。</p>
-<p><img src="../images/boo516_com.jpg" alt="boo516_com"></p>
-<h1 id="hibaobo-com"><a href="#hibaobo-com" class="headerlink" title="hibaobo.com"></a>hibaobo.com</h1><p>后来换了纯英文域名，也将网站服务搭建在各种不同的服务器上。</p>
-<p>比如搬瓦工、腾讯云、知了云等等。也使用了 WordPress 这些博客系统。</p>
-<p>不过因为学业和工作，暂停了挺长时间，也没留下太多网站的记录。</p>
-<p><img src="../images/hibaobo_com.png" alt="hibaobo_com"></p>
-<h1 id="baobo-me"><a href="#baobo-me" class="headerlink" title="baobo.me"></a>baobo.me</h1><p>有一天觉得原来的域名太长了，在 NameCheap 上购买了 .me 的域名，非常喜欢。</p>
-<p>网站的服务也从知了云，到老薛主机，最后到 Github Pages。</p>
-<p>来来回回折腾着，决定了现在的最终形式。</p>
-<p>后续会多花些时间在博客上，写写教程，聊聊想法。</p>
-<p>2022年，也要加油呀。</p>
-]]></content>
-      <categories>
-        <category>收集</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,6 +1506,25 @@ End.
       </categories>
       <tags>
         <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我们终此一生</title>
+    <url>/3890282637/</url>
+    <content><![CDATA[<blockquote>
+<p>我们终此一生，就是要摆脱他人的期待，找到真正的自己。</p>
+</blockquote>
+<p>《无声告白》讲述了莉迪亚自杀前后，她的一家人的生活发生的一系列变化。故事细水长流，生动的人物动作，丰富的心理活动，仿佛我们在这些角色的脑海里可以随意走动，随意聆听。十二章，每一章似乎都在刻画一个或者一次人物，幼时被视为“Ching Chong”的中国父亲詹姆斯，想成为医生却被家庭琐事耽误的母亲玛丽琳，疼爱妹妹的哥哥内斯，被寄予太多期望的莉迪亚以及常常被忽视的妹妹汉娜。</p>
+<p>故事开头第一句话便是：莉迪亚死了。莉迪亚死了，她试图从湖中心游到岸边，以此来证实自己不被压力妥协不被自己许下的承诺兑现，可是，莉迪亚不会游泳。</p>
+<p>莉迪亚的死那么真实，真实到她似乎从来不存在一样。她更像是集成了书中其他人物身上的一部分，妈妈对医学的渴望，爸爸的中国血统，哥哥考入哈佛的成绩单。玛丽琳从小就立志成为一名优秀的医生，成年后的婚姻犹如一座大山压在身上，然后在某一天，突然离家出走去外地学习考取医生资格。虽然因为有孕在身，玛丽琳放弃了，但她把这些希望寄托给女儿莉迪亚。每一年女儿生日，玛丽莲都送给她一本本医学相关的书籍，《人体解剖学彩图》、《医学的故事》等等。而詹姆斯，偷渡到美国的中国人生下来的孩子，从小便和那些棕色头发，蓝色眼睛的孩子不同，被嘲笑被挖苦被捉弄，没有什么朋友。而仅仅是外貌上的不同，詹姆斯也害怕自己的女儿受到这样的对待，因为女儿继承了他的褐色眼睛。和女儿的谈话话题永远都是多交好友，“多交一些朋友总不是什么坏事”。而内斯，一直想成为父母眼中的乖孩子，希望得到表扬与赞赏。可以这样说，是他们害死了莉迪亚，是他们将莉迪亚逼上绝路。</p>
+<p>只是，莉迪亚真的存在吗，还是，莉迪亚是他们臆想出来的人物，承载了他们的愿望。回头看看书封面的那句话“我们终此一生，就是要摆脱他人的期待，找到真正的自己”，詹姆斯，玛丽琳他们最后真的找到真正的自己了吗？</p>
+<p>愿世上的人，不被压力摧毁不被感情绊倒，“找到真正的自己”。</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>无声告白</tag>
       </tags>
   </entry>
 </search>
